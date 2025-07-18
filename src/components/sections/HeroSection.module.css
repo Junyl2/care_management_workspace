@@ -86,6 +86,12 @@
     height: 360px;
     padding-left: 24px;
   }
+  .content {
+    width: 100%;
+  }
+  .container {
+    width: 0px !important;
+  }
 
   .title {
     font-size: 32px;

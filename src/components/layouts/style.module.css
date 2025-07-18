@@ -1,7 +1,36 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
 .nav {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  font-family: 'Pretendard', sans-serif !important;
+}
+
+.menu li a:hover {
+  color: #007fff;
+}
+
+.navLink,
+.dropdownToggle {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.dropdownToggle:hover {
+  color: #007fff;
+}
+
+.navLink.active,
+.navLink:active {
+  color: #007fff;
 }
 
 .navContainer {
@@ -12,7 +41,7 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  height: 70px;
+  /*   height: 70px; */
 }
 
 .logo a {
@@ -46,32 +75,37 @@
   font-weight: 500;
 }
 
-.dropdown {
-  position: relative;
-}
-
 .dropdownToggle {
   cursor: pointer;
   font-weight: 500;
 }
 
 .dropdownMenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 999;
-  background-color: #fff;
-  padding: 0.75rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  gap: 0.5rem;
-  flex-direction: column;
-  min-width: 180px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 2rem;
 }
-
 .dropdown:hover .dropdownMenu {
   display: flex;
+}
+
+.dropdownMenu li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 140px;
+}
+
+.dropdownMenu li img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .dropdownMenu li a {
@@ -93,7 +127,7 @@
   z-index: 1000;
 }
 
-/* Mobile service panel */
+/* Services panel for mobile */
 .servicesPanel {
   position: fixed;
   top: 70px;
@@ -107,6 +141,7 @@
   padding: 2rem;
   gap: 2rem;
   overflow-y: auto;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -173,9 +208,39 @@
   }
 
   .dropdownMenu {
-    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: fixed;
+    transform: none;
     border: none;
-    padding-left: 1rem;
+    padding: 1rem;
     box-shadow: none;
+    gap: 1rem;
+  }
+
+  .subMenu li {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+  }
+
+  .dropdownMenu li a {
+    width: 100%;
+  }
+
+  .dropdownMenu li a img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .servicesPanel {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .column {
+    width: 50%;
+    padding: 0.5rem;
   }
 }

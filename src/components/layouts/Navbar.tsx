@@ -2,22 +2,25 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { navLinks, serviceLinks } from '../../constants/pageUrls';
 import { IoMdMenu, IoMdClose } from 'react-icons/io';
 import styles from './style.module.css';
+import { navLinks, serviceLinks } from '../../constants/pageUrls';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const [servicesOpen, setServicesOpen] = useState<boolean>(false);
-  const mobileRef = useRef<HTMLUListElement | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const toggleMobile = () => {
     setMobileOpen((prev) => !prev);
     setServicesOpen(false);
   };
 
-  const openServices = () => {
-    setServicesOpen(true);
+  const toggleServices = () => {
+    setServicesOpen((prev) => !prev);
   };
 
   const closePanels = () => {
@@ -25,21 +28,15 @@ const Navbar = () => {
     setServicesOpen(false);
   };
 
-  const handleClickOutside = (e: MouseEvent) => {
-    if (
-      mobileRef.current &&
-      !mobileRef.current.contains(e.target as Node) &&
-      (e.target as HTMLElement).closest(`.${styles.hamburger}`) === null
-    ) {
-      closePanels();
-    }
-  };
-
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        closePanels();
+      }
+    };
+
     if (mobileOpen || servicesOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
@@ -48,7 +45,7 @@ const Navbar = () => {
   }, [mobileOpen, servicesOpen]);
 
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.nav} ref={navRef}>
       <div className="container">
         <div className={styles.navContainer}>
           <div className={styles.logo}>
@@ -60,32 +57,66 @@ const Navbar = () => {
             onClick={toggleMobile}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <IoMdClose size={24} /> : <IoMdMenu size={24} />}
+            {mobileOpen ? <IoMdClose /> : <IoMdMenu />}
           </button>
 
           <ul className={styles.menu}>
             {navLinks.map((link) => (
               <li key={link.name}>
-                <Link href={link.path}>{link.name}</Link>
+                <Link
+                  href={link.path}
+                  className={
+                    pathname === link.path
+                      ? `${styles.navLink} ${styles.active}`
+                      : styles.navLink
+                  }
+                >
+                  {link.name}
+                </Link>
               </li>
             ))}
 
             <li className={styles.dropdown}>
-              <span className={styles.dropdownToggle}>서비스</span>
-              <ul className={styles.dropdownMenu}>
-                {serviceLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link href={link.path}>{link.name}</Link>
-                  </li>
-                ))}
-              </ul>
+              <span
+                className={`${styles.dropdownToggle} ${servicesOpen ? styles.active : ''}`}
+                onClick={toggleServices}
+              >
+                서비스
+              </span>
             </li>
           </ul>
         </div>
+
+        {servicesOpen && (
+          <ul className={styles.dropdownMenu}>
+            {serviceLinks.map((link, index) => (
+              <div key={link.name}>
+                <li>
+                  <Link
+                    href={link.path}
+                    onClick={closePanels}
+                    className={styles.subMenu}
+                  >
+                    <Image
+                      src={`/images/services/${index + 1}.jpg`}
+                      alt={link.name}
+                      width={130}
+                      height={130}
+                      style={{ objectFit: 'cover' }}
+                      className={styles.serviceImage}
+                    />
+                    {link.name}
+                  </Link>
+                </li>
+              </div>
+            ))}
+          </ul>
+        )}
       </div>
 
+      {/* Mobile Navigation Overlay */}
       {mobileOpen && (
-        <ul className={styles.mobileNavOverlay} ref={mobileRef}>
+        <ul className={styles.mobileNavOverlay}>
           {navLinks.map((link) => (
             <li key={link.name}>
               <Link href={link.path} onClick={closePanels}>
@@ -94,33 +125,37 @@ const Navbar = () => {
             </li>
           ))}
           <li>
-            <button className={styles.serviceBtn} onClick={openServices}>
+            <button className={styles.serviceBtn} onClick={toggleServices}>
               서비스
             </button>
           </li>
         </ul>
       )}
 
-      {servicesOpen && (
+      {/* Services Panel for Mobile */}
+      {servicesOpen && mobileOpen && (
         <div className={styles.servicesPanel}>
-          <div className={styles.column}>
-            {serviceLinks
-              .slice(0, Math.ceil(serviceLinks.length / 2))
-              .map((link) => (
-                <Link key={link.name} href={link.path} onClick={closePanels}>
-                  {link.name}
-                </Link>
-              ))}
-          </div>
-          <div className={styles.column}>
-            {serviceLinks
-              .slice(Math.ceil(serviceLinks.length / 2))
-              .map((link) => (
-                <Link key={link.name} href={link.path} onClick={closePanels}>
-                  {link.name}
-                </Link>
-              ))}
-          </div>
+          <button
+            className={styles.closeButton}
+            onClick={() => setServicesOpen(false)}
+            aria-label="Close services panel"
+          >
+            <IoMdClose />
+          </button>
+
+          {serviceLinks.map((link, index) => (
+            <div key={link.name} className={styles.column}>
+              <Link href={link.path} onClick={closePanels}>
+                <Image
+                  src={`/images/services/${index + 1}.jpg`}
+                  alt={link.name}
+                  width={130}
+                  height={130}
+                />
+                {link.name}
+              </Link>
+            </div>
+          ))}
         </div>
       )}
     </nav>
