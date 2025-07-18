@@ -17,6 +17,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: var(--font-pretendard);
 }
 
 /* LAYER UTILITIES */
@@ -52,7 +53,7 @@
 @media (max-width: 480px) {
   .container {
     max-width: 100%;
-    padding-inline: 1rem;
+    padding-inline: 14px;
   }
 }
 

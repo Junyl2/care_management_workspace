@@ -90,73 +90,77 @@ const Navbar = () => {
         {servicesOpen && (
           <ul className={styles.dropdownMenu}>
             {serviceLinks.map((link, index) => (
-              <div key={link.name}>
-                <li>
-                  <Link
-                    href={link.path}
-                    onClick={closePanels}
-                    className={styles.subMenu}
-                  >
-                    <Image
-                      src={`/images/services/${index + 1}.jpg`}
-                      alt={link.name}
-                      width={130}
-                      height={130}
-                      style={{ objectFit: 'cover' }}
-                      className={styles.serviceImage}
-                    />
-                    {link.name}
-                  </Link>
-                </li>
-              </div>
+              <li key={link.name}>
+                <Link
+                  href={link.path}
+                  onClick={closePanels}
+                  className={styles.subMenu}
+                >
+                  <Image
+                    src={`/images/services/${index + 1}.jpg`}
+                    alt={link.name}
+                    width={130}
+                    height={130}
+                    style={{ objectFit: 'cover' }}
+                    className={styles.serviceImage}
+                  />
+                  {link.name}
+                </Link>
+              </li>
             ))}
           </ul>
         )}
       </div>
 
       {/* Mobile Navigation Overlay */}
-      {mobileOpen && (
-        <ul className={styles.mobileNavOverlay}>
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <Link href={link.path} onClick={closePanels}>
-                {link.name}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <button className={styles.serviceBtn} onClick={toggleServices}>
-              서비스
-            </button>
+
+      <ul
+        className={`${styles.mobileNavOverlay} ${mobileOpen ? styles.mobileNavOverlay : styles.mobileNavOverlayClose}`}
+      >
+        {navLinks.map((link) => (
+          <li key={link.name}>
+            <Link href={link.path} onClick={closePanels}>
+              {link.name}
+            </Link>
           </li>
-        </ul>
-      )}
+        ))}
+        <li>
+          <button className={styles.serviceBtn} onClick={toggleServices}>
+            서비스
+          </button>
+        </li>
+      </ul>
 
       {/* Services Panel for Mobile */}
       {servicesOpen && mobileOpen && (
-        <div className={styles.servicesPanel}>
-          <button
-            className={styles.closeButton}
-            onClick={() => setServicesOpen(false)}
-            aria-label="Close services panel"
-          >
-            <IoMdClose />
-          </button>
-
-          {serviceLinks.map((link, index) => (
-            <div key={link.name} className={styles.column}>
-              <Link href={link.path} onClick={closePanels}>
-                <Image
-                  src={`/images/services/${index + 1}.jpg`}
-                  alt={link.name}
-                  width={130}
-                  height={130}
-                />
-                {link.name}
-              </Link>
-            </div>
-          ))}
-        </div>
+        <>
+          {/* <div className={styles.closeButtonParent}>
+            <button
+              onClick={() => setServicesOpen(false)}
+              aria-label="Close services panel"
+              className={styles.closeButton}
+            >
+              <IoMdClose />
+            </button>
+          </div> */}
+          <div className={styles.servicesPanel}>
+            {serviceLinks.map((link, index) => (
+              <div key={link.name} className={styles.column}>
+                <div className={styles.textCenter}>
+                  <Link href={link.path} onClick={closePanels}>
+                    <Image
+                      src={`/images/services/${index + 1}.jpg`}
+                      alt={link.name}
+                      width={130}
+                      height={130}
+                    />
+                    <div>{link.name}</div>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </nav>
   );

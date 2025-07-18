@@ -1,0 +1,14 @@
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
