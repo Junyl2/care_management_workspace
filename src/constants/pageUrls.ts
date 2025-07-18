@@ -1,4 +1,6 @@
-export const navLinks = [
+import { NavLink } from '@/types/section';
+
+export const navLinks: NavLink[] = [
   { name: '홈', path: '/' },
   { name: '회사소개', path: '/about-us' },
   { name: '돌봄친구', path: '/caring-friend' },
