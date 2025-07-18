@@ -4,25 +4,35 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "next": "next start",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "npm run setup && npm run dev",
+    "setup": "npm install react react-dom next && npm install axios react-spinners framer-motion react-icons react-hot-toast && npm install -D prettier eslint-config-prettier @types/react",
+    "clean": "rd /s /q node_modules && del package-lock.json && npm cache clean --force && npm run setup",
+    "lint": " next lint ",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "framer-motion": "^12.23.6",
+    "lint": "^0.8.19",
     "next": "^15.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-spinners": "^0.17.0"
+    "react-icons": "^5.5.0",
+    "react-spinners": "^0.17.0",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/parser": "^8.37.0",
     "eslint": "^9.31.0",
     "eslint-config-next": "15.3.2",
     "eslint-import-resolver-typescript": "^4.4.4",
+    "prettier": "^3.6.2",
     "typescript": "^5.8.3"
   }
 }

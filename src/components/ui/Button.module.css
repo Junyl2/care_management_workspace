@@ -1,0 +1,47 @@
+:root {
+  --primary-color: #007fff;
+  --text-white: #ffffff;
+}
+
+.button {
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* === Variants === */
+.primary {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+}
+
+.outline {
+  background-color: #ffffff;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+/* === Sizes === */
+.sm {
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  height: 40px;
+}
+
+.md {
+  padding: 0.75rem 2rem;
+  font-size: 16px;
+  height: 54px;
+}
+
+.lg {
+  padding: 1rem 2.5rem;
+  font-size: 18px;
+  height: 64px;
+}
+
+.fullWidth {
+  width: 100%;
+}

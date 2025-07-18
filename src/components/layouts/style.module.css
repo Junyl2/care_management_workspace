@@ -1,6 +1,7 @@
 .nav {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
 .navContainer {
@@ -11,6 +12,7 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  height: 70px;
 }
 
 .logo a {

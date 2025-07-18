@@ -1,0 +1,65 @@
+.hero {
+  position: relative;
+  height: 851px;
+  background-image: url('/images/banners/home-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 80px;
+}
+
+.content {
+  max-width: 700px;
+}
+
+.title {
+  font-size: 69px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #000;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btnPrimary {
+  width: 250px;
+  height: 54px;
+  background-color: #007fff;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnSecondary {
+  width: 250px;
+  height: 54px;
+  background-color: #fff;
+  color: #007fff;
+  border: 1px solid #c3c4c5;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
