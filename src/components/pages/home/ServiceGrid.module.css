@@ -1,0 +1,49 @@
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 12px;
+  width: 112px;
+  height: 108px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 112px;
+  height: 108px;
+}
+
+@media (min-width: 640px) {
+  .imageWrapper {
+    width: 186px;
+    height: 180px;
+  }
+}
+
+@media (min-width: 1368px) {
+  .imageWrapper {
+    width: 230px;
+    height: 223px;
+  }
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 12px;
+}

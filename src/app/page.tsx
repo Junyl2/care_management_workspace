@@ -1,25 +1,24 @@
 import HomeHero from '@/components/sections/hero/HomeHero';
-import { Card } from '@/components/ui';
+/* import { Card } from '@/components/ui'; */
 /* import styles from './page.module.css'; */
+import { ServiceCardGrid, HospitalSection } from '@/components/pages';
 
 export default function HomePage() {
   return (
     <main>
       <HomeHero />
-
-      <section>
-        <Card variant="elevated" padding="lg">
-          <Card.Header>
-            <Card.Title> Welcome to Our Platform</Card.Title>
-          </Card.Header>
-          <Card.Content>
-            <Card.Text>
-              Discover services tailored just for you. Our system makes it
-              easier to manage everything in one place.
-            </Card.Text>
-          </Card.Content>
-          <Card.Footer>Updated July 2025</Card.Footer>
-        </Card>
+      <section className="pt-2xl">
+        <div className="space-top flex-col gap-2">
+          <h2 className="section-heading">
+            원하는 서비스를 바로 이용해보세요.
+          </h2>
+          <ServiceCardGrid />
+        </div>
+        <HospitalSection />
+        <HospitalSection />
+        <HospitalSection />
+        <HospitalSection />
+        <HospitalSection />
       </section>
     </main>
   );
