@@ -1,4 +1,4 @@
-import { NavLink } from '@/types/section';
+import { NavLink, ServiceLink, Service } from '@/types/section';
 
 export const navLinks: NavLink[] = [
   { name: '홈', path: '/' },
@@ -10,7 +10,12 @@ export const navLinks: NavLink[] = [
   /*  { name: 'Reservation Confirmation', path: '/reservation-confirmation' }, */
 ];
 
-export const serviceLinks = [
+export const service: Service = {
+  name: '서비스',
+  path: '/services',
+};
+
+export const serviceLinks: ServiceLink[] = [
   { name: '병원 동행', path: '/services/hospital-accompaniment' },
   { name: '식사 도움', path: '/help-with-meal' },
   { name: '가사 도움', path: '/services/housework-help' },

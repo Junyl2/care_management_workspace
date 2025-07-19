@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { IoMdMenu, IoMdClose } from 'react-icons/io';
 import styles from './style.module.css';
-import { navLinks, serviceLinks } from '../../constants/pageUrls';
+import { navLinks, serviceLinks, service } from '../../constants/pageUrls';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import classNames from 'classnames';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,6 +28,12 @@ const Navbar = () => {
     setMobileOpen(false);
     setServicesOpen(false);
   };
+
+  useEffect(() => {
+    if (pathname === '/services') {
+      setServicesOpen(true);
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -70,20 +77,28 @@ const Navbar = () => {
                       ? `${styles.navLink} ${styles.active}`
                       : styles.navLink
                   }
+                  onClick={()=>setServicesOpen(false)}
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
 
-            <li className={styles.dropdown}>
+            <Link
+              href="/services"
+              className={classNames(styles.dropdown, styles.navLink, {
+                [styles.active]: pathname === service.path,
+              })}
+            >
               <span
-                className={`${styles.dropdownToggle} ${servicesOpen ? styles.active : ''}`}
-                onClick={toggleServices}
+                className={classNames(styles.dropdownToggle, {
+                  [styles.active]: servicesOpen,
+                })}
+                onClick={pathname === service.path ? toggleServices : undefined}
               >
-                서비스
+                {service.name}
               </span>
-            </li>
+            </Link>
           </ul>
         </div>
 

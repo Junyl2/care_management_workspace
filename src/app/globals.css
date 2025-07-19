@@ -21,6 +21,28 @@
 }
 
 /* LAYER UTILITIES */
+
+.loading {
+  position: 'fixed';
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.mainLayout {
+  /*  min-height: calc(100vh - 80px); */
+  margin-top: 77px;
+  min-height: 100vh;
+  /*  padding: 2rem 1rem; */
+}
+@media (max-width: 768px) {
+  .mainLayout {
+    margin-top: 56px;
+  }
+}
 .btnPrimary {
   background-color: #007fff;
   color: #fff;

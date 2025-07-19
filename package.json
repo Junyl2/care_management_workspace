@@ -13,6 +13,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.6",
     "lint": "^0.8.19",
