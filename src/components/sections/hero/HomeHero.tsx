@@ -2,6 +2,7 @@
 
 import HeroWrapper from './HeroWrapper';
 import styles from './HomeHero.module.css';
+import { Button } from '@components/ui';
 
 const HomeHero = () => {
   return (
@@ -16,8 +17,24 @@ const HomeHero = () => {
           생활편의 서비스를 제공합니다.
         </p>
         <div className={styles.buttons}>
-          <button className={styles.btnPrimary}>예약하기</button>
-          <button className={styles.btnSecondary}>회사소개</button>
+          <Button
+            variant="primary"
+            size="md"
+            radius="full"
+            fullWidth={false}
+            className={styles.homeButtonWH}
+          >
+            예약하기
+          </Button>
+          <Button
+            variant="secondary"
+            size="md"
+            radius="full"
+            fullWidth={false}
+            className={styles.homeButtonWH}
+          >
+            회사소개
+          </Button>
         </div>
       </div>
     </HeroWrapper>

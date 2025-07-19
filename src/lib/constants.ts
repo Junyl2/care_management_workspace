@@ -1,4 +1,4 @@
-/* import { NavLink, ServiceLink, Service } from '@/types/section';
+import { NavLink, ServiceLink, Service } from '@/types';
 
 export const navLinks: NavLink[] = [
   { name: '홈', path: '/' },
@@ -7,6 +7,7 @@ export const navLinks: NavLink[] = [
   { name: '고객후기', path: '/customer-reviews' },
   { name: '이용방법', path: '/how-to-use' },
   { name: '예약하기', path: '/make-reservation' },
+  /*  { name: 'Reservation Confirmation', path: '/reservation-confirmation' }, */
 ];
 
 export const service: Service = {
@@ -21,4 +22,3 @@ export const serviceLinks: ServiceLink[] = [
   { name: '운동 도움', path: '/services/exercise-help' },
   { name: '목욕 도움', path: '/services/bath-help' },
 ];
- */

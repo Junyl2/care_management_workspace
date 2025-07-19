@@ -1,0 +1,60 @@
+.card {
+  border-radius: var(--radius-card);
+  background-color: var(--bg-primary);
+  transition:
+    box-shadow 0.2s ease,
+    border 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-pretendard);
+}
+
+/* Variants */
+.default {
+  border: 1px solid var(--border-light);
+  box-shadow: none;
+}
+
+.outlined {
+  border: 2px solid var(--border-medium);
+  background-color: var(--bg-primary);
+}
+
+.elevated {
+  border: none;
+  background-color: var(--bg-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Padding sizes based on your spacing scale */
+.padding-sm {
+  padding: var(--space-sm);
+}
+
+.padding-md {
+  padding: var(--space-md);
+}
+
+.padding-lg {
+  padding: var(--space-lg);
+}
+
+/* Subcomponent styling */
+.header {
+  font-weight: 600;
+  font-size: var(--font-card-title-mobile);
+  margin-bottom: var(--space-sm);
+}
+
+.content {
+  flex: 1;
+  font-size: var(--font-card-desc-mobile);
+  color: var(--text-secondary);
+}
+
+.footer {
+  margin-top: var(--space-md);
+  text-align: right;
+  font-size: var(--font-body-mobile);
+  color: var(--text-muted);
+}

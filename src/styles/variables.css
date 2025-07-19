@@ -1,0 +1,77 @@
+:root {
+  /* Color Variables - Updated Design System */
+  --color-primary: #007fff;
+  --color-primary-hover: #0066cc;
+  --color-secondary: #0066ff;
+  --color-secondary-hover: #0052cc;
+  --color-card-alt: #8ac4ff;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-success: #10b981;
+  --color-success-hover: #059669;
+
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card-alt: #8ac4ff;
+
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-light: #ffffff;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  /* Border Colors */
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-primary: #007fff;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-hover: 0 8px 25px -5px rgba(0, 127, 255, 0.25);
+
+  /* Border Radius -  */
+  --radius-button: 8px;
+  --radius-card: 20px;
+  --radius-modal: 15px;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.25rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+  --space-3xl: 3rem;
+
+  /* Typography Fluid Sizes */
+
+  --font-pretendard: 'Pretendard', sans-serif;
+
+  --font-nav-mobile: 18px;
+  --font-nav-tablet: 17px;
+  --font-nav-desktop: 20px;
+
+  --font-body-mobile: 15px;
+  --font-body-tablet: 16px;
+  --font-body-desktop: 17px;
+
+  --font-card-title-mobile: 18px;
+  --font-card-title-tablet: 18.57px;
+  --font-card-title-desktop: 29px;
+
+  --font-card-desc-mobile: 15px;
+  --font-card-desc-tablet: 16.34px;
+  --font-card-desc-desktop: 22px;
+
+  --font-heading-main-mobile: 32px;
+  --font-heading-main-tablet: 73px;
+  --font-heading-main-desktop: 96px;
+
+  --font-heading-sub-mobile: 15px;
+  --font-heading-sub-tablet: 54px;
+  --font-heading-sub-desktop: 74px;
+}

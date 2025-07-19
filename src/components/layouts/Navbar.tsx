@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { IoMdMenu, IoMdClose } from 'react-icons/io';
 import styles from './style.module.css';
-import { navLinks, serviceLinks, service } from '../../constants/pageUrls';
+import { navLinks, serviceLinks, service } from '@/lib/constants';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
@@ -77,7 +77,7 @@ const Navbar = () => {
                       ? `${styles.navLink} ${styles.active}`
                       : styles.navLink
                   }
-                  onClick={()=>setServicesOpen(false)}
+                  onClick={() => setServicesOpen(false)}
                 >
                   {link.name}
                 </Link>

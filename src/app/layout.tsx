@@ -1,9 +1,9 @@
 // app/layout.tsx
-import './globals.css';
+import '../styles/globals.css';
 import type { ReactNode } from 'react';
 import Navbar from '@/components/layouts/Navbar';
 import PageTransition from '@/components/transition/PageTransition';
-import { WebTitle } from '@/types/index';
+import { WebTitle } from '@/types';
 
 export const metadata: WebTitle = {
   title: 'Service Site',
