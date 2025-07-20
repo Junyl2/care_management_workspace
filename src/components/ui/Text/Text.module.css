@@ -1,44 +1,51 @@
-.title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  line-height: 1.2;
-  color: var(--text-dark);
+.heading {
+  font-size: clamp(
+    var(--font-heading-main-mobile),
+    8vw,
+    var(--font-heading-main-desktop)
+  );
+  font-weight: 700;
+  font-family: var(--font-pretendard);
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
-.sectionTitle {
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
+.subtitle {
+  font-size: clamp(
+    var(--font-heading-sub-mobile),
+    6vw,
+    var(--font-heading-sub-desktop)
+  );
+  font-weight: 600;
+  font-family: var(--font-pretendard);
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.subHeading {
+  font-size: clamp(
+    var(--font-sub-heading-mobile),
+    6vw,
+    var(--font-sub-heading-desktop)
+  );
   font-weight: 700;
+  font-family: var(--font-pretendard);
   color: var(--text-primary);
   line-height: 1.3;
 }
 
-.subheading {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.paragraph {
-  font-size: 1rem;
+.body {
+  font-size: clamp(var(--font-body-mobile), 3vw, var(--font-body-desktop));
   font-weight: 400;
-  color: var(--text-body);
+  font-family: var(--font-pretendard);
+  color: var(--text-primary);
   line-height: 1.6;
 }
 
-.serviceTitle {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-accent);
-}
-
-.label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-light);
-}
-
 .caption {
-  font-size: 0.75rem;
+  font-size: var(--font-body-mobile);
   font-weight: 400;
+  font-family: var(--font-pretendard);
   color: var(--text-muted);
+  line-height: 1.4;
 }

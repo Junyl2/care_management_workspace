@@ -12,7 +12,7 @@ export const About = () => {
         >
           <Card
             variant="clean"
-            className={`${styles.maxWidth} flex-col-between space-y-6`}
+            className={`${styles.maxWidth} space-y-6`}
             radius="no-radius"
             padding="none"
           >
@@ -45,7 +45,7 @@ export const About = () => {
               </Button>
             </Card.Action>
           </Card>
-          <div className="flex-col-center space-y-8">
+          <div className="flex flex-col  items-center justify-center space-y-8 ">
             <div className={styles.imageWrapper}></div>
             <Button
               variant="primary"

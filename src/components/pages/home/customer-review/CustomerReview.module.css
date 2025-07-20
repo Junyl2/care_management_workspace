@@ -3,8 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 100%;
   background-color: #f7faff;
+  padding: 5rem 0rem;
 }
 
 .cardWrapper {
@@ -25,4 +26,45 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
+}
+.primayColor {
+  color: #007fff;
+}
+.cardContainer {
+  padding: 6rem 0rem;
+}
+.lgHidden {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .cardContainer {
+    padding: 4rem 0rem;
+  }
+  .mdHidden {
+    display: none;
+  }
+  .lgHidden {
+    display: block;
+  }
+  .spaceY {
+    padding: 2rem 0rem;
+  }
+  .cardContainer {
+    padding: 4rem 0rem;
+  }
+}
+@media (max-width: 768px) {
+  .lgHidden {
+    display: none;
+  }
+  .mdHidden {
+    display: block;
+    width: 210px;
+    margin-top: 2rem;
+  }
+  .cardContainer {
+    padding: 0rem 0rem;
+    margin-top: -20px;
+  }
 }

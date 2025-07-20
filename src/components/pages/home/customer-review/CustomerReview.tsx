@@ -1,5 +1,5 @@
 import styles from './CustomerReview.module.css';
-import { Card, Button } from '@/components/ui';
+import { Card, Button, Text } from '@/components/ui';
 import { Review } from '@/types';
 
 export const CustomerReview = () => {
@@ -58,24 +58,34 @@ export const CustomerReview = () => {
       commentDescription:
         '매번 정성스럽게 정리해주셔서 감동입니다. 믿고 맡기고 있어요.',
     },
-    {
-      services: '가사도움 서비스',
-      variant: 'housekeeping',
-      profileImg: 'https://randomuser.me/api/portraits/women/5.jpg',
-      name: '정*자',
-      ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
-      details: '(어르신, 70대, 인천, 👵)',
-      commentTitle: '집이 늘 깨끗하니 마음도 편안해져요.',
-      commentDescription:
-        '매번 정성스럽게 정리해주셔서 감동입니다. 믿고 맡기고 있어요.',
-    },
   ];
 
   return (
     <section className={styles.reviewWrapper}>
-      <div className="container">
-        <div>TRYYYYYYYYY</div>
-        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container flex flex-col items-center justify-center ">
+        <div className="flex items-center justify-center flex-col gap-4">
+          <Text variant="body" as="p" className={styles.primayColor}>
+            고객 후기
+          </Text>
+          <Text variant="subHeading" as="h2">
+            어르신의 일상에 꼭 맞는 서비스
+          </Text>
+          <div className={styles.spaceY}>
+            <Button
+              variant="primary"
+              size="md"
+              width="310px"
+              radius="full"
+              className={styles.lgHidden}
+            >
+              더 많은 후기 보기
+            </Button>
+          </div>
+        </div>
+
+        <div
+          className={`${styles.cardContainer} grid sm:grid-cols-1 md:grid-cols-3 gap-6`}
+        >
           {reviewList.map((list, index) => (
             <Card key={index} variant="default" className={styles.cardWrapper}>
               <Button variant={list.variant} size="sm" radius="full">
@@ -102,7 +112,17 @@ export const CustomerReview = () => {
             </Card>
           ))}
         </div>
-        <div>TRYY</div>
+        <div className="flex items-center justify-center">
+          <Button
+            variant="primary"
+            size="md"
+            width="310px"
+            radius="full"
+            className={styles.mdHidden}
+          >
+            더 많은 후기 보기
+          </Button>
+        </div>
       </div>
     </section>
   );

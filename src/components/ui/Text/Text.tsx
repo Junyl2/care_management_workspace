@@ -1,23 +1,27 @@
-import React from 'react';
+// components/ui/Text/Text.tsx
+import { ReactNode } from 'react';
 import styles from './Text.module.css';
-import clsx from 'clsx';
 
-type TextProps = {
-  children: React.ReactNode;
-  variant?: 'heading' | 'subheading' | 'sectionTitle' | 'paragraph' | 'caption';
-  as?: keyof JSX.IntrinsicElements; // Allows `p`, `h1`, `span`, etc.
+type TextVariant = 'heading' | 'subHeading' | 'subtitle' | 'body' | 'caption';
+type TextTag = 'h1' | 'h2' | 'h3' | 'p' | 'span' | 'label' | 'strong';
+
+type Props = {
+  variant: TextVariant;
+  as?: TextTag;
   className?: string;
+  children: ReactNode;
 };
 
 export default function Text({
+  variant,
+  as: Tag = 'p',
+  className,
   children,
-  variant = 'paragraph',
-  as: Component = 'p',
-  className = '',
-}: TextProps) {
+}: Props) {
+  const variantClass = styles[variant] || '';
   return (
-    <Component className={clsx(styles[variant], className)}>
+    <Tag className={`${variantClass} ${className || ''}`.trim()}>
       {children}
-    </Component>
+    </Tag>
   );
 }
