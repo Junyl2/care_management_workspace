@@ -5,3 +5,4 @@ export type WebTitle = {
 
 export * from './global';
 export * from './section';
+export * from './typography';

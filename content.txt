@@ -7,3 +7,21 @@
 
 
 card - w- 1320 h-582
+
+Customer review:
+고객 후기 - text center
+어르신의 일상에 꼭 맞는 서비스 - text center
+
+
+card: gap-10 h-255 w-570
+
+병원동행 서비스 - button
+
+profile pic > 최*민 > ratings >
+(어르신, 70대, 경기도, 🙋‍)
+
+마음의 짐을 덜어주는 서비스라 꼭 추천하고 싶어요.
+예약부터 이동, 설명까지 모두 함께해주셔서 부모님도 저도 안심이 됐어요. 덕분에 멀리 떨어져 있어도 마음이 한결 가벼웠습니다.
+
+
+더 많은 후기 보기 - button see more reviews

@@ -68,6 +68,27 @@
 }
 
 /* Button Variants */
+.meal {
+  background-color: #d39eff;
+  color: var(--text-light);
+}
+.bath {
+  background-color: #3fe6c4;
+  color: var(--text-light);
+}
+.exercise {
+  background-color: #a2b1ff;
+  color: var(--text-light);
+}
+.housekeeping {
+  background-color: #ff9a41;
+  color: white;
+}
+.hospital {
+  background-color: var(--color-primary);
+  color: var(--text-light);
+}
+
 .primary {
   background-color: var(--color-primary);
   color: var(--text-light);

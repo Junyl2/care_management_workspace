@@ -1,0 +1,44 @@
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-dark);
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.subheading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.paragraph {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.serviceTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-accent);
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.caption {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}

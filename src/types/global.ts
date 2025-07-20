@@ -1,4 +1,13 @@
-export type Variant = 'primary' | 'secondary' | 'danger' | 'success';
+export type Variant =
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'success'
+  | 'hospital'
+  | 'meal'
+  | 'bath'
+  | 'exercise'
+  | 'housekeeping';
 export type Size = 'sm' | 'md' | 'lg' | 'none' | 'no-radius';
 export type Radius = 'none' | 'sm' | 'md' | 'lg' | 'full';
 

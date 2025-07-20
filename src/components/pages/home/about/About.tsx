@@ -5,9 +5,11 @@ import { Card, Button } from '@/components/ui';
 
 export const About = () => {
   return (
-    <section className="container section-space-responsive">
-      <div className={styles.aboutContainer}>
-        <div className="grid grid-cols-1 md:grid-cols-2">
+    <section className="container">
+      <div className={styles.flexCenter}>
+        <div
+          className={`${styles.aboutContainer} grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8`}
+        >
           <Card
             variant="clean"
             className={`${styles.maxWidth} flex-col-between space-y-6`}
@@ -30,19 +32,32 @@ export const About = () => {
                 돌봄대장 대표 윤나래
               </Card.Text>
             </Card.Content>
-            <Card.Action>
+            <Card.Action className={styles.hideMobile}>
               <Button
                 variant="primary"
                 size="md"
                 radius="full"
                 fullWidth={false}
                 width="200px"
+                className={styles.hideMobile}
               >
                 회사소개
               </Button>
             </Card.Action>
           </Card>
-          <div className={styles.imageWrapper}></div>
+          <div className="flex-col-center space-y-8">
+            <div className={styles.imageWrapper}></div>
+            <Button
+              variant="primary"
+              size="md"
+              radius="full"
+              fullWidth={false}
+              width="200px"
+              className={styles.buttonMobile}
+            >
+              회사소개
+            </Button>
+          </div>
         </div>
       </div>
     </section>

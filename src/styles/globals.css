@@ -75,22 +75,29 @@
 }
 
 /* responsive section space */
-.section-space-responsive {
+.section-space {
   padding: 2rem 0rem;
 }
-@media (min-width: 368px) and (max-width: 768px) {
-  .section-space-responsive {
+@media (min-width: 368px) {
+  .section-space {
     padding: 2rem 0 rem;
   }
 }
+
+@media (min-width: 768px) {
+  .section-space {
+    padding: 4rem 0rem;
+  }
+}
+
 @media (min-width: 1024) {
-  .section-space-responsive {
-    padding: 4rem 0 rem;
+  .section-space {
+    padding: 6rem 0 rem;
   }
 }
 @media (min-width: 1536) {
-  .section-space-responsive {
-    padding: 6rem 0 rem;
+  .section-space {
+    padding: 8rem 0 rem;
   }
 }
 

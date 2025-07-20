@@ -5,3 +5,4 @@ export { default as ExerciseSection } from './home/services/ExerciseSection';
 export { default as BathSection } from './home/services/BathSection';
 export { default as HouseworkSection } from './home/services/HouseworkSection';
 export { About } from './home/about/About';
+export { CustomerReview } from './home/customer-review/CustomerReview';

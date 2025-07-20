@@ -8,14 +8,15 @@ import {
   HelpMealSection,
   HouseworkSection,
   About,
+  CustomerReview,
 } from '@/components/pages';
 
 export default function HomePage() {
   return (
     <main>
       <HomeHero />
-      <section className="section-space-responsive">
-        <div className={`${styles.container} section-space-responsive `}>
+      <section className="section-space">
+        <div className={`${styles.container} section-space`}>
           <h2 className="home-section-heading">
             원하는 서비스를 바로 이용해보세요.
           </h2>
@@ -27,8 +28,11 @@ export default function HomePage() {
         <ExerciseSection />
         <BathSection />
       </section>
-      <section className="section-space-responsive">
+      <section className="section-space">
         <About />
+      </section>
+      <section className="section-space">
+        <CustomerReview />
       </section>
     </main>
   );
