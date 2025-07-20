@@ -11,6 +11,12 @@
 
 /* LAYER UTILITIES */
 /* Typography Classes */
+.home-section-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: start;
+  color: var(--text-dark);
+}
 .section-heading {
   font-size: 2rem;
   font-weight: 700;
@@ -45,6 +51,47 @@
   font-weight: 500;
   color: var(--text-primary);
   line-height: 1.6;
+}
+
+/* section padding */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.section-sm {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.section-lg {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.section-xl {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+/* responsive section space */
+.section-space-responsive {
+  padding: 2rem 0rem;
+}
+@media (min-width: 368px) and (max-width: 768px) {
+  .section-space-responsive {
+    padding: 2rem 0 rem;
+  }
+}
+@media (min-width: 1024) {
+  .section-space-responsive {
+    padding: 4rem 0 rem;
+  }
+}
+@media (min-width: 1536) {
+  .section-space-responsive {
+    padding: 6rem 0 rem;
+  }
 }
 
 .loading {
@@ -90,52 +137,42 @@
   cursor: pointer;
 }
 
+/*  Container Utility */
 .container {
-  margin-inline: auto;
-  padding-inline: 2rem;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* Max-width breakpoints from small to large screens */
-@media (max-width: 480px) {
-  .container {
-    max-width: 100%;
-    padding-inline: 14px;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
+/* Breakpoint max-widths — based on Tailwind defaults */
+@media (min-width: 640px) {
   .container {
     max-width: 640px;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) {
   .container {
     max-width: 768px;
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1024px) {
   .container {
     max-width: 1024px;
   }
 }
 
-@media (min-width: 1281px) and (max-width: 1368px) {
+@media (min-width: 1280px) {
   .container {
-    max-width: 1200px;
+    max-width: 1280px;
   }
 }
 
-@media (min-width: 1369px) and (max-width: 1600px) {
+@media (min-width: 1536px) {
   .container {
-    max-width: 1368px;
-  }
-}
-
-@media (min-width: 1601px) and (max-width: 1920px) {
-  .container {
-    max-width: 1440px;
+    max-width: 1536px;
   }
 }

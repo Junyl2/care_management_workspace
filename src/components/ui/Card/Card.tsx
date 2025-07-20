@@ -4,8 +4,9 @@ import { cn } from '@/lib/utils';
 import styles from './Card.module.css';
 
 interface CardProps extends BaseComponent {
-  variant?: 'default' | 'outlined' | 'elevated';
+  variant?: 'default' | 'outlined' | 'elevated' | 'clean';
   padding?: Size;
+  radius?: Size;
 }
 
 // Define subcomponents first
@@ -86,6 +87,7 @@ const Card: CardComponent = ({
   children,
   variant = 'default',
   padding = 'md',
+  radius = 'radius',
   className,
   ...props
 }) => {
@@ -93,6 +95,7 @@ const Card: CardComponent = ({
     <div
       className={cn(
         styles.card,
+        styles[radius],
         styles[variant],
         styles[`padding-${padding}`],
         className

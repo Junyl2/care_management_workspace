@@ -1,13 +1,13 @@
 'use client';
 
-import HeroWrapper from '../../sections/hero/HeroWrapper';
-import styles from './HospitalSection.module.css';
+import HeroWrapper from '../../../sections/hero/HeroWrapper';
+import styles from './HelpSection.module.css';
 import { Button } from '@components/ui';
 
-const HospitalSection = () => {
+const HelpSection = () => {
   return (
     <HeroWrapper
-      backgroundImage="/images/services/hospital.png"
+      backgroundImage="/images/services/help.png"
       className={styles.customHomeHero}
     >
       <div className={styles.content}>
@@ -41,4 +41,4 @@ const HospitalSection = () => {
   );
 };
 
-export default HospitalSection;
+export default HelpSection;

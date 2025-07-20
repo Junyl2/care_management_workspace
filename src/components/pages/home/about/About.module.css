@@ -1,0 +1,84 @@
+.background {
+  background-color: black;
+}
+.maxWidth {
+  width: 622px;
+  height: 582px;
+}
+.aboutContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutUs {
+  font-size: 1rem;
+  color: #007fff !important;
+}
+.cardBody {
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+}
+.cardTitle {
+  font-weight: bold;
+  font-size: 44px;
+}
+.cardFooter {
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
+  text-align: start;
+  margin-top: 12rem;
+}
+
+.imageWrapper {
+  background-image: url('/images/about/doct.png');
+  width: 622px;
+  height: 582px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 20px;
+}
+@media (max-width: 1024px) {
+  .imageWrapper {
+    height: 400px;
+  }
+  .aboutContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .imageWrapper {
+    height: 300px;
+    width: 300px;
+  }
+  .aboutContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .cardBody {
+    font-size: 15px;
+  }
+  .cardTitle {
+    font-size: 22px;
+  }
+  .cardFooter {
+    font-size: 18px;
+  }
+  .maxWidth {
+    width: 300px;
+  }
+}
+
+.image {
+  border-radius: 2rem;
+  object-fit: cover;
+}

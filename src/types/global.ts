@@ -1,5 +1,5 @@
 export type Variant = 'primary' | 'secondary' | 'danger' | 'success';
-export type Size = 'sm' | 'md' | 'lg';
+export type Size = 'sm' | 'md' | 'lg' | 'none' | 'no-radius';
 export type Radius = 'none' | 'sm' | 'md' | 'lg' | 'full';
 
 export type WebTitle = {

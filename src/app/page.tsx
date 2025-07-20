@@ -1,24 +1,34 @@
 import HomeHero from '@/components/sections/hero/HomeHero';
-/* import { Card } from '@/components/ui'; */
-/* import styles from './page.module.css'; */
-import { ServiceCardGrid, HospitalSection } from '@/components/pages';
+import styles from './page.module.css';
+import {
+  ServiceCardGrid,
+  HospitalSection,
+  BathSection,
+  ExerciseSection,
+  HelpMealSection,
+  HouseworkSection,
+  About,
+} from '@/components/pages';
 
 export default function HomePage() {
   return (
     <main>
       <HomeHero />
-      <section className="pt-2xl">
-        <div className="space-top flex-col gap-2">
-          <h2 className="section-heading">
+      <section className="section-space-responsive">
+        <div className={`${styles.container} section-space-responsive `}>
+          <h2 className="home-section-heading">
             원하는 서비스를 바로 이용해보세요.
           </h2>
           <ServiceCardGrid />
         </div>
         <HospitalSection />
-        <HospitalSection />
-        <HospitalSection />
-        <HospitalSection />
-        <HospitalSection />
+        <HelpMealSection />
+        <HouseworkSection />
+        <ExerciseSection />
+        <BathSection />
+      </section>
+      <section className="section-space-responsive">
+        <About />
       </section>
     </main>
   );

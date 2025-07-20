@@ -9,7 +9,7 @@ export default function ServicesGrid() {
     <div className={styles.grid}>
       {serviceLinks.map((service, index) => (
         <Link key={service.path} href={service.path}>
-          <Card className={styles.card}>
+          <Card className={styles.card} padding="none">
             <Card.Header>
               <div className={styles.imageWrapper}>
                 <Image
@@ -21,7 +21,7 @@ export default function ServicesGrid() {
               </div>
             </Card.Header>
             <Card.Content>
-              <Card.Title>{service.name}</Card.Title>
+              <Card.Text className={styles.cardTitle}>{service.name}</Card.Text>
             </Card.Content>
           </Card>
         </Link>

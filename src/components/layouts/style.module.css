@@ -41,11 +41,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 1rem 0rem;
   position: relative;
-  /*   height: 70px; */
 }
 
 .logo a {
@@ -275,4 +272,12 @@
     object-fit: cover;
     margin-bottom: 10px;
   }
+}
+.dropdownMenu li a {
+  display: inline-block;
+  transition: transform 0.2s ease-in;
+}
+
+.dropdownMenu li a:hover {
+  transform: scale(1.05);
 }

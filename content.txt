@@ -1,0 +1,9 @@
+회사 소개 - About us - 1rem
+당신의 집에서 가장 가까운 돌봄 - Care closest to your home - 44 - bold
+우리는 돌봄인력 부족이라는 사회적 문제를 해결하여 어르신이 살던 곳에서 존엄한 노후를 보내실 수 있도록 돕습니다. 이것이 우리가 추구하는
+‘Aging in Place’ 입니다. - 20 - medium
+
+돌봄대장 대표 윤나래 - 26 - semibold
+
+
+card - w- 1320 h-582

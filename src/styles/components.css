@@ -4,14 +4,34 @@
   justify-content: center;
   align-items: center;
 }
-.flex-col {
+.flex-col-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.gap-2 {
-  gap: 1rem;
+.flex-row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-col-between-start {
+  display: flex;
+  text-align: start;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+}
+.flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-2 {
@@ -128,6 +148,56 @@
 }
 .gap-12 {
   gap: 3rem;
+}
+
+/* Tailwind-like space-x utilities */
+.space-x-1 > * + * {
+  margin-left: 0.25rem;
+}
+
+.space-x-2 > * + * {
+  margin-left: 0.5rem;
+}
+
+.space-x-3 > * + * {
+  margin-left: 0.75rem;
+}
+
+.space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+.space-x-5 > * + * {
+  margin-left: 1.25rem;
+}
+
+.space-x-6 > * + * {
+  margin-left: 1.5rem;
+}
+
+/* Tailwind-like space-y utilities */
+.space-y-1 > * + * {
+  margin-top: 0.25rem;
+}
+
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.space-y-3 > * + * {
+  margin-top: 0.75rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-5 > * + * {
+  margin-top: 1.25rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
 }
 
 /*
