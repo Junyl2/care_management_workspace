@@ -56,7 +56,15 @@ const Navbar = () => {
       <div className="container">
         <div className={styles.navContainer}>
           <div className={styles.logo}>
-            <Link href="/">Logo</Link>
+            <Link href="/">
+              <Image
+                src="/images/logo.png"
+                alt="Care Management"
+                height={37}
+                width={149}
+                className={styles.Logo}
+              />
+            </Link>
           </div>
 
           <button
@@ -158,7 +166,7 @@ const Navbar = () => {
               <IoMdClose />
             </button>
           </div> */}
-          <div className={styles.servicesPanel}>
+          <div className={`${styles.servicesPanel} grid grid-cols-2`}>
             {serviceLinks.map((link, index) => (
               <div key={link.name} className={styles.column}>
                 <div className={styles.textCenter}>

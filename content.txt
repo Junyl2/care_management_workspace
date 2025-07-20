@@ -25,3 +25,15 @@ profile pic > 최*민 > ratings >
 
 
 더 많은 후기 보기 - button see more reviews
+
+
+Caring:
+돌봄 친구
+당신의 집에서 가장 가까운 돌봄 친구가 찾아갑니다.
+
+primary- button - 더 알아보기
+sub - 예약하기
+
+케어 안심 센터
+연중무휴 24시간 상담
+1588-2905

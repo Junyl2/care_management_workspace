@@ -36,6 +36,12 @@
 .lgHidden {
   display: none;
 }
+.mobileScroll {
+  display: none;
+}
+.details {
+  color: #979797;
+}
 
 @media (max-width: 1024px) {
   .cardContainer {
@@ -67,4 +73,52 @@
     padding: 0rem 0rem;
     margin-top: -20px;
   }
+  .profileWrapper {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: px;
+  }
+  .details {
+    margin-bottom: 1rem;
+  }
+  .title {
+    margin-bottom: 1rem;
+  }
+}
+
+.mobileScroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  /* Prevent horizontal scroll overflow issues */
+  max-width: 100%;
+  width: 100%;
+
+  /* Hide scrollbars (cross-browser) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.mobileScroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.mobileCard {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-width: 260px;
+  max-width: 80vw;
+  box-sizing: border-box;
+}
+
+.buttonSize {
+  font-size: 14px;
+  margin-bottom: 1rem;
 }

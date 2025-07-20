@@ -1,8 +1,23 @@
+'use client';
 import styles from './CustomerReview.module.css';
 import { Card, Button, Text } from '@/components/ui';
 import { Review } from '@/types';
+import { useState, useEffect } from 'react';
 
 export const CustomerReview = () => {
+  const [isMobileOpen, setIsMobileOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobileOpen(window.innerWidth < 768);
+    };
+
+    checkScreen();
+
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
   const reviewList: Review[] = [
     {
       services: '병원동행 서비스',
@@ -83,35 +98,81 @@ export const CustomerReview = () => {
           </div>
         </div>
 
-        <div
-          className={`${styles.cardContainer} grid sm:grid-cols-1 md:grid-cols-3 gap-6`}
-        >
-          {reviewList.map((list, index) => (
-            <Card key={index} variant="default" className={styles.cardWrapper}>
-              <Button variant={list.variant} size="sm" radius="full">
-                {list.services}
-              </Button>
-              <Card.Header>
-                <div>
-                  <div className={styles.profileWrapper}>
-                    <img
-                      src={list.profileImg}
-                      alt={list.name}
-                      className={styles.profileImg}
-                    />
-                    {list.name} {list.ratings}
+        {!isMobileOpen && (
+          <div
+            className={`${styles.cardContainer} grid grid-cols-6 md:grid-cols-3 gap-6`}
+          >
+            {reviewList.map((list, index) => (
+              <Card
+                key={index}
+                variant="default"
+                className={styles.cardWrapper}
+              >
+                <Button variant={list.variant} size="sm" radius="full">
+                  {list.services}
+                </Button>
+                <Card.Header>
+                  <div>
+                    <div className={styles.profileWrapper}>
+                      <img
+                        src={list.profileImg}
+                        alt={list.name}
+                        className={styles.profileImg}
+                      />
+                      {list.name} {list.ratings}
+                    </div>
                   </div>
-                </div>
-              </Card.Header>
-              <Card.Text>{list.details}</Card.Text>
+                </Card.Header>
+                <Card.Text>{list.details}</Card.Text>
 
-              <Card.Content>
-                <Card.Text> {list.commentTitle}</Card.Text>
-                <Card.Text> {list.commentDescription}</Card.Text>
-              </Card.Content>
-            </Card>
-          ))}
-        </div>
+                <Card.Content>
+                  <Card.Text> {list.commentTitle}</Card.Text>
+                  <Card.Text> {list.commentDescription}</Card.Text>
+                </Card.Content>
+              </Card>
+            ))}
+          </div>
+        )}
+
+        {isMobileOpen && (
+          <div className={`${styles.mobileScroll}`}>
+            {reviewList.map((list, index) => (
+              <Card key={index} variant="default" className={styles.mobileCard}>
+                <Button
+                  variant={list.variant}
+                  size="sm"
+                  radius="full"
+                  width="125px"
+                  className={styles.buttonSize}
+                >
+                  {list.services}
+                </Button>
+                <Card.Header>
+                  <div>
+                    <div className={styles.profileWrapper}>
+                      <img
+                        src={list.profileImg}
+                        alt={list.name}
+                        className={styles.profileImg}
+                      />
+                      {list.name} {list.ratings}
+                    </div>
+                  </div>
+                </Card.Header>
+                <Card.Text className={styles.details}>{list.details}</Card.Text>
+
+                <Card.Content>
+                  <Card.Text className={styles.title}>
+                    {' '}
+                    {list.commentTitle}
+                  </Card.Text>
+                  <Card.Text> {list.commentDescription}</Card.Text>
+                </Card.Content>
+              </Card>
+            ))}
+          </div>
+        )}
+
         <div className="flex items-center justify-center">
           <Button
             variant="primary"

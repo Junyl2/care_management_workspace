@@ -1,0 +1,81 @@
+.primaryColor {
+  color: #007fff;
+  font-weight: bold;
+}
+.subTitle {
+  font-size: 30px;
+  font-weight: 700;
+}
+.subHeading {
+  color: #007fff;
+  font-size: 46px;
+  font-weight: 700;
+}
+.cardWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2.5rem;
+  background-color: #f1f8ff;
+  border: none;
+  transition: transform 0.3s ease-in;
+}
+.cardWrapper:hover {
+  transform: translateY(-4px);
+}
+.image {
+  object-fit: contain;
+}
+.employeeProfile {
+  object-fit: cover;
+  border-radius: 20px;
+}
+.cardText {
+  font-size: 1rem;
+}
+.imageWrapper {
+  position: relative;
+  width: 126px;
+  height: 171px;
+  object-fit: cover;
+}
+@media (max-width: 1024px) {
+  .subHeading {
+    font-size: 38px;
+  }
+  .subTitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardWrapper {
+    flex-direction: column;
+    width: fit-content;
+    height: 108px;
+    width: 108px;
+    padding: 1rem;
+    gap: 8px;
+    text-align: center;
+  }
+  .imageWrapper {
+    position: relative;
+    width: 86px;
+    height: 131px;
+    object-fit: cover;
+  }
+  .cardText {
+    font-size: 12px;
+  }
+  .cardTitle {
+    font-size: 18px;
+  }
+  .subHeading {
+    font-size: 34px;
+  }
+  .subTitle {
+    font-size: 20px;
+  }
+}
