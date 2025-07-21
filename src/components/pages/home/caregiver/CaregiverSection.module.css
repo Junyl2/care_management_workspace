@@ -51,10 +51,13 @@
   .caregiverHeader {
     font-size: 34px;
   }
+  .caregiverContainer {
+    margin-top: -12rem;
+  }
 }
 @media (max-width: 768px) {
   .caregiverContainer {
-    margin-top: 18rem;
+    margin-top: 7rem;
   }
   .caregiverHeader {
     font-size: 24px;

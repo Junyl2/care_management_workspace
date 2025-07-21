@@ -3,6 +3,7 @@ import styles from './CustomerReview.module.css';
 import { Card, Button, Text } from '@/components/ui';
 import { Review } from '@/types';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export const CustomerReview = () => {
   const [isMobileOpen, setIsMobileOpen] = useState<boolean>(false);
@@ -22,7 +23,7 @@ export const CustomerReview = () => {
     {
       services: '병원동행 서비스',
       variant: 'hospital',
-      profileImg: 'https://randomuser.me/api/portraits/women/1.jpg',
+      profileImg: '/images/pp.jpg',
       name: '최*민',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 70대, 경기도, 🙋‍)',
@@ -33,7 +34,7 @@ export const CustomerReview = () => {
     {
       services: '식사도움 서비스',
       variant: 'meal',
-      profileImg: 'https://randomuser.me/api/portraits/men/2.jpg',
+      profileImg: '/images/pp.jpg',
       name: '김*수',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 80대, 서울, 👴)',
@@ -44,7 +45,7 @@ export const CustomerReview = () => {
     {
       services: '운동도움 서비스',
       variant: 'exercise',
-      profileImg: 'https://randomuser.me/api/portraits/women/3.jpg',
+      profileImg: '/images/pp.jpg',
       name: '박*영',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 60대, 부산, 🙆‍♀️)',
@@ -54,7 +55,7 @@ export const CustomerReview = () => {
     {
       services: '목욕도움 서비스',
       variant: 'bath',
-      profileImg: 'https://randomuser.me/api/portraits/men/4.jpg',
+      profileImg: '/images/pp.jpg',
       name: '이*준',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 90대, 대전, 🛁)',
@@ -65,7 +66,7 @@ export const CustomerReview = () => {
     {
       services: '가사도움 서비스',
       variant: 'housekeeping',
-      profileImg: 'https://randomuser.me/api/portraits/women/5.jpg',
+      profileImg: '/images/pp.jpg',
       name: '정*자',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 70대, 인천, 👵)',
@@ -113,10 +114,12 @@ export const CustomerReview = () => {
                   </Button>
                   <Card.Header>
                     <div className={styles.profileWrapper}>
-                      <img
+                      <Image
                         src={list.profileImg}
                         alt={list.name}
                         className={styles.profileImg}
+                        width={50}
+                        height={50}
                       />
                       {list.name} {list.ratings}
                     </div>
@@ -145,10 +148,12 @@ export const CustomerReview = () => {
                   </Button>
                   <Card.Header>
                     <div className={styles.profileWrapper}>
-                      <img
+                      <Image
                         src={list.profileImg}
                         alt={list.name}
                         className={styles.profileImg}
+                        width={50}
+                        height={50}
                       />
                       {list.name} {list.ratings}
                     </div>
@@ -182,10 +187,12 @@ export const CustomerReview = () => {
                 <Card.Header>
                   <div>
                     <div className={styles.profileWrapper}>
-                      <img
+                      <Image
                         src={list.profileImg}
                         alt={list.name}
                         className={styles.profileImg}
+                        width={50}
+                        height={50}
                       />
                       {list.name} {list.ratings}
                     </div>

@@ -7,11 +7,14 @@ import { Text, Card, Button } from '@components/ui';
 import { useEffect, useState } from 'react';
 
 export const DiscountSection = () => {
-  const [isMobileOpen, setIsMobileOpen] = useState<boolean>(false);
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreen = () => {
-      setIsMobileOpen(window.innerWidth < 768);
+      const width = window.innerWidth;
+      setIsMobileScreen(width < 768);
+      setIsTabletScreen(width >= 768 && width <= 1024);
     };
 
     checkScreen();
@@ -19,15 +22,7 @@ export const DiscountSection = () => {
     window.addEventListener('resize', checkScreen);
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
-
-  interface Discount {
-    icon?: string;
-    iconLabel?: string;
-    discountRate?: string;
-    payment?: string;
-    buttonText?: string;
-  }
-  const discountList: Discount[] = [
+  const discountList = [
     {
       iconLabel: '정기 결제 할인',
       discountRate: '20% 할인',
@@ -72,12 +67,12 @@ export const DiscountSection = () => {
           </Text>
         </div>
         {/* desktop discount cards */}
-        {!isMobileOpen && (
+        {!isMobileScreen && (
           <div className="container flex items-center justify-center gap-4 ">
             {discountList.map((list, index) => (
               <Card key={index} className={styles.cardBackground}>
                 <div className={styles.contentWrapper}>
-                  <Card.Header>
+                  <Card.Header className={styles.cardHeader}>
                     <Image
                       src="/images/discounticon.png"
                       alt="discounts icon"
@@ -86,7 +81,7 @@ export const DiscountSection = () => {
                     />
                     <Card.Text> {list.iconLabel}</Card.Text>
                   </Card.Header>
-                  <Card.Content>
+                  <Card.Content className={styles.cardContent}>
                     <Card.Title className={styles.textColor}>
                       {list.discountRate}
                     </Card.Title>
@@ -97,7 +92,9 @@ export const DiscountSection = () => {
                   <Card.Action>
                     <Button
                       variant="primary"
-                      size="md"
+                      size={
+                        isMobileScreen ? 'sm' : isTabletScreen ? 'sm' : 'md'
+                      }
                       radius="full"
                       className={styles.buttonText}
                     >
@@ -111,7 +108,7 @@ export const DiscountSection = () => {
         )}
 
         {/* mobile discount cards */}
-        {isMobileOpen && (
+        {isMobileScreen && (
           <div className="grid grid-cols-1 gap-4">
             {discountList.map((list, index) => (
               <Card key={index} className={styles.cardBackgroundMobile}>

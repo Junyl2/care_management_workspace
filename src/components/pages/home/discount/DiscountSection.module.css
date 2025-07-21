@@ -80,6 +80,24 @@
     height: 100vh;
   }
 }
+@media (max-width: 938px) {
+  .cardBackground {
+    width: 180px;
+  }
+  .cardBackground {
+    background-size: 100% 100%;
+  }
+  .buttonText {
+    width: 144px;
+    margin-bottom: 2.5rem;
+  }
+  .cardContent {
+    margin-top: 1.5rem;
+  }
+  .cardHeader {
+    margin-top: 1.5rem;
+  }
+}
 
 .cardBackgroundMobile {
   border: none;

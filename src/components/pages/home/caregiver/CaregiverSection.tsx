@@ -6,11 +6,14 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export const CaregiverSection = () => {
-  const [isMobileOpen, setIsMobileOpen] = useState<boolean>(false);
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreen = () => {
-      setIsMobileOpen(window.innerWidth < 768);
+      const width = window.innerWidth;
+      setIsMobileScreen(width < 768);
+      setIsTabletScreen(width >= 768 && width <= 1200);
     };
 
     checkScreen();
@@ -18,6 +21,7 @@ export const CaregiverSection = () => {
     window.addEventListener('resize', checkScreen);
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
+
   return (
     <div className={`container ${styles.caregiverContainer}`}>
       <div className={styles.headingWrapper}>
@@ -36,28 +40,28 @@ export const CaregiverSection = () => {
         <Image
           src="/images/certificate1.png"
           alt="certificate"
-          height={isMobileOpen ? 184 : 614}
-          width={isMobileOpen ? 130 : 434}
+          height={isMobileScreen ? 184 : isTabletScreen ? 400 : 614}
+          width={isMobileScreen ? 130 : isTabletScreen ? 230 : 434}
         />
         <Image
           src="/images/certificate2.png"
           alt="certificate"
-          height={isMobileOpen ? 184 : 614}
-          width={isMobileOpen ? 130 : 434}
+          height={isMobileScreen ? 184 : isTabletScreen ? 400 : 614}
+          width={isMobileScreen ? 130 : isTabletScreen ? 230 : 434}
         />
         <Image
           src="/images/badge.png"
           alt="logo"
-          height={isMobileOpen ? 51 : 172}
-          width={isMobileOpen ? 52 : 173}
+          height={isMobileScreen ? 51 : isTabletScreen ? 132 : 172}
+          width={isMobileScreen ? 51 : isTabletScreen ? 132 : 172}
         />
       </div>
 
       <Button
         variant="primary"
-        size={isMobileOpen ? 'sm' : 'md'}
+        size={isMobileScreen ? 'sm' : 'md'}
         radius="full"
-        width={isMobileOpen ? '140px' : '250px'}
+        width={isMobileScreen ? '140px' : '250px'}
       >
         회사 소개 보러가기
       </Button>
