@@ -7,3 +7,4 @@ export { default as HouseworkSection } from './home/services/HouseworkSection';
 export { About } from './home/about/About';
 export { CustomerReview } from './home/customer-review/CustomerReview';
 export { Caring } from './home/caring/Caring';
+export { DiscountSection } from './home/discount/DiscountSection';

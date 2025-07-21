@@ -1,0 +1,139 @@
+.containerBg {
+  background-image: url('/images/discountbg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  height: 100vh;
+  width: 100%;
+}
+.cardBackground {
+  background-image: url('/images/Subtract.png'); /* Use your correct path */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 284px;
+  height: 360px;
+
+  background-color: none;
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+
+  text-align: center;
+}
+.textColor {
+  color: #5a5aff;
+  font-size: 38px;
+}
+.paymentColor {
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 160px;
+  height: 100%;
+}
+.buttonText {
+  width: 224px;
+}
+
+@media (max-width: 1024px) {
+  .buttonText {
+    width: 180px;
+  }
+  .cardBackground {
+    height: 320px;
+  }
+  .textColor {
+    font-size: 36px;
+  }
+  .paymentColor {
+    font-size: 15px;
+  }
+  .buttonText {
+    font-size: 15px;
+  }
+}
+
+.cardBackgroundMobile {
+  border: none;
+  background-color: transparent;
+
+  height: 140px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  text-align: center;
+  position: relative;
+}
+.cardBackgroundMobile::before {
+  content: '';
+  background-image: url('/images/mobileSubtract.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.cardBackgroundMobile::after {
+  content: '';
+  position: absolute;
+  border-right: 2px dotted rgb(219, 219, 219);
+  height: 78.8%;
+  top: 1rem;
+  right: 33.3%;
+  /*  right: 149.5px; */
+}
+
+.contentWrapperMobile {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.textColorMobile {
+  color: #5a5aff;
+  font-size: 28px;
+  margin-top: 1rem;
+}
+
+.paymentColorMobile {
+  color: black;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+.paymentTextMobile {
+  position: absolute;
+  width: 80px;
+  text-align: center;
+  right: 6%;
+  top: 25%;
+}
+.discountMobile {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  gap: 0.6rem;
+  left: 1.1rem;
+  top: 30%;
+}
+.icon {
+  object-fit: contain;
+}

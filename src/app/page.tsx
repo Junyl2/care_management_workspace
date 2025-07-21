@@ -10,6 +10,7 @@ import {
   About,
   CustomerReview,
   Caring,
+  DiscountSection,
 } from '@/components/pages';
 
 export default function HomePage() {
@@ -37,6 +38,9 @@ export default function HomePage() {
       </section>
       <section className="section-space">
         <Caring />
+      </section>
+      <section className="section-space">
+        <DiscountSection />
       </section>
     </main>
   );
