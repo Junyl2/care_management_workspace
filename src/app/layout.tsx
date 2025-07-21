@@ -2,6 +2,7 @@
 import '../styles/globals.css';
 import type { ReactNode } from 'react';
 import Navbar from '@/components/layouts/Navbar';
+import { Footer } from '@/components/layouts/Footer';
 import PageTransition from '@/components/transition/PageTransition';
 import { WebTitle } from '@/types';
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <PageTransition>
           <main className="mainLayout">{children}</main>
         </PageTransition>
+        <Footer />
       </body>
     </html>
   );

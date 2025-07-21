@@ -3,8 +3,16 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
+}
+.discountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 5rem 0rem;
 }
 .cardBackground {
   background-image: url('/images/Subtract.png'); /* Use your correct path */
@@ -50,6 +58,9 @@
 }
 
 @media (max-width: 1024px) {
+  .discountContainer {
+    padding: 4rem 0rem;
+  }
   .buttonText {
     width: 180px;
   }
@@ -64,6 +75,9 @@
   }
   .buttonText {
     font-size: 15px;
+  }
+  .containerBg {
+    height: 100vh;
   }
 }
 

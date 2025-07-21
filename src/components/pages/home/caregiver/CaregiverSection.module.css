@@ -1,0 +1,64 @@
+.caregiverContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4rem, 6vw, 6rem);
+}
+.certificate1 {
+  background-image: url('/images/certificate1.png');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+.certificate2 {
+  background-image: url('/images/certificate2.png');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+.certificatesWrapper {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 2rem;
+}
+
+.span {
+  color: #007fff;
+}
+.headingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.2rem;
+}
+.caregiverHeader {
+  font-size: 40px;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .caregiverHeader {
+    font-size: 34px;
+  }
+}
+@media (max-width: 768px) {
+  .caregiverContainer {
+    margin-top: 18rem;
+  }
+  .caregiverHeader {
+    font-size: 24px;
+  }
+}
+/* 24px
+ */

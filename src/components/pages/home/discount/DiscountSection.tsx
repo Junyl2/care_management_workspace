@@ -57,7 +57,7 @@ export const DiscountSection = () => {
   return (
     <div className={styles.containerBg}>
       <div className="container flex flex-col gap-8">
-        <div className="flex items-center justify-center flex-col gap-4 pb-6 text-center">
+        <div className={styles.discountContainer}>
           <Image
             src="/images/gift.png"
             alt="gift icon"

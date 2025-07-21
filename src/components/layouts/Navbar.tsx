@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { IoMdMenu, IoMdClose } from 'react-icons/io';
-import styles from './style.module.css';
+import styles from './Navbar.module.css';
 import { navLinks, serviceLinks, service } from '@/lib/constants';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';

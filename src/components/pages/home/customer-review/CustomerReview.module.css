@@ -87,12 +87,12 @@
   width: 100%;
 
   /* Hide scrollbars (cross-browser) */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .mobileScroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 .mobileCard {
