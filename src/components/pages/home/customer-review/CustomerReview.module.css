@@ -8,19 +8,6 @@
   padding: 5rem 0rem;
 }
 
-.cardWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-  gap: 10px;
-}
-.profileImg {
-  height: 26px;
-  width: 26px;
-  border-radius: 999px;
-  object-fit: cover;
-}
 .profileWrapper {
   display: flex;
   align-items: center;
@@ -30,9 +17,7 @@
 .primayColor {
   color: #007fff;
 }
-.cardContainer {
-  padding: 6rem 0rem;
-}
+
 .lgHidden {
   display: none;
 }
@@ -40,7 +25,7 @@
   display: none;
 }
 .details {
-  color: #979797;
+  color: #979797 !important;
 }
 
 @media (max-width: 1024px) {
@@ -66,7 +51,7 @@
   }
   .mdHidden {
     display: block;
-    width: 210px;
+    width: 109px;
     margin-top: 2rem;
   }
   .cardContainer {
@@ -122,3 +107,60 @@
   font-size: 14px;
   margin-bottom: 1rem;
 }
+
+/* !mobileOpen customer review layoput */
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 6rem 0rem;
+}
+
+.firstRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 60%;
+  max-width: 800px;
+}
+
+.secondRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.profileWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profileImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* .profileImg {
+  height: 26px;
+  width: 26px;
+  border-radius: 999px;
+  object-fit: cover;
+} */

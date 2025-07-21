@@ -120,20 +120,54 @@ export const Caring = () => {
       </div>
 
       {/* employee */}
-      <div className="container grid md:grid-cols-5 grid-cols-3 gap-4">
-        {employeeProfile.map((list, index) => (
-          <div className={styles.imageWrapper}>
-            <Image
-              src={`${list.image}/${index + 1}.png`}
-              alt="Employee"
-              fill
-              /*   width={126}
+      {!isMobileOpen && (
+        <div className="grid grid-cols-5 gap-4">
+          {employeeProfile.map((list, index) => (
+            <div className={styles.imageWrapper} key={index}>
+              <Image
+                src={`${list.image}/${index + 1}.png`}
+                alt="Employee"
+                fill
+                /*   width={126}
             height={171} */
-              className={styles.employeeProfile}
-            />
+                className={styles.employeeProfile}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {isMobileOpen && (
+        <div className={styles.container}>
+          {/* First row: 2 centered employee images */}
+          <div className={styles.firstRow}>
+            {employeeProfile.slice(0, 2).map((list, index) => (
+              <div className={styles.imageWrapper} key={index}>
+                <Image
+                  src={`${list.image}/${index + 1}.png`}
+                  alt="Employee"
+                  fill
+                  className={styles.employeeProfile}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+
+          {/* Second row: 3 full-width employee images */}
+          <div className={styles.secondRow}>
+            {employeeProfile.slice(2, 5).map((list, index) => (
+              <div className={styles.imageWrapper} key={index + 2}>
+                <Image
+                  src={`${list.image}/${index + 3}.png`}
+                  alt="Employee"
+                  fill
+                  className={styles.employeeProfile}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

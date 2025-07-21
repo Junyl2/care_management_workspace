@@ -99,20 +99,19 @@ export const CustomerReview = () => {
         </div>
 
         {!isMobileOpen && (
-          <div
-            className={`${styles.cardContainer} grid grid-cols-6 md:grid-cols-3 gap-6`}
-          >
-            {reviewList.map((list, index) => (
-              <Card
-                key={index}
-                variant="default"
-                className={styles.cardWrapper}
-              >
-                <Button variant={list.variant} size="sm" radius="full">
-                  {list.services}
-                </Button>
-                <Card.Header>
-                  <div>
+          <div className={styles.cardContainer}>
+            {/* First row: 2 centered cards */}
+            <div className={styles.firstRow}>
+              {reviewList.slice(0, 2).map((list, index) => (
+                <Card
+                  key={index}
+                  variant="default"
+                  className={styles.cardWrapper}
+                >
+                  <Button variant={list.variant} size="sm" radius="full">
+                    {list.services}
+                  </Button>
+                  <Card.Header>
                     <div className={styles.profileWrapper}>
                       <img
                         src={list.profileImg}
@@ -121,16 +120,49 @@ export const CustomerReview = () => {
                       />
                       {list.name} {list.ratings}
                     </div>
-                  </div>
-                </Card.Header>
-                <Card.Text>{list.details}</Card.Text>
+                  </Card.Header>
+                  <Text variant="body" as="p" className={styles.details}>
+                    {list.details}
+                  </Text>
+                  <Card.Content>
+                    <Card.Text>{list.commentTitle}</Card.Text>
+                    <Card.Text>{list.commentDescription}</Card.Text>
+                  </Card.Content>
+                </Card>
+              ))}
+            </div>
 
-                <Card.Content>
-                  <Card.Text> {list.commentTitle}</Card.Text>
-                  <Card.Text> {list.commentDescription}</Card.Text>
-                </Card.Content>
-              </Card>
-            ))}
+            {/* Second row: 3 full-width cards */}
+            <div className={styles.secondRow}>
+              {reviewList.slice(2, 5).map((list, index) => (
+                <Card
+                  key={index + 2}
+                  variant="default"
+                  className={styles.cardWrapper}
+                >
+                  <Button variant={list.variant} size="sm" radius="full">
+                    {list.services}
+                  </Button>
+                  <Card.Header>
+                    <div className={styles.profileWrapper}>
+                      <img
+                        src={list.profileImg}
+                        alt={list.name}
+                        className={styles.profileImg}
+                      />
+                      {list.name} {list.ratings}
+                    </div>
+                  </Card.Header>
+                  <Text variant="body" as="p" className={styles.details}>
+                    {list.details}
+                  </Text>
+                  <Card.Content>
+                    <Card.Text>{list.commentTitle}</Card.Text>
+                    <Card.Text>{list.commentDescription}</Card.Text>
+                  </Card.Content>
+                </Card>
+              ))}
+            </div>
           </div>
         )}
 
@@ -159,7 +191,9 @@ export const CustomerReview = () => {
                     </div>
                   </div>
                 </Card.Header>
-                <Card.Text className={styles.details}>{list.details}</Card.Text>
+                <Text variant="body" as="p" className={styles.details}>
+                  {list.details}
+                </Text>
 
                 <Card.Content>
                   <Card.Text className={styles.title}>
@@ -177,7 +211,7 @@ export const CustomerReview = () => {
           <Button
             variant="primary"
             size="md"
-            width="310px"
+            width="200px"
             radius="full"
             className={styles.mdHidden}
           >
