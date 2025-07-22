@@ -64,12 +64,14 @@ export const DiscountSection = () => {
           <Text as="p" variant="body">
             할인받고 예약하기
           </Text>
-          <Text variant="subHeading" as="h2" className={styles.discount}>
-            지금 신청 시 최대
-            <Text variant="subHeading" as="h2" className={styles.highlight}>
+          <div className={styles.discount}>
+            <Text variant="subHeading" as="h2">
+              지금 신청 시 최대
+            </Text>
+            <Text variant="subHeading" as="h2">
               25% 할인!
             </Text>
-          </Text>
+          </div>
         </div>
         {/* desktop discount cards */}
         {!isMobileScreen && (
