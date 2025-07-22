@@ -79,3 +79,40 @@
   --font-heading-sub-tablet: 54px;
   --font-heading-sub-desktop: 74px;
 }
+
+/* Responsive Font Sizes Using Media Queries */
+@media (max-width: 767px) {
+  :root {
+    --font-nav: var(--font-nav-mobile);
+    --font-body: var(--font-body-mobile);
+    --font-card-title: var(--font-card-title-mobile);
+    --font-card-desc: var(--font-card-desc-mobile);
+    --font-heading-main: var(--font-heading-main-mobile);
+    --font-sub-heading: var(--font-sub-heading-mobile);
+    --font-heading-sub: var(--font-heading-sub-mobile);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --font-nav: var(--font-nav-tablet);
+    --font-body: var(--font-body-tablet);
+    --font-card-title: var(--font-card-title-tablet);
+    --font-card-desc: var(--font-card-desc-tablet);
+    --font-heading-main: var(--font-heading-main-tablet);
+    --font-sub-heading: var(--font-sub-heading-tablet);
+    --font-heading-sub: var(--font-heading-sub-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-nav: var(--font-nav-desktop);
+    --font-body: var(--font-body-desktop);
+    --font-card-title: var(--font-card-title-desktop);
+    --font-card-desc: var(--font-card-desc-desktop);
+    --font-heading-main: var(--font-heading-main-desktop);
+    --font-sub-heading: var(--font-sub-heading-desktop);
+    --font-heading-sub: var(--font-heading-sub-desktop);
+  }
+}

@@ -169,3 +169,13 @@
 .icon {
   object-fit: contain;
 }
+@media (max-width: 368px) {
+  .paymentTextMobile {
+    right: 4%;
+    top: 25%;
+  }
+  .discountMobile {
+    left: 0.5rem;
+    top: 30%;
+  }
+}

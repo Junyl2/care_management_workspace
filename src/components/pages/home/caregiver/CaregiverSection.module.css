@@ -52,7 +52,7 @@
     font-size: 34px;
   }
   .caregiverContainer {
-    margin-top: -12rem;
+    margin-top: -6rem;
   }
 }
 @media (max-width: 768px) {
@@ -61,6 +61,14 @@
   }
   .caregiverHeader {
     font-size: 24px;
+  }
+  .headingWrapper {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 368px) {
+  .certificatesWrapper {
+    gap: 0.8rem;
   }
 }
 /* 24px

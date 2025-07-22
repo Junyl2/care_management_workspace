@@ -1,5 +1,10 @@
 /*  Utility Classes */
-
+.object-cover {
+  object-fit: cover;
+}
+.object-contain {
+  object-fit: contain;
+}
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -7,12 +7,14 @@ import { Text, Card, Button } from '@components/ui';
 import { useEffect, useState } from 'react';
 
 export const DiscountSection = () => {
+  const [isSmallestScreen, setIsSmallestScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
   const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreen = () => {
       const width = window.innerWidth;
+      setIsSmallestScreen(width < 368);
       setIsMobileScreen(width < 768);
       setIsTabletScreen(width >= 768 && width <= 1024);
     };
@@ -117,8 +119,8 @@ export const DiscountSection = () => {
                     <Image
                       src="/images/discounticon.png"
                       alt="discounts icon"
-                      height={49}
-                      width={73}
+                      height={isSmallestScreen ? 34 : 49}
+                      width={68}
                       className={styles.icon}
                     />
                     <Card.Title className={styles.textColorMobile}>

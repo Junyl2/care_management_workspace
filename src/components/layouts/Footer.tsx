@@ -2,23 +2,39 @@
 import Image from 'next/image';
 import styles from './Footer.module.css';
 import Link from 'next/link';
-
-const linkList = [
-  {
-    listName: '이용약관',
-    link: '',
-  },
-  {
-    listName: '개인정보 처리방침',
-    link: '',
-  },
-  {
-    listName: '재가노인복지센터',
-    link: '',
-  },
-];
+import { useState, useEffect } from 'react';
 
 export const Footer = () => {
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      const width = window.innerWidth;
+      setIsMobileScreen(width < 768);
+      setIsTabletScreen(width >= 768 && width <= 1024);
+    };
+
+    checkScreen();
+
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
+  const linkList = [
+    {
+      listName: '이용약관',
+      link: '', //page to be created
+    },
+    {
+      listName: '개인정보 처리방침',
+      link: '', //page to be created
+    },
+    {
+      listName: '재가노인복지센터',
+      link: '', //page to be created
+    },
+  ];
   return (
     <footer className={styles.footerContainer}>
       <div className="container flex flex-col gap-4 px-6 py-8">
@@ -27,8 +43,9 @@ export const Footer = () => {
             <Image
               src="/images/footerlogo.png"
               alt="footer logo"
-              height={70}
-              width={200}
+              height={isMobileScreen ? 50 : 70}
+              width={isMobileScreen ? 180 : 200}
+              className="object-contain"
             />
             <div className={styles.iconWrapper}>
               <p>
@@ -39,20 +56,23 @@ export const Footer = () => {
                 <Image
                   src="/images/talk.png"
                   alt="Talk Icon"
-                  height={30}
-                  width={30}
+                  height={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
+                  width={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
+                  className="object-contain"
                 />
                 <Image
                   src="/images/social2.png"
                   alt="Social Icon"
-                  height={30}
-                  width={30}
+                  height={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
+                  width={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
+                  className="object-contain"
                 />
                 <Image
                   src="/images/blog.png"
                   alt="Blog Icon"
-                  height={30}
-                  width={30}
+                  height={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
+                  width={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
+                  className="object-contain"
                 />
               </div>
             </div>

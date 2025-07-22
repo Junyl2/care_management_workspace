@@ -1,9 +1,5 @@
 .heading {
-  font-size: clamp(
-    var(--font-heading-main-mobile),
-    8vw,
-    var(--font-heading-main-desktop)
-  );
+  font-size: var(--font-heading-main);
   font-weight: 700;
   font-family: var(--font-pretendard);
   color: var(--text-primary);
@@ -11,11 +7,7 @@
 }
 
 .subtitle {
-  font-size: clamp(
-    var(--font-heading-sub-mobile),
-    6vw,
-    var(--font-heading-sub-desktop)
-  );
+  font-size: var(--font-heading-sub);
   font-weight: 600;
   font-family: var(--font-pretendard);
   color: var(--text-secondary);
@@ -23,11 +15,7 @@
 }
 
 .subHeading {
-  font-size: clamp(
-    var(--font-sub-heading-mobile),
-    6vw,
-    var(--font-sub-heading-desktop)
-  );
+  font-size: var(--font-sub-heading);
   font-weight: 700;
   font-family: var(--font-pretendard);
   color: var(--text-primary);
@@ -35,7 +23,7 @@
 }
 
 .body {
-  font-size: clamp(var(--font-body-mobile), 3vw, var(--font-body-desktop));
+  font-size: var(--font-body);
   font-weight: 400;
   font-family: var(--font-pretendard);
   color: var(--text-primary);
@@ -43,7 +31,7 @@
 }
 
 .caption {
-  font-size: var(--font-body-mobile);
+  font-size: var(--font-body);
   font-weight: 400;
   font-family: var(--font-pretendard);
   color: var(--text-muted);

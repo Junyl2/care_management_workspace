@@ -6,14 +6,14 @@
     "dev": "next dev --turbopack",
     "next": "next start",
     "build": "next build",
-    "start": "npm run setup && npm run dev",
-    "setup": "npm install react react-dom next && npm install axios clsx classnames react-spinners framer-motion react-icons react-hot-toast && npm install -D prettier eslint-config-prettier @types/react @reduxjs/toolkit react-redux",
+    "start": "next start",
+    "launch": "npm run setup && npm run dev",
+    "setup": "npm install react react-dom next && npm install axios react-spinners framer-motion react-icons react-hot-toast && npm install -D prettier eslint-config-prettier @types/react && npm install @reduxjs/toolkit react-redux",
     "clean": "rd /s /q node_modules && del package-lock.json && npm cache clean --force && npm run setup",
-    "lint": " next lint ",
+    "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.10.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
@@ -24,7 +24,6 @@
     "react-dom": "^19.1.0",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
-    "react-redux": "^9.2.0",
     "react-spinners": "^0.17.0",
     "start": "^5.1.0"
   },

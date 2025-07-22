@@ -6,12 +6,14 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export const CaregiverSection = () => {
+  const [isSmallestScreen, setIsSmallestScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
   const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreen = () => {
       const width = window.innerWidth;
+      setIsSmallestScreen(width < 368);
       setIsMobileScreen(width < 768);
       setIsTabletScreen(width >= 768 && width <= 1200);
     };
@@ -24,7 +26,7 @@ export const CaregiverSection = () => {
 
   return (
     <div className={`container ${styles.caregiverContainer}`}>
-      <div className={styles.headingWrapper}>
+      <div className={`container ${styles.headingWrapper}`}>
         <h1 className={styles.caregiverHeader}>
           특허받은 독자 기술로 구현된 돌봄 서비스,
           <span>
@@ -35,25 +37,71 @@ export const CaregiverSection = () => {
         </h1>
       </div>
       <div className={styles.certificatesWrapper}>
-        {/*  <div className={styles.certificate1}></div>
-        <div className={styles.certificate2}></div> */}
         <Image
           src="/images/certificate1.png"
           alt="certificate"
-          height={isMobileScreen ? 184 : isTabletScreen ? 400 : 614}
-          width={isMobileScreen ? 130 : isTabletScreen ? 230 : 434}
+          height={
+            isSmallestScreen
+              ? 160
+              : isMobileScreen
+                ? 184
+                : isTabletScreen
+                  ? 400
+                  : 614
+          }
+          width={
+            isSmallestScreen
+              ? 110
+              : isMobileScreen
+                ? 130
+                : isTabletScreen
+                  ? 230
+                  : 434
+          }
         />
         <Image
           src="/images/certificate2.png"
           alt="certificate"
-          height={isMobileScreen ? 184 : isTabletScreen ? 400 : 614}
-          width={isMobileScreen ? 130 : isTabletScreen ? 230 : 434}
+          height={
+            isSmallestScreen
+              ? 160
+              : isMobileScreen
+                ? 184
+                : isTabletScreen
+                  ? 400
+                  : 614
+          }
+          width={
+            isSmallestScreen
+              ? 110
+              : isMobileScreen
+                ? 130
+                : isTabletScreen
+                  ? 230
+                  : 434
+          }
         />
         <Image
           src="/images/badge.png"
           alt="logo"
-          height={isMobileScreen ? 51 : isTabletScreen ? 132 : 172}
-          width={isMobileScreen ? 51 : isTabletScreen ? 132 : 172}
+          height={
+            isSmallestScreen
+              ? 40
+              : isMobileScreen
+                ? 51
+                : isTabletScreen
+                  ? 132
+                  : 172
+          }
+          width={
+            isSmallestScreen
+              ? 40
+              : isMobileScreen
+                ? 51
+                : isTabletScreen
+                  ? 132
+                  : 172
+          }
         />
       </div>
 
