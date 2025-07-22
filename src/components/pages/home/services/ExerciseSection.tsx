@@ -7,7 +7,7 @@ import { Button } from '@components/ui';
 const ExerciseSection = () => {
   return (
     <HeroWrapper
-      backgroundImage="/images/services/exercise.png"
+      backgroundImage="/assets/images/services/exercise.png"
       className={styles.customHomeHero}
     >
       <div className={styles.contentWrapper}>

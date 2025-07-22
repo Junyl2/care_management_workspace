@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: clamp(4rem, 6vw, 6rem);
 }
 .certificate1 {
@@ -47,23 +47,22 @@
   font-weight: 700;
   text-align: center;
 }
+@media (min-width: 1200px) {
+  .caregiverHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 @media (max-width: 1024px) {
   .caregiverHeader {
     font-size: 34px;
   }
-  .caregiverContainer {
-    margin-top: -6rem;
-  }
 }
 @media (max-width: 768px) {
-  .caregiverContainer {
-    margin-top: 7rem;
-  }
   .caregiverHeader {
     font-size: 24px;
-  }
-  .headingWrapper {
-    margin-top: 10rem;
   }
 }
 @media (max-width: 368px) {
@@ -71,5 +70,3 @@
     gap: 0.8rem;
   }
 }
-/* 24px
- */

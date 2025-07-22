@@ -41,7 +41,7 @@ export const Footer = () => {
         <div className={styles.wrapper}>
           <div className={styles.contentWrapper}>
             <Image
-              src="/images/footerlogo.png"
+              src="/assets/images/footerlogo.png"
               alt="footer logo"
               height={isMobileScreen ? 50 : 70}
               width={isMobileScreen ? 180 : 200}
@@ -54,21 +54,21 @@ export const Footer = () => {
               </p>
               <div className="flex gap-3 mt-4">
                 <Image
-                  src="/images/talk.png"
+                  src="/assets/images/talk.png"
                   alt="Talk Icon"
                   height={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
                   width={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
                   className="object-contain"
                 />
                 <Image
-                  src="/images/social2.png"
+                  src="/assets/images/social2.png"
                   alt="Social Icon"
                   height={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
                   width={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
                   className="object-contain"
                 />
                 <Image
-                  src="/images/blog.png"
+                  src="/assets/images/blog.png"
                   alt="Blog Icon"
                   height={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}
                   width={isMobileScreen ? 20 : isTabletScreen ? 24 : 30}

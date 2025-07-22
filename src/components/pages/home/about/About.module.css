@@ -20,7 +20,7 @@
 }
 
 .imageWrapper {
-  background-image: url('/images/about/doct.png');
+  background-image: url('/assets/images/about/doct.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

@@ -6,7 +6,7 @@ import styles from './AboutHero.module.css';
 const AboutHero = () => {
   return (
     <HeroWrapper
-      backgroundImage="/images/banners/home-hero.jpg"
+      backgroundImage="/assets/images/banners/home-hero.jpg"
       className={styles.customAboutHero}
     >
       <div className={styles.content}>
