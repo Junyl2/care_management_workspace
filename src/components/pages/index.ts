@@ -1,3 +1,4 @@
+//HOME PAGE
 export { default as ServiceCardGrid } from './home/services/ServiceCardGrid';
 export { default as HospitalSection } from './home/services/HospitalSection';
 export { default as HelpMealSection } from './home/services/HelpMealSection';
@@ -9,3 +10,8 @@ export { CustomerReview } from './home/customer-review/CustomerReview';
 export { Caring } from './home/caring/Caring';
 export { DiscountSection } from './home/discount/DiscountSection';
 export { CaregiverSection } from './home/caregiver/CaregiverSection';
+
+//ABOUT PAGE
+export { CaregiverMission } from './about/caregiver-mission/CaregiverMission';
+export { ProblemSolving } from './about/problem-solving/ProblemSolving';
+export { Target } from './about/target/Target';
