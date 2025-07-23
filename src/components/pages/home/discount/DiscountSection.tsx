@@ -66,11 +66,11 @@ export const DiscountSection = () => {
           <Text as="p" variant="body" className={styles.headerText}>
             할인받고 예약하기
           </Text>
+          
           <Text variant="subHeading" as="h2" className={styles.discount}>
             지금 신청 시 최대{' '}
             <span className={styles.highlight}>25% 할인!</span>
-          </Text>
-        </div>
+                  </div>
 
         {/* desktop discount cards */}
         {!isMobileScreen && (
