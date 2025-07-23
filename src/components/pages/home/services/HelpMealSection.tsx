@@ -3,6 +3,7 @@
 import HeroWrapper from '../../../sections/hero/HeroWrapper';
 import styles from './HelpMeal.module.css';
 import { Button } from '@components/ui';
+import Link from 'next/link';
 
 const HealMealSection = () => {
   return (
@@ -18,24 +19,28 @@ const HealMealSection = () => {
             생활편의 서비스를 제공합니다.
           </p>
           <div className={styles.buttons}>
-            <Button
-              variant="primary"
-              size="md"
-              radius="full"
-              fullWidth={false}
-              className={styles.homeButtonWH}
-            >
-              예약하기
-            </Button>
-            <Button
-              variant="secondary"
-              size="md"
-              radius="full"
-              fullWidth={false}
-              className={styles.homeButtonWH}
-            >
-              회사소개
-            </Button>
+            <Link href="/services/help">
+              <Button
+                variant="primary"
+                size="lg"
+                radius="full"
+                fullWidth={false}
+                className={styles.homeButtonWH}
+              >
+                더 알아보기
+              </Button>
+            </Link>
+            <Link href="/make-reservation">
+              <Button
+                variant="secondary"
+                size="lg"
+                radius="full"
+                fullWidth={false}
+                className={styles.homeButtonWH}
+              >
+                예약하기
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

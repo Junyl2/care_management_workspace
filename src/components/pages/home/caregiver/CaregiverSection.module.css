@@ -1,3 +1,11 @@
+.background {
+  background-image: url('/assets/images/caregiver-background.png');
+  background-position: center;
+  background-size: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 6rem 0rem;
+}
 .caregiverContainer {
   display: flex;
   flex-direction: column;

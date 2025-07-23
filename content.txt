@@ -62,3 +62,41 @@ h1 - 특허받은 독자 기술로 구현된 돌봄 서비스,  신뢰브랜�
 certificates - 2 > logo badge
 
 button primary: 회사 소개 보러가기
+
+
+
+.mobileScroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  /* Prevent horizontal scroll overflow issues */
+  max-width: 100%;
+  width: 100%;
+
+  /* Hide scrollbars (cross-browser) */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobileScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileCard {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-width: 260px;
+  max-width: 80vw;
+  box-sizing: border-box;
+}
+
+.buttonSize {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}

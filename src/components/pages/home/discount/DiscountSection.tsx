@@ -53,62 +53,64 @@ export const DiscountSection = () => {
 
   return (
     <div className={styles.containerBg}>
-      <div className="container flex flex-col gap-8">
+      <div className={styles.container}>
         <div className={styles.discountContainer}>
-          <Image
-            src="/assets/images/gift.png"
-            alt="gift icon"
-            width={100}
-            height={100}
-          />
-          <Text as="p" variant="body">
+          {!isMobileScreen && (
+            <Image
+              src="/assets/images/gift.png"
+              alt="gift icon"
+              width={100}
+              height={100}
+            />
+          )}
+          <Text as="p" variant="body" className={styles.headerText}>
             할인받고 예약하기
           </Text>
-          <div className={styles.discount}>
-            <Text variant="subHeading" as="h2">
-              지금 신청 시 최대
-            </Text>
-            <Text variant="subHeading" as="h2">
-              25% 할인!
-            </Text>
-          </div>
-        </div>
+          
+          <Text variant="subHeading" as="h2" className={styles.discount}>
+            지금 신청 시 최대{' '}
+            <span className={styles.highlight}>25% 할인!</span>
+                  </div>
+
         {/* desktop discount cards */}
         {!isMobileScreen && (
-          <div className="container flex items-center justify-center gap-4 ">
+          <div className={styles.cardContainer}>
             {discountList.map((list, index) => (
               <Card key={index} className={styles.cardBackground}>
-                <div className={styles.contentWrapper}>
-                  <Card.Header className={styles.cardHeader}>
-                    <Image
-                      src="/assets/images/discounticon.png"
-                      alt="discounts icon"
-                      height={49}
-                      width={73}
-                    />
-                    <Card.Text> {list.iconLabel}</Card.Text>
-                  </Card.Header>
-                  <Card.Content className={styles.cardContent}>
-                    <Card.Title className={styles.textColor}>
-                      {list.discountRate}
-                    </Card.Title>
-                    <Card.Text className={styles.paymentColor}>
-                      {list.payment}
-                    </Card.Text>
-                  </Card.Content>
-                  <Card.Action>
-                    <Button
-                      variant="primary"
-                      size={
-                        isMobileScreen ? 'sm' : isTabletScreen ? 'sm' : 'md'
-                      }
-                      radius="full"
-                      className={styles.buttonText}
-                    >
-                      {list.buttonText}
-                    </Button>
-                  </Card.Action>
+                <div className={styles.cardHeader}>
+                  <Image
+                    src="/assets/images/discounticon.png"
+                    alt="discounts icon"
+                    height={79}
+                    width={81}
+                    className="object-contain"
+                  />
+                  <Card.Text className={styles.label}>
+                    {list.iconLabel}
+                  </Card.Text>
                 </div>
+
+                <Card.Title className={styles.textColor}>
+                  {list.discountRate}
+                </Card.Title>
+
+                <div className={styles.payment}>
+                  <Card.Text className={styles.paymentColor}>
+                    {list.payment}
+                  </Card.Text>
+                </div>
+
+                <Card.Action>
+                  <Button
+                    variant="primary"
+                    size={isMobileScreen ? 'sm' : isTabletScreen ? 'sm' : 'lg'}
+                    radius="full"
+                    fullWidth
+                    className={styles.buttonText}
+                  >
+                    {list.buttonText}
+                  </Button>
+                </Card.Action>
               </Card>
             ))}
           </div>

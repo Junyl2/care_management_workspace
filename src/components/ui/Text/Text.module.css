@@ -23,11 +23,21 @@
 }
 
 .body {
-  font-size: var(--font-body);
-  font-weight: 400;
+  font-size: 26px;
+  font-weight: 600;
   font-family: var(--font-pretendard);
   color: var(--text-primary);
   line-height: 1.6;
+}
+@media (max-width: 1024px) {
+  .body {
+    font-size: 22px;
+  }
+}
+@media (max-width: 768px) {
+  .body {
+    font-size: 17px;
+  }
 }
 
 .caption {

@@ -1,16 +1,50 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 47px;
+  padding-bottom: 4rem;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 40px;
+}
+.subHeading h3 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .primaryColor {
   color: #007fff;
-  font-weight: bold;
+  font-weight: 600;
 }
 .subTitle {
-  font-size: 30px;
   font-weight: 700;
+  font-size: clamp(1.25rem, 1rem + 1.5vw, 1.875rem);
 }
-.subHeading {
+.contact {
   color: #007fff;
-  font-size: 46px;
+  font-size: clamp(2.125rem, 1.5rem + 1.8vw, 2.875rem);
   font-weight: 700;
 }
+.cardTitle {
+  color: black;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.cardText {
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+
 .cardWrapper {
   display: flex;
   flex-direction: row;
@@ -32,9 +66,7 @@
   object-fit: cover;
   border-radius: 20px;
 }
-.cardText {
-  font-size: 1rem;
-}
+
 .imageWrapper {
   position: relative;
   width: 384px;
@@ -54,19 +86,40 @@
   .subHeading {
     font-size: 38px;
   }
+  .cardText {
+    font-size: 16px;
+  }
+  .cardTitle {
+    font-size: 22px;
+  }
   .subTitle {
     font-size: 24px;
+  }
+  .cardWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 246px;
+    height: 102px;
+    padding: 0rem;
   }
 }
 
 @media (max-width: 768px) {
+  .cardText {
+    font-size: 12px;
+  }
+  .cardTitle {
+    font-size: 18px;
+  }
+
   .cardWrapper {
     flex-direction: column;
     width: fit-content;
     height: 108px;
     width: 108px;
-    padding: 1rem;
-    gap: 8px;
+    gap: 6px;
+    padding: 8px 4px;
     text-align: center;
   }
   .imageWrapper {
@@ -75,12 +128,7 @@
     height: 171px;
     object-fit: cover;
   }
-  .cardText {
-    font-size: 12px;
-  }
-  .cardTitle {
-    font-size: 18px;
-  }
+
   .subHeading {
     font-size: 34px;
   }

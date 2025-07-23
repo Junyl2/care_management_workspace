@@ -1,5 +1,10 @@
 .homeHeading {
-  font-size: 1rem;
+  font-size: 34px;
+  font-weight: 600;
+  text-align: center;
+}
+.heading {
+  text-align: center;
 }
 .container {
   width: 100%;
@@ -10,6 +15,11 @@
 }
 
 /* Breakpoint max-widths — based on Tailwind defaults */
+@media (min-width: 368px) {
+  .homeHeading {
+    font-size: 18px;
+  }
+}
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -25,6 +35,10 @@
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
+  }
+  .homeHeading {
+    text-align: start;
+    font-size: 22px;
   }
 }
 

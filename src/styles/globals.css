@@ -6,17 +6,12 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: var(--font-pretendard);
+  font-family: var(--font-pretendard), 'Albert Sans', sans-serif;
 }
 
 /* LAYER UTILITIES */
 /* Typography Classes */
-.home-section-heading {
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: start;
-  color: var(--text-dark);
-}
+
 .section-heading {
   font-size: 2rem;
   font-weight: 700;
@@ -33,6 +28,10 @@
   font-weight: 700;
   color: var(--text-light);
   line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
 }
 
 .heading-sub {
@@ -151,6 +150,9 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.h-screen {
+  min-height: 100vh;
 }
 
 /* Breakpoint max-widths — based on Tailwind defaults */
