@@ -1,4 +1,7 @@
 /*  Utility Classes */
+.primaryColor {
+  color: #007fff !important;
+}
 .object-cover {
   object-fit: cover;
 }

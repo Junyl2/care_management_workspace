@@ -16,11 +16,11 @@ import {
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="h-screen">
       <HomeHero />
-      <section className="section-space">
+      <section className="section-space ">
         <div className={`${styles.container}`}>
-          <h2 className="home-section-heading ">
+          <h2 className={styles.homeHeading}>
             원하는 서비스를 바로 이용해보세요.
           </h2>
           <ServiceCardGrid />
@@ -40,7 +40,7 @@ export default function HomePage() {
       <section className="section-space">
         <Caring />
       </section>
-      <section className="section-space">
+      <section>
         <DiscountSection />
       </section>
       <section>

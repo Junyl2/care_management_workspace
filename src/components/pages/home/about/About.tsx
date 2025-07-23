@@ -5,6 +5,7 @@ import { Card, Button } from '@/components/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { Text } from '@components/ui';
 export const About = () => {
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
   const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
@@ -30,32 +31,36 @@ export const About = () => {
         >
           <Card
             variant="clean"
-            className={`${styles.maxWidth} space-y-6`}
+            className={`${styles.maxHeight} space-y-6`}
             radius="no-radius"
             padding="none"
           >
             <Card.Header className="space-y-4">
-              <Card.Text className={styles.aboutUs}>회사 소개</Card.Text>
+              <Text as="p" variant="body" className="primaryColor">
+                회사 소개
+              </Text>
               <Card.Title className={styles.cardTitle}>
                 당신의 집에서 가장 가까운 돌봄
               </Card.Title>
             </Card.Header>
-            <Card.Content>
+            <Card.Content className={styles.content}>
               <Card.Text className={styles.cardBody}>
                 우리는 돌봄인력 부족이라는 사회적 문제를 해결하여 어르신이 살던
                 곳에서 존엄한 노후를 보내실 수 있도록 돕습니다. 이것이 우리가
                 추구하는입니다.
               </Card.Text>
-              <Card.Text className={styles.cardFooter}>
-                돌봄대장 대표 윤나래
+              <div className={styles.signatureContainer}>
+                <Card.Text className={styles.text}>
+                  돌봄대장 대표 윤나래
+                </Card.Text>
                 <Image
                   src="/assets/images/signature.png"
                   alt="signature"
-                  height={isMobileScreen ? 100 : isTabletScreen ? 120 : 136}
-                  width={136}
+                  height={isMobileScreen ? 87 : isTabletScreen ? 135 : 136}
+                  width={isMobileScreen ? 87 : isTabletScreen ? 135 : 136}
                   className={styles.signature}
                 />
-              </Card.Text>
+              </div>
             </Card.Content>
             <Card.Action className={styles.hideMobile}>
               <Link href="/services">

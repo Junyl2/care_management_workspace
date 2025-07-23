@@ -17,18 +17,21 @@
   font-weight: bold;
   font-size: 44px;
 }
-.cardFooter {
+.text {
   font-size: 26px;
   font-weight: 700;
   color: black;
   text-align: start;
   margin-top: 10rem;
-  position: relative;
 }
-.signature {
+.signatureContainer {
+  position: relative;
+  width: fit-content;
+}
+.signatureContainer img {
   position: absolute;
-  right: 47%;
-  top: -70%;
+  right: -44%;
+  top: -64%;
 }
 
 .imageWrapper {
@@ -46,7 +49,7 @@
   max-width: 1200px;
   width: 100%;
 }
-.maxWidth {
+.maxHeight {
   height: 500px;
 }
 
@@ -61,12 +64,18 @@
   .hideMobile {
     display: none;
   }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   .buttonMobile {
     display: block;
     margin-top: 2.5rem;
   }
-  .maxWidth {
+  .maxHeight {
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -82,7 +91,7 @@
     justify-content: center;
     text-align: center;
   }
-  .cardFooter {
+  .text {
     margin-top: 0;
     padding: 2rem 0rem;
     font-size: 15px;
@@ -96,10 +105,15 @@
     font-size: 36px;
     text-align: center;
   }
+  .signatureContainer img {
+    position: absolute;
+    right: -78%;
+    top: 2%;
+  }
 }
 
 @media (max-width: 768px) {
-  .maxWidth {
+  .maxHeight {
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -107,7 +121,11 @@
     justify-content: center;
     text-align: center;
   }
-
+  .signatureContainer img {
+    position: absolute;
+    right: -50%;
+    top: 18%;
+  }
   .flex-center {
     display: flex;
     flex-direction: column;
@@ -115,7 +133,7 @@
     justify-content: center;
     text-align: center;
   }
-  .cardFooter {
+  .text {
     margin-top: 0;
     padding: 2rem 0rem;
     font-size: 15px;

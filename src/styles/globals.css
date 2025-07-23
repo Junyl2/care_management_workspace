@@ -11,13 +11,7 @@
 
 /* LAYER UTILITIES */
 /* Typography Classes */
-.home-section-heading {
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: start;
-  color: var(--text-dark);
-  text-align: center;
-}
+
 .section-heading {
   font-size: 2rem;
   font-weight: 700;
@@ -177,9 +171,6 @@ a {
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
-  }
-  .home-section-heading {
-    text-align: start;
   }
 }
 

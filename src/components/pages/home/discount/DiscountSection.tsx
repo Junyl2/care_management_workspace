@@ -55,13 +55,15 @@ export const DiscountSection = () => {
     <div className={styles.containerBg}>
       <div className={styles.container}>
         <div className={styles.discountContainer}>
-          <Image
-            src="/assets/images/gift.png"
-            alt="gift icon"
-            width={100}
-            height={100}
-          />
-          <Text as="p" variant="body">
+          {!isMobileScreen && (
+            <Image
+              src="/assets/images/gift.png"
+              alt="gift icon"
+              width={100}
+              height={100}
+            />
+          )}
+          <Text as="p" variant="body" className={styles.headerText}>
             할인받고 예약하기
           </Text>
           <Text variant="subHeading" as="h2" className={styles.discount}>

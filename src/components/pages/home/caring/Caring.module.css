@@ -3,8 +3,8 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
   gap: 47px;
+  padding-bottom: 4rem;
 }
 .heading {
   display: flex;
@@ -22,7 +22,7 @@
 
 .primaryColor {
   color: #007fff;
-  font-weight: bold;
+  font-weight: 600;
 }
 .subTitle {
   font-weight: 700;
