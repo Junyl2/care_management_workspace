@@ -66,7 +66,8 @@
 
 .details {
   color: #979797 !important;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .primayColor {
@@ -202,6 +203,9 @@
   .description {
     font-size: 18px;
     color: black !important;
+  }
+  .details {
+    font-size: 14px;
   }
 
   .firstRow {

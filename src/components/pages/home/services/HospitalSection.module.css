@@ -1,7 +1,19 @@
 .customHomeHero {
   height: 650px;
+  position: relative;
+  z-index: 0;
 }
-
+.customHomeHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 40%);
+  z-index: 1;
+  pointer-events: none;
+}
 .content {
   max-width: 700px;
 }
@@ -10,19 +22,25 @@
   font-size: 69px;
   font-weight: 700;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: black;
+  position: relative;
+  z-index: 2;
 }
 
 .subtitle {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 40px;
-  color: #ffffff;
+  color: black;
+  position: relative;
+  z-index: 2;
   line-height: 1.6;
 }
 .homeButtonWH {
   width: 240px;
   height: 50px;
+  position: relative;
+  z-index: 2;
 }
 
 .buttons {
