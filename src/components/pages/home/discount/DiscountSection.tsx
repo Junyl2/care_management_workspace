@@ -65,12 +65,11 @@ export const DiscountSection = () => {
             할인받고 예약하기
           </Text>
           <Text variant="subHeading" as="h2" className={styles.discount}>
-            지금 신청 시 최대
-            <Text variant="subHeading" as="h2" className={styles.highlight}>
-              25% 할인!
-            </Text>
+            지금 신청 시 최대{' '}
+            <span className={styles.highlight}>25% 할인!</span>
           </Text>
         </div>
+
         {/* desktop discount cards */}
         {!isMobileScreen && (
           <div className={styles.cardContainer}>
@@ -102,7 +101,7 @@ export const DiscountSection = () => {
                 <Card.Action>
                   <Button
                     variant="primary"
-                    size={isMobileScreen ? 'sm' : isTabletScreen ? 'md' : 'lg'}
+                    size={isMobileScreen ? 'sm' : isTabletScreen ? 'sm' : 'lg'}
                     radius="full"
                     fullWidth
                     className={styles.buttonText}

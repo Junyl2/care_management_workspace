@@ -33,20 +33,6 @@
   height: 50px;
 }
 
-@media (max-width: 1024px) {
-  .homeButtonWH {
-    width: 160px;
-    height: 44px;
-  }
-}
-@media (max-width: 768px) {
-  .button {
-    width: 160px;
-    height: 44px;
-    font-size: 14px;
-  }
-}
-
 .buttons {
   display: flex;
   gap: 20px;
@@ -59,6 +45,20 @@
 }
 
 @media (max-width: 1024px) {
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    padding-inline: 1rem;
+  }
+  .homeButtonWH {
+    width: 240px;
+    height: 44px;
+  }
+
   .customHomeHero {
     height: 614px;
   }
@@ -85,22 +85,15 @@
     padding-left: 24px;
   }
 
-  .content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: start;
-    padding-inline: 1rem;
-  }
-
   .title {
     font-size: 32px;
   }
 
   .subtitle {
     font-size: 15px;
+  }
+  .homeButtonWH {
+    width: 160px;
   }
 }
 @media (max-width: 368px) {

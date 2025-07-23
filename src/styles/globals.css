@@ -16,6 +16,7 @@
   font-weight: 700;
   text-align: start;
   color: var(--text-dark);
+  text-align: center;
 }
 .section-heading {
   font-size: 2rem;
@@ -33,6 +34,10 @@
   font-weight: 700;
   color: var(--text-light);
   line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
 }
 
 .heading-sub {
@@ -152,6 +157,9 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.h-screen {
+  min-height: 100vh;
+}
 
 /* Breakpoint max-widths — based on Tailwind defaults */
 @media (min-width: 640px) {
@@ -169,6 +177,9 @@
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
+  }
+  .home-section-heading {
+    text-align: start;
   }
 }
 

@@ -14,6 +14,8 @@ interface ButtonProps extends BaseComponent {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   style?: React.CSSProperties;
+  as?: 'button' | 'a';
+  href?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -28,27 +30,33 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button',
   className,
+  style,
+  as = 'button',
+  href,
   ...props
 }) => {
+  const Component = as;
+
   return (
-    <button
-      type={type}
-      disabled={disabled || loading}
+    <Component
+      type={as === 'button' ? type : undefined}
+      href={as === 'a' ? href : undefined}
+      disabled={as === 'button' ? disabled || loading : undefined}
       onClick={onClick}
       className={cn(
         styles.button,
         styles[variant],
         styles[size],
         fullWidth && styles.fullWidth,
-        styles[`radius-${radius}`], //
+        styles[`radius-${radius}`],
         { [styles.loading]: loading },
         className
       )}
-      style={{ width }}
+      style={{ width, ...style }}
       {...props}
     >
       {loading && <span className={styles.spinner} />}
       {children}
-    </button>
+    </Component>
   );
 };

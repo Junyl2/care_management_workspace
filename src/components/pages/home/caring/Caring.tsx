@@ -5,11 +5,14 @@ import styles from './Caring.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 export const Caring = () => {
-  const [isMobileOpen, setIsMobileOpen] = useState<boolean>(false);
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreen = () => {
-      setIsMobileOpen(window.innerWidth < 768);
+      const width = window.innerWidth;
+      setIsMobileScreen(width < 768);
+      setIsTabletScreen(width >= 768 && width <= 1024);
     };
 
     checkScreen();
@@ -61,15 +64,18 @@ export const Caring = () => {
   ];
 
   return (
-    <section className="container flex flex-col items-center justify-center gap-8">
-      <div className="container flex flex-col items-center justify-center gap-6">
-        <Text variant="body" as="p" className={styles.primaryColor}>
-          돌봄 친구
-        </Text>
+    <section className={`container ${styles.mainContainer}`}>
+      <div className={`container ${styles.heading}`}>
+        <div>
+          <Text variant="body" as="p" className={styles.primaryColor}>
+            돌봄 친구
+          </Text>
 
-        <Text variant="subHeading" as="h2">
-          당신의 집에서 가장 가까운 돌봄 친구가 찾아갑니다
-        </Text>
+          <Text variant="subHeading" as="h2">
+            당신의 집에서 가장 가까운 돌봄 친구가 찾아갑니다
+          </Text>
+        </div>
+
         <div className="container flex items-center justify-center space-x-4">
           <Button variant="primary" radius="full" width="240px">
             더 알아보기
@@ -80,17 +86,17 @@ export const Caring = () => {
         </div>
       </div>
 
-      <div className="container flex items-center flex-col justify-center">
-        <Text variant="subHeading" as="h3">
-          {' '}
-          케어 안심 센터
-        </Text>
-        <Text variant="subHeading" as="h3" className={styles.subTitle}>
-          {' '}
-          연중무휴 24시간 상담
-        </Text>
-        <Text variant="subHeading" as="h2" className={styles.subHeading}>
-          {' '}
+      <div className="container flex items-center flex-col justify-center gap-4">
+        <div className={styles.subHeading}>
+          <Text variant="subHeading" as="h3">
+            케어 안심 센터
+          </Text>
+          <Text variant="subHeading" as="h3" className={styles.subTitle}>
+            연중무휴 24시간 상담
+          </Text>
+        </div>
+
+        <Text variant="subHeading" as="h2" className={styles.contact}>
           1588-2905
         </Text>
       </div>
@@ -101,26 +107,20 @@ export const Caring = () => {
             <Image
               src={`/assets/images/caring/qual${index + 1}.png`}
               alt={list.title ?? 'qualification'}
-              height={isMobileOpen ? 32 : 37}
-              width={isMobileOpen ? 32 : 37}
+              height={isMobileScreen ? 32 : isTabletScreen ? 50 : 60}
+              width={isMobileScreen ? 32 : isTabletScreen ? 50 : 66}
               className={styles.image}
             />
-            <Card.Content>
-              <div className="flex flex-col">
-                <Card.Title className={styles.cardTitle}>
-                  {list.title}
-                </Card.Title>
-                <Card.Text className={styles.cardText}>
-                  {list.position}
-                </Card.Text>
-              </div>
-            </Card.Content>
+            <div className="flex flex-col gap-2">
+              <Card.Title className={styles.cardTitle}>{list.title}</Card.Title>
+              <Card.Text className={styles.cardText}>{list.position}</Card.Text>
+            </div>
           </Card>
         ))}
       </div>
 
       {/* employee */}
-      {!isMobileOpen && (
+      {!isMobileScreen && (
         <div className="grid grid-cols-5 gap-4">
           {employeeProfile.map((list, index) => (
             <div className={styles.imageWrapper} key={index}>
@@ -137,7 +137,7 @@ export const Caring = () => {
         </div>
       )}
 
-      {isMobileOpen && (
+      {isMobileScreen && (
         <div className={styles.container}>
           {/* First row: 2 centered employee images */}
           <div className={styles.firstRow}>

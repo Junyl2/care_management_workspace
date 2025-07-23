@@ -2,6 +2,12 @@
   font-size: 1rem;
   color: #007fff !important;
 }
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 .cardBody {
   font-size: 20px;
   color: black;
@@ -17,6 +23,12 @@
   color: black;
   text-align: start;
   margin-top: 10rem;
+  position: relative;
+}
+.signature {
+  position: absolute;
+  right: 47%;
+  top: -70%;
 }
 
 .imageWrapper {
@@ -37,12 +49,7 @@
 .maxWidth {
   height: 500px;
 }
-.flexCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
+
 .buttonMobile {
   display: none;
 }
@@ -121,5 +128,11 @@
   .cardTitle {
     font-size: 36px;
     text-align: center;
+  }
+  .buttonMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
   }
 }

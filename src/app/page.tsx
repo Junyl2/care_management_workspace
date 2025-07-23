@@ -20,7 +20,7 @@ export default function HomePage() {
       <HomeHero />
       <section className="section-space">
         <div className={`${styles.container}`}>
-          <h2 className="home-section-heading">
+          <h2 className="home-section-heading ">
             원하는 서비스를 바로 이용해보세요.
           </h2>
           <ServiceCardGrid />

@@ -244,6 +244,7 @@
   .mdHidden {
     display: block;
     width: 109px;
-    margin-top: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
   }
 }

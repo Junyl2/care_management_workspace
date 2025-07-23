@@ -34,8 +34,17 @@
 }
 
 @media (max-width: 1024px) {
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    padding-inline: 1rem;
+  }
   .homeButtonWH {
-    width: 160px;
+    width: 240px;
     height: 44px;
   }
 }
@@ -85,22 +94,15 @@
     padding-left: 24px;
   }
 
-  .content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: start;
-    padding-inline: 1rem;
-  }
-
   .title {
     font-size: 32px;
   }
 
   .subtitle {
     font-size: 15px;
+  }
+  .homeButtonWH {
+    width: 160px;
   }
 }
 @media (max-width: 368px) {
