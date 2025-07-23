@@ -3,6 +3,7 @@
 import HeroWrapper from './HeroWrapper';
 import styles from './HomeHero.module.css';
 import { Button } from '@components/ui';
+import Link from 'next/link';
 
 const HomeHero = () => {
   return (
@@ -26,15 +27,17 @@ const HomeHero = () => {
           >
             예약하기
           </Button>
-          <Button
-            variant="secondary"
-            size="md"
-            radius="full"
-            fullWidth={false}
-            className={styles.homeButtonWH}
-          >
-            회사소개
-          </Button>
+          <Link href="/about-us">
+            <Button
+              variant="secondary"
+              size="md"
+              radius="full"
+              fullWidth={false}
+              className={styles.homeButtonWH}
+            >
+              회사소개
+            </Button>
+          </Link>
         </div>
       </div>
     </HeroWrapper>

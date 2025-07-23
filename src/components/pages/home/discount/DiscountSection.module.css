@@ -6,6 +6,23 @@
   height: 100%;
   width: 100%;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 1rem;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1368px;
+}
 .discountContainer {
   display: flex;
   flex-direction: column;
@@ -15,47 +32,82 @@
   padding: 5rem 0rem;
 }
 .cardBackground {
-  background-image: url('/assets/images/Subtract.png'); /* Use your correct path */
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 284px;
-  height: 360px;
-
-  background-color: none;
-  border: none;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  position: relative;
+  border: none;
   gap: 1rem;
   padding: 1.5rem;
   box-sizing: border-box;
-
   text-align: center;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 25%;
+  box-sizing: border-box;
+  padding: 1rem;
+  text-align: center;
+  height: 471px;
 }
-.textColor {
-  color: #5a5aff;
-  font-size: 38px;
-}
-.paymentColor {
-  color: black;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 2rem;
+.cardBackground::before {
+  content: '';
+  position: absolute;
+  background-image: url('/assets/images/Subtract.png'); /* Use your correct path */
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .contentWrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  width: 160px;
+  gap: 2rem 0rem;
   height: 100%;
+}
+.label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #5a636a !important;
+}
+.cardHeader {
+  position: relative;
+}
+.cardContent {
+  position: relative;
+}
+.payment {
+  position: relative;
+  max-width: 144px;
 }
 .buttonText {
   width: 224px;
 }
+
+.textColor {
+  color: #5a5aff;
+  font-size: 48px;
+  font-weight: bold;
+  position: relative;
+}
+.paymentColor {
+  color: black;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 139%;
+}
+
+/* .buttonText {
+  width: 264px;
+} */
 .discount {
   display: flex;
   align-items: center;
@@ -63,53 +115,23 @@
   gap: 0.5rem;
 }
 
-@media (max-width: 1024px) {
-  .discountContainer {
-    padding: 4rem 0rem;
-  }
-  .buttonText {
-    width: 180px;
-  }
-  .cardBackground {
-    height: 320px;
-  }
-  .textColor {
-    font-size: 36px;
-  }
-  .paymentColor {
-    font-size: 15px;
-  }
-  .buttonText {
-    font-size: 15px;
-  }
-  .containerBg {
-    height: 100%;
-  }
+.icon {
+  object-fit: contain;
 }
-@media (max-width: 938px) {
+
+/* @media (min-width: 1600px) {
   .cardBackground {
-    width: 180px;
+    width: 324px;
+    height: 471px;
   }
-  .cardBackground {
-    background-size: 100% 100%;
-  }
-  .buttonText {
-    width: 144px;
-    margin-bottom: 2.5rem;
-  }
-  .cardContent {
-    margin-top: 1.5rem;
-  }
-  .cardHeader {
-    margin-top: 1.5rem;
-  }
-}
+} */
 
 .cardBackgroundMobile {
   border: none;
   background-color: transparent;
 
   height: 140px;
+  width: 500px;
 
   display: flex;
   justify-content: center;
@@ -172,9 +194,44 @@
   left: 1.1rem;
   top: 30%;
 }
-.icon {
-  object-fit: contain;
+
+@media (max-width: 1024px) {
+  .cardBackground {
+    height: 310px;
+  }
+  .textColor {
+    font-size: 34px;
+  }
+
+  .textColor {
+    font-size: 34px;
+  }
+  .paymentColor {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .buttonText {
+    font-size: 18px;
+    width: 154px;
+    font-weight: 600;
+  }
+  .payment {
+    max-width: 99px;
+  }
+  .label {
+    font-size: 12px;
+  }
 }
+
+@media (max-width: 860px) {
+  .buttonText {
+    width: 144px;
+  }
+  .textColor {
+    font-size: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .discount {
     display: flex;
@@ -184,8 +241,26 @@
     text-align: center;
     gap: 0.1rem;
   }
+  .cardBackground {
+    height: 350px;
+  }
 }
+
+@media (max-width: 520px) {
+  .cardBackgroundMobile {
+    width: 400px;
+  }
+}
+@media (max-width: 468px) {
+  .cardBackgroundMobile {
+    width: 360px;
+  }
+}
+
 @media (max-width: 368px) {
+  .cardBackgroundMobile {
+    width: 320px;
+  }
   .paymentTextMobile {
     right: 4%;
     top: 25%;

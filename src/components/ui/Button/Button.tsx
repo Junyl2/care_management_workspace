@@ -1,10 +1,10 @@
 import React from 'react';
-import { BaseComponent, Variant, Size, Radius } from '@/types';
+import { BaseComponent, Variant, Size, Radius, ReviewVariant } from '@/types';
 import { cn } from '@lib/utils';
 import styles from './Button.module.css';
 
 interface ButtonProps extends BaseComponent {
-  variant?: Variant;
+  variant?: Variant | ReviewVariant;
   size?: Size;
   radius?: Radius;
   disabled?: boolean;

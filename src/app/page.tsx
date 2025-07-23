@@ -43,7 +43,7 @@ export default function HomePage() {
       <section className="section-space">
         <DiscountSection />
       </section>
-      <section className="section-space">
+      <section>
         <CaregiverSection />
       </section>
     </main>

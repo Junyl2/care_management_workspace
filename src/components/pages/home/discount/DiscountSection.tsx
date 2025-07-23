@@ -53,7 +53,7 @@ export const DiscountSection = () => {
 
   return (
     <div className={styles.containerBg}>
-      <div className="container flex flex-col gap-8">
+      <div className={styles.container}>
         <div className={styles.discountContainer}>
           <Image
             src="/assets/images/gift.png"
@@ -73,40 +73,43 @@ export const DiscountSection = () => {
         </div>
         {/* desktop discount cards */}
         {!isMobileScreen && (
-          <div className="container flex items-center justify-center gap-4 ">
+          <div className={styles.cardContainer}>
             {discountList.map((list, index) => (
               <Card key={index} className={styles.cardBackground}>
-                <div className={styles.contentWrapper}>
-                  <Card.Header className={styles.cardHeader}>
-                    <Image
-                      src="/assets/images/discounticon.png"
-                      alt="discounts icon"
-                      height={49}
-                      width={73}
-                    />
-                    <Card.Text> {list.iconLabel}</Card.Text>
-                  </Card.Header>
-                  <Card.Content className={styles.cardContent}>
-                    <Card.Title className={styles.textColor}>
-                      {list.discountRate}
-                    </Card.Title>
-                    <Card.Text className={styles.paymentColor}>
-                      {list.payment}
-                    </Card.Text>
-                  </Card.Content>
-                  <Card.Action>
-                    <Button
-                      variant="primary"
-                      size={
-                        isMobileScreen ? 'sm' : isTabletScreen ? 'sm' : 'md'
-                      }
-                      radius="full"
-                      className={styles.buttonText}
-                    >
-                      {list.buttonText}
-                    </Button>
-                  </Card.Action>
+                <div className={styles.cardHeader}>
+                  <Image
+                    src="/assets/images/discounticon.png"
+                    alt="discounts icon"
+                    height={79}
+                    width={81}
+                    className="object-contain"
+                  />
+                  <Card.Text className={styles.label}>
+                    {list.iconLabel}
+                  </Card.Text>
                 </div>
+
+                <Card.Title className={styles.textColor}>
+                  {list.discountRate}
+                </Card.Title>
+
+                <div className={styles.payment}>
+                  <Card.Text className={styles.paymentColor}>
+                    {list.payment}
+                  </Card.Text>
+                </div>
+
+                <Card.Action>
+                  <Button
+                    variant="primary"
+                    size={isMobileScreen ? 'sm' : isTabletScreen ? 'md' : 'lg'}
+                    radius="full"
+                    fullWidth
+                    className={styles.buttonText}
+                  >
+                    {list.buttonText}
+                  </Button>
+                </Card.Action>
               </Card>
             ))}
           </div>
