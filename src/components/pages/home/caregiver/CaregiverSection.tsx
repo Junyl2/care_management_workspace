@@ -38,7 +38,7 @@ export const CaregiverSection = () => {
       </div>
       <div className={styles.certificatesWrapper}>
         <Image
-          src="/images/certificate1.png"
+          src="/assets/images/certificate1.png"
           alt="certificate"
           height={
             isSmallestScreen
@@ -60,7 +60,7 @@ export const CaregiverSection = () => {
           }
         />
         <Image
-          src="/images/certificate2.png"
+          src="/assets/images/certificate2.png"
           alt="certificate"
           height={
             isSmallestScreen
@@ -82,7 +82,7 @@ export const CaregiverSection = () => {
           }
         />
         <Image
-          src="/images/badge.png"
+          src="/assets/images/badge.png"
           alt="logo"
           height={
             isSmallestScreen

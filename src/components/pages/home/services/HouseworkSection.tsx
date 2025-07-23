@@ -7,7 +7,7 @@ import { Button } from '@components/ui';
 const HouseworkSection = () => {
   return (
     <HeroWrapper
-      backgroundImage="/images/services/housework.png"
+      backgroundImage="/assets/images/services/housework.png"
       className={styles.customHomeHero}
     >
       <div className={styles.content}>

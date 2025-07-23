@@ -23,7 +23,7 @@ export const CustomerReview = () => {
     {
       services: '병원동행 서비스',
       variant: 'hospital',
-      profileImg: '/images/pp.jpg',
+      profileImg: '/assets/images/pp.jpg',
       name: '최*민',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 70대, 경기도, 🙋‍)',
@@ -34,7 +34,7 @@ export const CustomerReview = () => {
     {
       services: '식사도움 서비스',
       variant: 'meal',
-      profileImg: '/images/pp.jpg',
+      profileImg: '/assets/images/pp.jpg',
       name: '김*수',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 80대, 서울, 👴)',
@@ -45,7 +45,7 @@ export const CustomerReview = () => {
     {
       services: '운동도움 서비스',
       variant: 'exercise',
-      profileImg: '/images/pp.jpg',
+      profileImg: '/assets/images/pp.jpg',
       name: '박*영',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 60대, 부산, 🙆‍♀️)',
@@ -55,7 +55,7 @@ export const CustomerReview = () => {
     {
       services: '목욕도움 서비스',
       variant: 'bath',
-      profileImg: '/images/pp.jpg',
+      profileImg: '/assets/images/pp.jpg',
       name: '이*준',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 90대, 대전, 🛁)',
@@ -66,7 +66,7 @@ export const CustomerReview = () => {
     {
       services: '가사도움 서비스',
       variant: 'housekeeping',
-      profileImg: '/images/pp.jpg',
+      profileImg: '/assets/images/pp.jpg',
       name: '정*자',
       ratings: '⭐️⭐️⭐️⭐️⭐️ 5.0',
       details: '(어르신, 70대, 인천, 👵)',

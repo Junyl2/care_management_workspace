@@ -56,7 +56,7 @@ export const DiscountSection = () => {
       <div className="container flex flex-col gap-8">
         <div className={styles.discountContainer}>
           <Image
-            src="/images/gift.png"
+            src="/assets/images/gift.png"
             alt="gift icon"
             width={100}
             height={100}
@@ -64,9 +64,14 @@ export const DiscountSection = () => {
           <Text as="p" variant="body">
             할인받고 예약하기
           </Text>
-          <Text variant="subHeading" as="h2">
-            지금 신청 시 최대 25% 할인!
-          </Text>
+          <div className={styles.discount}>
+            <Text variant="subHeading" as="h2">
+              지금 신청 시 최대
+            </Text>
+            <Text variant="subHeading" as="h2">
+              25% 할인!
+            </Text>
+          </div>
         </div>
         {/* desktop discount cards */}
         {!isMobileScreen && (
@@ -76,7 +81,7 @@ export const DiscountSection = () => {
                 <div className={styles.contentWrapper}>
                   <Card.Header className={styles.cardHeader}>
                     <Image
-                      src="/images/discounticon.png"
+                      src="/assets/images/discounticon.png"
                       alt="discounts icon"
                       height={49}
                       width={73}
@@ -117,7 +122,7 @@ export const DiscountSection = () => {
                 <Card.Content className="flex items-center justify-between p-6">
                   <div className={styles.discountMobile}>
                     <Image
-                      src="/images/discounticon.png"
+                      src="/assets/images/discounticon.png"
                       alt="discounts icon"
                       height={isSmallestScreen ? 34 : 49}
                       width={68}

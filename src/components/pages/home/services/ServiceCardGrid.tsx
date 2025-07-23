@@ -13,7 +13,7 @@ export default function ServicesGrid() {
             <Card.Header>
               <div className={styles.imageWrapper}>
                 <Image
-                  src={`/images/services/${index + 1}.jpg`}
+                  src={`/assets/images/services/${index + 1}.jpg`}
                   alt={service.name}
                   fill
                   className={styles.image}

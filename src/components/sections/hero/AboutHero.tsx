@@ -2,18 +2,41 @@
 
 import HeroWrapper from './HeroWrapper';
 import styles from './AboutHero.module.css';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const AboutHero = () => {
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      const width = window.innerWidth;
+      setIsMobileScreen(width < 768);
+      setIsTabletScreen(width >= 768 && width <= 1024);
+    };
+
+    checkScreen();
+
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
   return (
     <HeroWrapper
-      backgroundImage="/images/banners/home-hero.jpg"
+      backgroundImage="/assets/images/banners/about-hero.png"
       className={styles.customAboutHero}
     >
       <div className={styles.content}>
-        <h1 className={styles.title}>살던 곳에서, 편리한 노후</h1>
+        <Image
+          src="/assets/images/about/brand.png"
+          alt="Brand Name"
+          height={isMobileScreen ? 73 : 147}
+          width={isMobileScreen ? 77 : 154}
+          className="object-contain"
+        />
+        <h1 className={styles.title}>회사소개</h1>
         <p className={styles.subtitle}>
-          집에서 생활하는 시니어에게 일상 생활에 필요한 모든 것을 연결해주는
-          생활편의 서비스를 제공합니다.
+          도움이 필요한 순간, 사람을 연결합니다.
         </p>
       </div>
     </HeroWrapper>

@@ -53,7 +53,7 @@ const Navbar = () => {
           <div className={styles.logo}>
             <Link href="/">
               <Image
-                src="/images/logo.png"
+                src="/assets/images/logo.png"
                 alt="Care Management"
                 height={37}
                 width={149}
@@ -119,7 +119,7 @@ const Navbar = () => {
                   className={styles.subMenu}
                 >
                   <Image
-                    src={`/images/services/${index + 1}.jpg`}
+                    src={`/assets/images/services/${index + 1}.jpg`}
                     alt={link.name}
                     width={130}
                     height={130}
@@ -163,7 +163,7 @@ const Navbar = () => {
               <div className={styles.textCenter}>
                 <Link href={link.path} onClick={() => dispatch(closePanels())}>
                   <Image
-                    src={`/images/services/${index + 1}.jpg`}
+                    src={`/assets/images/services/${index + 1}.jpg`}
                     alt={link.name}
                     width={130}
                     height={130}

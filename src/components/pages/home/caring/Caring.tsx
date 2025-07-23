@@ -28,35 +28,35 @@ export const Caring = () => {
     {
       title: '자격증',
       position: '요양보호사/간병인',
-      image: '/images/caring/qual1.png',
+      image: '/assets/images/caring/qual1.png',
     },
     {
       title: '건강검진',
       position: '전염성 질환 무',
-      image: '/images/caring/qual2.png',
+      image: '/asstes/images/caring/qual2.png',
     },
     {
       title: '신원확인',
       position: '본인 인증 완료',
-      image: '/images/caring/qual3.png',
+      image: '/assets/images/caring/qual3.png',
     },
   ];
 
   const employeeProfile: Qualifications[] = [
     {
-      image: '/images/caring',
+      image: '/assets/images/caring',
     },
     {
-      image: '/images/caring',
+      image: '/assets/images/caring',
     },
     {
-      image: '/images/caring',
+      image: '/assets/images/caring',
     },
     {
-      image: '/images/caring',
+      image: '/assets/images/caring',
     },
     {
-      image: '/images/caring',
+      image: '/assets/images/caring',
     },
   ];
 
@@ -99,7 +99,7 @@ export const Caring = () => {
         {qualificationList.map((list, index) => (
           <Card key={list.title} className={styles.cardWrapper}>
             <Image
-              src={`/images/caring/qual${index + 1}.png`}
+              src={`/assets/images/caring/qual${index + 1}.png`}
               alt={list.title ?? 'qualification'}
               height={isMobileOpen ? 32 : 37}
               width={isMobileOpen ? 32 : 37}
