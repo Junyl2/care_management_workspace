@@ -4,6 +4,7 @@ import {
   ProblemSolving,
   Journey,
   Target,
+  CareTeam,
 } from '@/components/pages';
 import styles from './style.module.css';
 
@@ -25,6 +26,10 @@ export default function AboutPage() {
 
       <section className={styles.sectionSpacing}>
         <Target />
+      </section>
+
+      <section className={styles.sectionSpacing}>
+        <CareTeam />
       </section>
     </main>
   );

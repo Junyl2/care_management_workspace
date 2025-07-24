@@ -1,0 +1,150 @@
+.mainContainer {
+  background-color: #f1f8ff;
+}
+.sectionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  max-width: 1180px;
+  padding: 130px 0px;
+  gap: 100px;
+}
+.headingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  max-width: 641px;
+  gap: 35px;
+}
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+.cardContainer {
+  width: 100%;
+  gap: 20px;
+}
+.cardWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 30px;
+}
+.image {
+  border-radius: 15px;
+  object-fit: cover;
+}
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 30px;
+}
+
+.figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.position {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  color: #0066ff;
+  padding: 8px 14px;
+  background-color: #e2eaff;
+  border-radius: 9px;
+}
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+.department {
+  font-size: 24px;
+  font-weight: 500;
+  color: black;
+}
+.expertise {
+  font-size: 20px;
+  font-weight: 500;
+  color: #778088;
+}
+
+@media (max-width: 1024px) {
+  .mainContainer {
+    background-color: white;
+  }
+  .cardWrapper {
+    background-color: #f1f8ff;
+  }
+  .position {
+    font-size: 20px;
+  }
+  .name {
+    font-size: 24px;
+  }
+  .department {
+    font-size: 22px;
+  }
+  .expertise {
+    font-size: 18px;
+  }
+  .cardContainer {
+    padding: 0px 1.5rem;
+  }
+  .cardContent {
+    text-align: start;
+    gap: 20px;
+  }
+  .position {
+    padding: 6px 12px;
+  }
+}
+@media (max-width: 768px) {
+  .position {
+    font-size: 10px;
+  }
+  .name {
+    font-size: 15px;
+  }
+  .department {
+    font-size: 13px;
+  }
+  .expertise {
+    font-size: 13px;
+  }
+  .cardContent {
+    display: flex;
+    flex-direction: column !important;
+    align-items: start;
+    justify-content: center;
+    gap: 15px;
+  }
+  .figcaption {
+    gap: 10px;
+    text-align: start;
+  }
+  .cardContainer {
+    padding: 0px 1rem;
+    gap: 10px;
+  }
+  .cardWrapper {
+    border-radius: 8px;
+  }
+  .position {
+    padding: 4px 10px;
+  }
+}
