@@ -67,10 +67,10 @@ export const Journey = () => {
           <div className={styles.headerContent}>
             <Image
               src="/assets/images/about/icons/plus.png"
-              alt="plus logo"
+              alt="Health Logo"
               width={isMobileScreen ? 165 : isTabletScreen ? 248 : 250}
               height={isMobileScreen ? 126 : isTabletScreen ? 190 : 192}
-              className="object-cover"
+              className="object-contain"
             />
             <p>
               유아부터 고령자, 장애인까지 모두를 아우르는통합돌봄을 위한 동반자

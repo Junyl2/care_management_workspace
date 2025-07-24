@@ -60,6 +60,10 @@
   gap: 1.5rem;
   background-color: #f7faff;
 }
+.cardWrapper p {
+  font-size: 19px;
+  font-weight: 500;
+}
 .signImage {
   display: flex;
   align-items: end;
@@ -76,6 +80,7 @@
   .mainContent {
     background-color: #f7faff;
     padding: 32px;
+    gap: 40px;
   }
   .cardContainer {
     background-color: white;
@@ -87,8 +92,18 @@
   .signImage {
     height: 100px;
   }
+  .headerContent p {
+    font-size: 22px;
+  }
+  .cardWrapper p {
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
 @media (max-width: 768px) {
+  .mainContent {
+    gap: 38px;
+  }
   .signImage {
     height: 80px;
   }
@@ -101,5 +116,12 @@
   }
   .headerWrapper {
     max-width: 281px;
+  }
+  .headerContent p {
+    font-size: 16px;
+  }
+  .cardWrapper p {
+    font-size: 13px;
+    font-weight: 500;
   }
 }
