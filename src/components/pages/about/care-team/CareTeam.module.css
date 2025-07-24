@@ -147,4 +147,7 @@
   .position {
     padding: 4px 10px;
   }
+  .headingContainer {
+    max-width: 343px;
+  }
 }
