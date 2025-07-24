@@ -19,19 +19,20 @@
   align-items: start;
   justify-content: center;
   text-align: start;
-  gap: 1.5rem;
+  gap: 30px;
+  padding: 0 2rem;
 }
 
 .title {
   font-size: 69px;
   font-weight: 700;
   color: #ffffff;
+  font-weight: bold;
 }
 
 .subtitle {
   font-size: 30px;
   font-weight: 600;
-  margin-bottom: 40px;
   color: #ffffff;
   line-height: 1.6;
 }
@@ -110,7 +111,7 @@
     align-items: start;
     justify-content: center;
     text-align: start;
-    gap: 1.5rem;
+    padding: 1rem;
   }
 
   .title {
