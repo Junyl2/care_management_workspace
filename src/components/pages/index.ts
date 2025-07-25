@@ -14,4 +14,7 @@ export { CaregiverSection } from './home/caregiver/CaregiverSection';
 //ABOUT PAGE
 export { CaregiverMission } from './about/caregiver-mission/CaregiverMission';
 export { ProblemSolving } from './about/problem-solving/ProblemSolving';
+export { Journey } from './about/journey/Journey';
 export { Target } from './about/target/Target';
+export { CareTeam } from './about/care-team/CareTeam';
+export { News } from './about/news/News';

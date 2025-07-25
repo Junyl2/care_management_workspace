@@ -1,20 +1,39 @@
 import AboutHero from '@/components/sections/hero/AboutHero';
-import { CaregiverMission, ProblemSolving, Target } from '@/components/pages';
+import {
+  CaregiverMission,
+  ProblemSolving,
+  Journey,
+  Target,
+  CareTeam,
+  News,
+} from '@/components/pages';
+import styles from './style.module.css';
 
 export default function AboutPage() {
   return (
     <main>
       <AboutHero />
-      <section className="section-space">
+      <section className={styles.sectionSpacing}>
         <CaregiverMission />
       </section>
 
-      <section className="section-space">
+      <section className={styles.sectionSpacing}>
         <ProblemSolving />
       </section>
 
-      <section className="section-space">
+      <section className={styles.sectionSpacing}>
+        <Journey />
+      </section>
+
+      <section className={styles.sectionSpacing}>
         <Target />
+      </section>
+
+      <section className={styles.sectionSpacing}>
+        <CareTeam />
+      </section>
+      <section className={styles.sectionSpacing}>
+        <News />
       </section>
     </main>
   );

@@ -23,17 +23,34 @@ const AboutHero = () => {
   }, []);
   return (
     <HeroWrapper
-      backgroundImage="/assets/images/banners/about-hero.png"
+      backgroundImage={
+        isTabletScreen
+          ? '/assets/images/banners/about-tablet-hero.png'
+          : '/assets/images/banners/about-hero.png'
+      }
       className={styles.customAboutHero}
     >
-      <div className={styles.content}>
-        <Image
-          src="/assets/images/about/brand.png"
-          alt="Brand Name"
-          height={isMobileScreen ? 73 : 147}
-          width={isMobileScreen ? 77 : 154}
-          className="object-contain"
-        />
+      <div className={` container ${styles.content}`}>
+        {(isMobileScreen || isTabletScreen) && (
+          <Image
+            src="/assets/images/about/brand.png"
+            alt="Brand Name"
+            height={isMobileScreen ? 73 : 147}
+            width={isMobileScreen ? 77 : 154}
+            className="object-contain"
+          />
+        )}
+
+        {!isMobileScreen && !isTabletScreen && (
+          <Image
+            src="/assets/images/about/aboutDesktopLogo.png"
+            alt="Brand Name"
+            height={110}
+            width={210}
+            className="object-contain"
+          />
+        )}
+
         <h1 className={styles.title}>회사소개</h1>
         <p className={styles.subtitle}>
           도움이 필요한 순간, 사람을 연결합니다.

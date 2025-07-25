@@ -1,6 +1,35 @@
 .container {
-  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 500px;
 }
-.marginTop {
-  margin-top: 2rem;
+.headingContainer {
+  max-width: 786px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 35px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    height: 340px;
+  }
+  .headingContainer {
+    gap: 20px;
+    max-width: 562px;
+  }
+}
+@media (max-width: 768px) {
+  .headingContainer {
+    max-width: fit-content;
+    padding: 0rem 1rem;
+  }
+  .container {
+    height: 250px;
+  }
 }

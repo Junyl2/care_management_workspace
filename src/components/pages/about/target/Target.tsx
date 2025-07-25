@@ -25,7 +25,7 @@ export const Target = () => {
     },
   ];
   return (
-    <div className="container flex flex-col items-center justify-center">
+    <div className={`container ${styles.mainContainer}`}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h3 className="primary">우리의 여정</h3>
@@ -34,14 +34,16 @@ export const Target = () => {
             브랜드입니다.
           </h1>
         </div>
-        <div className={`grid grid-cols-1 gap-4 ${styles.wrapper}`}>
+        <div className={`grid grid-cols-1  ${styles.wrapper}`}>
           {yearLists.map((list) => (
             <Card key={list.year} className={styles.cardContainer}>
               <div>
-                <Card.Text>{list.year}</Card.Text>
+                <Card.Text className={styles.year}>{list.year}</Card.Text>
               </div>
               <div>
-                <Card.Text>{list.description}</Card.Text>
+                <Card.Text className={styles.description}>
+                  {list.description}
+                </Card.Text>
               </div>
             </Card>
           ))}

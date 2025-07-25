@@ -1,3 +1,11 @@
+.mainContainer {
+  /*   "container flex flex-col items-center justify-center" */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden !important;
+}
 .cardContainer {
   display: flex;
   flex-direction: row;
@@ -16,13 +24,14 @@
   flex-direction: column;
   text-align: center;
   gap: 2rem;
+
   max-width: 1019px;
-  margin-right: -7%;
 }
 .wrapper {
   display: grid;
   position: relative;
   padding: 0rem 2rem;
+  gap: 16px;
 }
 .wrapper::before {
   content: '';
@@ -31,7 +40,7 @@
   background-size: auto;
   position: absolute;
   top: 7.8%;
-  left: -9%;
+  left: -6%;
   bottom: 0;
   height: 100%;
   width: 100%;
@@ -52,18 +61,99 @@
   font-size: 26px;
   font-family: 600;
 }
-@media (max-width: 1024px) {
-  .wrapper::before {
-    top: 7.8%;
-    left: -3%;
-    bottom: 0;
-  }
+.year {
+  font-size: 24px;
+  font-weight: 600;
+}
+.description {
+  font-size: 24px;
+  font-weight: 500;
+  max-width: 610px;
+}
+@media (min-width: 1368px) {
   .container {
-    margin-right: -8%;
+    min-width: 1019px;
   }
 }
+@media (max-width: 1024px) {
+  .year {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .description {
+    font-size: 24px;
+    font-size: 500;
+  }
+  .wrapper {
+    padding-right: 0rem;
+    padding-left: 4rem;
+    text-align: start;
+  }
+  .description {
+    max-width: 421px;
+    text-align: start;
+  }
+  .wrapper::before {
+    background-image: url('/assets/images/about/icons/tabletDot.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    width: 43px;
+    top: 6.5%;
+    left: -1.1%;
+  }
+}
+
 @media (max-width: 768px) {
+  .year {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .description {
+    font-size: 15px;
+    font-size: 500;
+  }
+
+  .cardContainer {
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
+    padding: 1rem;
+    gap: 10px;
+  }
+
+  .wrapper {
+    padding-right: 0.5rem;
+    padding-left: 2.5rem;
+  }
   .cardContainer p {
     font-size: 15px;
+  }
+}
+@media (min-width: 439px) and (max-width: 765px) {
+  .wrapper::before {
+    background-image: url('/assets/images/about/icons/mobileDot.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    width: 26px;
+    top: 6%;
+    left: -1%;
+  }
+}
+
+@media (max-width: 438px) {
+  .wrapper::before {
+    background-image: url('/assets/images/about/icons/mobileDot.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    width: 29px;
+    top: 5%;
+    left: -1%;
+  }
+  .wrapper {
+    padding-right: 0.5rem;
+    padding-left: 2.5rem;
   }
 }
