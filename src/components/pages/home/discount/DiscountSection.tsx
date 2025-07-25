@@ -1,15 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './DiscountSection.module.css';
 import Image from 'next/image';
-import { Text, Card, Button } from '@components/ui';
-import { useEffect, useState } from 'react';
+import {
+  Text,
+  Card,
+  Button,
+  AlertOneModal,
+  AlertTwoModal,
+} from '@components/ui';
 
 export const DiscountSection = () => {
   const [isSmallestScreen, setIsSmallestScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
   const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
+
+  const [showAlertOne, setShowAlertOne] = useState<boolean>(false);
+  const [showAlertTwo, setShowAlertTwo] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreen = () => {
@@ -20,10 +28,10 @@ export const DiscountSection = () => {
     };
 
     checkScreen();
-
     window.addEventListener('resize', checkScreen);
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
+
   const discountList = [
     {
       iconLabel: '정기 결제 할인',
@@ -51,6 +59,14 @@ export const DiscountSection = () => {
     },
   ];
 
+  const handleButtonClick = (discount: string) => {
+    if (discount === '20% 할인' || discount === '15% 할인') {
+      setShowAlertOne(true);
+    } else if (discount === '10% 할인' || discount === '5% 할인') {
+      setShowAlertTwo(true);
+    }
+  };
+
   return (
     <div className={styles.containerBg}>
       <div className={styles.container}>
@@ -72,7 +88,7 @@ export const DiscountSection = () => {
           </Text>
         </div>
 
-        {/* desktop discount cards */}
+        {/* Desktop discount cards */}
         {!isMobileScreen && (
           <div className={styles.cardContainer}>
             {discountList.map((list, index) => (
@@ -107,6 +123,7 @@ export const DiscountSection = () => {
                     radius="full"
                     fullWidth
                     className={styles.buttonText}
+                    onClick={() => handleButtonClick(list.discountRate)}
                   >
                     {list.buttonText}
                   </Button>
@@ -116,7 +133,7 @@ export const DiscountSection = () => {
           </div>
         )}
 
-        {/* mobile discount cards */}
+        {/* Mobile discount cards */}
         {isMobileScreen && (
           <div className="grid grid-cols-1 gap-4">
             {discountList.map((list, index) => (
@@ -146,6 +163,16 @@ export const DiscountSection = () => {
           </div>
         )}
       </div>
+
+      {/* Alert Modals */}
+      <AlertOneModal
+        open={showAlertOne}
+        onClose={() => setShowAlertOne(false)}
+      />
+      <AlertTwoModal
+        open={showAlertTwo}
+        onClose={() => setShowAlertTwo(false)}
+      />
     </div>
   );
 };

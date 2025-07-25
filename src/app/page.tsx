@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <main className="h-screen">
       <HomeHero />
-      <section className="section-space ">
+      <section className="section-spacing ">
         <div className={`${styles.container}`}>
           <h2 className={styles.homeHeading}>
             원하는 서비스를 바로 이용해보세요.
@@ -31,13 +31,13 @@ export default function HomePage() {
         <ExerciseSection />
         <BathSection />
       </section>
-      <section className="section-space">
+      <section className="section-spacing">
         <About />
       </section>
-      <section className="section-space">
+      <section className="section-spacing">
         <CustomerReview />
       </section>
-      <section className="section-space">
+      <section className="section-spacing">
         <Caring />
       </section>
       <section>

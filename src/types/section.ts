@@ -37,7 +37,7 @@ export type Review = {
   variant: ReviewVariant;
   profileImg: string;
   name: string;
-  ratings: string;
+  ratings: number;
   details: Details;
   commentTitle: string;
   commentDescription: string;
