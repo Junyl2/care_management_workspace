@@ -45,8 +45,8 @@ export const FloatingButtons = () => {
         <Image
           src="/assets/images/floating-image.png"
           alt="Profile"
-          width={isMobileScreen ? 36 : isTabletScreen ? 44 : 52}
-          height={isMobileScreen ? 36 : isTabletScreen ? 44 : 52}
+          width={isMobileScreen ? 26 : isTabletScreen ? 38 : 52}
+          height={isMobileScreen ? 26 : isTabletScreen ? 38 : 52}
           className={styles.profileImage}
         />
       </button>
@@ -55,7 +55,7 @@ export const FloatingButtons = () => {
         className={`${styles.floatingBtn} ${styles.floatingArrow} ${visible ? styles.visible : ''}`}
         onClick={scrollToTop}
       >
-        <FiArrowUp size={28} />
+        <FiArrowUp size={isMobileScreen ? 20 : isTabletScreen ? 26 : 28} />
       </button>
     </div>
   );

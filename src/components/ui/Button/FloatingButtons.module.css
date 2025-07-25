@@ -52,8 +52,8 @@
 
 @media (max-width: 1024px) {
   .floatingBtn {
-    width: 56px;
-    height: 56px;
+    width: 46px;
+    height: 46px;
   }
   .shiftLeft {
     margin-right: 68px;
@@ -62,10 +62,10 @@
 
 @media (max-width: 768px) {
   .floatingBtn {
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
   }
   .shiftLeft {
-    margin-right: 58px;
+    margin-right: 52px;
   }
 }

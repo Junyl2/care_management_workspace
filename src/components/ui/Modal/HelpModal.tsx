@@ -6,7 +6,8 @@ import { RootState } from '@/store';
 import { closeHelpModal } from '@/store/features/uiSlice';
 import styles from './HelpModal.module.css';
 import Image from 'next/image';
-import { FiArrowRight, FiX } from 'react-icons/fi';
+import Link from 'next/link';
+import { FiChevronRight, FiX, FiSearch } from 'react-icons/fi';
 
 export const HelpModal = () => {
   const open = useSelector((state: RootState) => state.ui.helpModalOpen);
@@ -49,19 +50,21 @@ export const HelpModal = () => {
           className={styles.closeBtn}
           onClick={() => dispatch(closeHelpModal())}
         >
-          <FiX size={20} />
+          <FiX size={isMobileScreen ? 28 : 35} />
         </button>
 
         <div className={styles.header}>
-          <div className={styles.profileImage}>
-            <Image
-              src="/assets/images/floating-image.png"
-              alt="Profile"
-              width={isMobileScreen ? 0 : isTabletScreen ? 32 : 32}
-              height={isMobileScreen ? 0 : isTabletScreen ? 40 : 40}
-              className={styles.image}
-            />
-          </div>
+          {!isMobileScreen && (
+            <div className={styles.profileImage}>
+              <Image
+                src="/assets/images/floating-image.png"
+                alt="Profile"
+                width={isMobileScreen ? 0 : isTabletScreen ? 32 : 32}
+                height={isMobileScreen ? 0 : isTabletScreen ? 40 : 40}
+                className={styles.image}
+              />
+            </div>
+          )}
 
           <h1 className="flex flex-col items-center justify-center">
             도움이 필요하신가요?
@@ -76,22 +79,24 @@ export const HelpModal = () => {
         <div className={styles.cards}>
           {/* Card 1 */}
           <div className={styles.card}>
-            <h3>상담 번호 안내</h3>
-            <p>돌봄대장 상담사가 친절히 상담해 드립니다.</p>
+            <div>
+              <h3>상담 번호 안내</h3>
+              <p>돌봄대장 상담사가 친절히 상담해 드립니다.</p>
+            </div>
+
             <div className={styles.cardContent}>
-              <p>
-                <strong>대표 번호:</strong> 1588-2905
-              </p>
-              <p>
-                <strong>상담 전용:</strong> 010-7301-8284
-              </p>
+              <p>대표 번호: 1588-2905</p>
+              <p>상담 전용: 010-7301-8284</p>
             </div>
           </div>
 
           {/* Card 2 */}
           <div className={styles.card}>
-            <h3>카카오톡채널</h3>
-            <p>카카오톡 채널에서 ‘돌봄대장’을 검색해 보세요.</p>
+            <div>
+              <h3>카카오톡채널</h3>
+              <p>카카오톡 채널에서 ‘돌봄대장’을 검색해 보세요.</p>
+            </div>
+
             <div className={styles.kakaoSearch}>
               <input
                 type="text"
@@ -99,18 +104,52 @@ export const HelpModal = () => {
                 readOnly
                 className={styles.searchInput}
               />
-              <button className={styles.searchBtn}>Search</button>
+              <button className={styles.searchBtn}>
+                <FiSearch size={18} />
+              </button>
             </div>
-            <button className={styles.kakaoBtn}>
-              카카오 채널 추가하기 <FiArrowRight />
-            </button>
+            <Link href="/KakaoTalk ">
+              <button className={styles.kakaoBtn}>
+                <span className={styles.leftContent}>
+                  <Image
+                    src="/assets/images/channel.png"
+                    alt="Channel"
+                    height={isMobileScreen ? 24 : isTabletScreen ? 24 : 31}
+                    width={isMobileScreen ? 24 : isTabletScreen ? 24 : 31}
+                    className="object-contain"
+                  />
+                  카카오 채널 추가하기
+                </span>
+                <FiChevronRight className={styles.arrowRight} />
+              </button>
+            </Link>
           </div>
 
           {/* Card 3 */}
           <div className={styles.card}>
             <h3>내방 상담</h3>
-            <p>서울시 중구 수표로 10길 30, 삼풍빌딩 1층</p>
-            <button className={styles.visitBtn}>내방 상담 예약</button>
+            <div className={styles.context}>
+              <p className="pr-1">주소: </p>
+              <p className={styles.visitContext}>
+                서울시 중구 수표로 10길 30,
+                <span>삼풍빌딩 1층</span>
+              </p>
+              <p className={styles.lightColor}>복사</p>
+            </div>
+            <Link href="/map-link">
+              <button className={styles.visitBtn}>
+                <span className={styles.leftContent}>
+                  <Image
+                    src="/assets/images/map.png"
+                    alt="Channel"
+                    height={isMobileScreen ? 24 : isTabletScreen ? 24 : 31}
+                    width={isMobileScreen ? 24 : isTabletScreen ? 24 : 31}
+                  />
+                  카카오 채널 추가하기
+                </span>
+                <FiChevronRight className={styles.arrowRight} />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
