@@ -1,4 +1,7 @@
 :root {
+  /* navbar height */
+  --nav-height: 70px;
+
   /* Color Variables - Updated Design System */
   --color-primary: #007fff;
   --color-primary-hover: #0066cc;
@@ -90,6 +93,14 @@
     --font-heading-main: var(--font-heading-main-mobile);
     --font-sub-heading: var(--font-sub-heading-mobile);
     --font-heading-sub: var(--font-heading-sub-mobile);
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    /* navheight */
+
+    --nav-height: 56px;
   }
 }
 
