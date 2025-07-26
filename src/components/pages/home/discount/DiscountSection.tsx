@@ -66,9 +66,7 @@ export const DiscountSection = () => {
           </Text>
           <Text variant="subHeading" as="h2" className={styles.discount}>
             지금 신청 시 최대
-            <Text variant="subHeading" as="h2" className={styles.highlight}>
-              25% 할인!
-            </Text>
+            <span className={styles.highlight}>25% 할인!</span>
           </Text>
         </div>
         {/* desktop discount cards */}

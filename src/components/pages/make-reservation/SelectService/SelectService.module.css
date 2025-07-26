@@ -1,0 +1,146 @@
+.container {
+  background: white;
+  border: 1px solid #ecedf0;
+  border-radius: 15px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.optionButton.active,
+.optionButton:active {
+  border: 1.5px solid #007fff;
+  background-color: #f1f8ff;
+  font-weight: 600;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  text-align: left;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+}
+.subscriptionNote::before {
+  content: '* ';
+  color: red;
+}
+
+.buttonGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.optionButton {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ecedf0;
+  background: white;
+  cursor: pointer;
+  transition: border 0.2s ease;
+  font-size: 20px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    gap: 40px;
+    padding: 30px;
+  }
+
+  .section {
+    gap: 35px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .buttonGrid {
+    gap: 14px;
+  }
+
+  .optionButton {
+    border: 0.7px solid #ecedf0;
+    font-size: 15px;
+  }
+
+  .optionButton:hover,
+  .optionButton:active {
+    border: 1px solid #007fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobileContainer1 {
+    background-color: white;
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+  .mobileContainer2 {
+    margin-top: 1rem;
+    background-color: white;
+    width: 100%;
+    padding: 2rem 1rem 6rem 1rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .mainContainer {
+    width: 100%;
+  }
+  .container {
+    gap: 0px;
+    /*     padding: 2rem 1rem; */
+    background-color: transparent;
+    padding: 0px;
+  }
+
+  .section {
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .buttonGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .subscriptionNote {
+    max-width: 227px;
+    align-self: center;
+  }
+
+  .optionButton {
+    font-size: 16px;
+  }
+}

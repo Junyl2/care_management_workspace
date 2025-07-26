@@ -9,3 +9,6 @@ export { CustomerReview } from './home/customer-review/CustomerReview';
 export { Caring } from './home/caring/Caring';
 export { DiscountSection } from './home/discount/DiscountSection';
 export { CaregiverSection } from './home/caregiver/CaregiverSection';
+
+//Make a reservation
+export { default as MakeReservation } from './make-reservation/MakeReservation';
