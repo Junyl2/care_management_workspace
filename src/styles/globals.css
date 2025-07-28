@@ -10,7 +10,12 @@
 }
 
 /* LAYER UTILITIES */
-/* Typography Classes */
+
+.mainLayout {
+  margin-top: var(--nav-height);
+  min-height: calc(100vh - var(--nav-height));
+}
+
 .home-section-heading {
   font-size: 1rem;
   font-weight: 700;
@@ -111,17 +116,6 @@
   z-index: 9999;
 }
 
-.mainLayout {
-  /*  min-height: calc(100vh - 80px); */
-  margin-top: 77px;
-  min-height: 100vh;
-  /*  padding: 2rem 1rem; */
-}
-@media (max-width: 768px) {
-  .mainLayout {
-    margin-top: 56px;
-  }
-}
 .btnPrimary {
   background-color: #007fff;
   color: #fff;

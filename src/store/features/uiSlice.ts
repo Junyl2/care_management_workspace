@@ -23,6 +23,12 @@ const uiSlice = createSlice({
     toggleServices(state) {
       state.servicesOpen = !state.servicesOpen;
     },
+    openServices(state) {
+      state.servicesOpen = true;
+    },
+    closeServices(state) {
+      state.servicesOpen = false;
+    },
     closePanels(state) {
       state.mobileOpen = false;
       state.servicesOpen = false;
@@ -33,7 +39,13 @@ const uiSlice = createSlice({
   },
 });
 
-export const { toggleMobile, toggleServices, closePanels, setIsMobileScreen } =
-  uiSlice.actions;
+export const {
+  toggleMobile,
+  toggleServices,
+  openServices,
+  closeServices,
+  closePanels,
+  setIsMobileScreen,
+} = uiSlice.actions;
 
 export default uiSlice.reducer;

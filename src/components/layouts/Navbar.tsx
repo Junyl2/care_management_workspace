@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoMdMenu, IoMdClose } from 'react-icons/io';
 import classNames from 'classnames';
 
@@ -13,6 +13,8 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
   toggleMobile,
   toggleServices,
+  openServices,
+  closeServices,
   closePanels,
 } from '@/store/features/uiSlice';
 
@@ -24,12 +26,23 @@ const Navbar = () => {
   const mobileOpen = useAppSelector((state) => state.ui.mobileOpen);
   const servicesOpen = useAppSelector((state) => state.ui.servicesOpen);
 
-  useEffect(() => {
-    if (pathname === '/services') {
-      dispatch(toggleServices());
-    }
-  }, [pathname, dispatch]);
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+  const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
 
+  useEffect(() => {
+    const checkScreen = () => {
+      const width = window.innerWidth;
+      setIsMobileScreen(width < 768);
+      setIsTabletScreen(width >= 768 && width <= 1024);
+    };
+
+    checkScreen();
+
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
+  // Handle outside clicks
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -41,27 +54,45 @@ const Navbar = () => {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
+    if (servicesOpen && window.innerWidth <= 768) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = '';
     };
   }, [mobileOpen, servicesOpen, dispatch]);
+
+  // Automatically open or close the services dropdown based on the pathname
+  useEffect(() => {
+    if (pathname.startsWith('/services')) {
+      dispatch(openServices());
+    } else {
+      dispatch(closeServices());
+    }
+  }, [pathname, dispatch]);
 
   return (
     <nav className={styles.nav} ref={navRef}>
       <div className="container">
         <div className={styles.navContainer}>
+          {/* Logo */}
           <div className={styles.logo}>
-            <Link href="/">
+            <Link href="/" onClick={() => dispatch(closePanels())}>
               <Image
                 src="/assets/images/logo.png"
                 alt="Care Management"
-                height={37}
-                width={149}
+                height={isMobileScreen ? 25 : isTabletScreen ? 28 : 28}
+                width={isMobileScreen ? 105 : isTabletScreen ? 113 : 113}
                 className={styles.Logo}
               />
             </Link>
           </div>
 
+          {/* Hamburger for mobile */}
           <button
             className={styles.hamburger}
             onClick={() => dispatch(toggleMobile())}
@@ -70,6 +101,7 @@ const Navbar = () => {
             {mobileOpen ? <IoMdClose /> : <IoMdMenu />}
           </button>
 
+          {/* Desktop Navigation */}
           <ul className={styles.menu}>
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -85,31 +117,34 @@ const Navbar = () => {
               </li>
             ))}
 
+            {/* Services Link */}
             <li>
               <Link
                 href="/services"
                 className={classNames(styles.dropdown, styles.navLink, {
-                  [styles.active]: pathname === service.path,
+                  [styles.active]: pathname.startsWith('/services'),
                 })}
-              >
-                <span
-                  className={classNames(styles.dropdownToggle, {
-                    [styles.active]: servicesOpen,
-                  })}
-                  onClick={
-                    pathname === service.path
-                      ? () => dispatch(toggleServices())
-                      : undefined
+                onClick={(e) => {
+                  if (pathname.startsWith('/services')) {
+                    e.preventDefault();
+                    dispatch(toggleServices());
+                  } else {
+                    dispatch(closePanels());
                   }
-                >
-                  {service.name}
-                </span>
+                }}
+              >
+                {service.name}
               </Link>
             </li>
           </ul>
         </div>
 
-        {servicesOpen && (
+        {/* Desktop Services Dropdown */}
+        <div
+          className={classNames(styles.dropdownWrapper, {
+            [styles.dropdownOpen]: servicesOpen,
+          })}
+        >
           <ul className={styles.dropdownMenu}>
             {serviceLinks.map((link, index) => (
               <li key={link.name}>
@@ -131,9 +166,9 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-        )}
+        </div>
       </div>
-
+      {/* Mobile Navigation Overlay */}
       <ul
         className={classNames(styles.mobileNavOverlay, {
           [styles.mobileNavOverlayClose]: !mobileOpen,
@@ -141,14 +176,23 @@ const Navbar = () => {
       >
         {navLinks.map((link) => (
           <li key={link.name}>
-            <Link href={link.path} onClick={() => dispatch(closePanels())}>
+            <Link
+              href={link.path}
+              className={classNames({
+                [styles.active]: pathname === link.path,
+              })}
+              onClick={() => dispatch(closePanels())}
+            >
               {link.name}
             </Link>
           </li>
         ))}
+
         <li>
           <button
-            className={styles.serviceBtn}
+            className={classNames(styles.serviceBtn, {
+              [styles.active]: servicesOpen,
+            })}
             onClick={() => dispatch(toggleServices())}
           >
             서비스
@@ -156,6 +200,7 @@ const Navbar = () => {
         </li>
       </ul>
 
+      {/* Mobile Services Panel */}
       {servicesOpen && mobileOpen && (
         <div className={`${styles.servicesPanel} grid grid-cols-2`}>
           {serviceLinks.map((link, index) => (
@@ -165,8 +210,8 @@ const Navbar = () => {
                   <Image
                     src={`/assets/images/services/${index + 1}.jpg`}
                     alt={link.name}
-                    width={130}
-                    height={130}
+                    width={170}
+                    height={170}
                   />
                   <div>{link.name}</div>
                 </Link>

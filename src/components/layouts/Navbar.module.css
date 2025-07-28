@@ -1,47 +1,27 @@
+/* =============================
+   Navbar
+============================= */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 .nav {
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0;
-  font-family: 'Pretendard', sans-serif !important;
   position: fixed;
   top: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  min-height: var(--nav-height);
+  font-family: 'Pretendard', sans-serif !important;
   z-index: 999;
-}
-
-.menu li a:hover {
-  color: #007fff;
-}
-
-.navLink,
-.dropdownToggle {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.navLink:hover,
-.dropdownToggle:hover {
-  color: #007fff;
-}
-
-.navLink.active,
-.navLink:active {
-  color: #007fff;
 }
 
 .navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0rem;
+  min-height: var(--nav-height);
+  padding: 0 2rem;
   position: relative;
 }
 
@@ -52,45 +32,96 @@
   color: #333;
 }
 
-.hamburger {
-  display: none;
-  background: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  border: none;
-  color: #333;
-  z-index: 100;
+.Logo {
+  object-fit: contain;
+  transition: transform 0.2s ease-in;
+}
+.Logo:hover {
+  transform: scale(1.03);
 }
 
-/* Desktop menu */
+/* =============================
+   Navigation Links
+============================= */
+.navLink,
+.dropdownToggle {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.dropdownToggle:hover,
+.navLink.active,
+.navLink:active {
+  color: #007fff;
+}
+
+/* =============================
+   Desktop Menu
+============================= */
 .menu {
   display: flex;
-  gap: 1.25rem;
+  gap: 50px;
   list-style: none;
   align-items: center;
 }
 
 .menu li a {
   text-decoration: none;
-  color: #333;
+  color: black;
+  font-size: 20px;
   font-weight: 500;
+  transition: color 0.2s ease;
+}
+.menu li a:hover {
+  color: #007fff;
 }
 
-.dropdownToggle {
+/* =============================
+   Hamburger (Mobile Toggle)
+============================= */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
   cursor: pointer;
-  font-weight: 500;
+  z-index: 100;
+}
+
+/* =============================
+   Dropdown (Desktop)
+============================= */
+.dropdownWrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.dropdownOpen {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .dropdownMenu {
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
   gap: 2rem;
-}
-.dropdown:hover .dropdownMenu {
-  display: flex;
+  padding: 20px;
+  width: 100%;
 }
 
 .dropdownMenu li {
@@ -99,6 +130,29 @@
   align-items: center;
   text-align: center;
   width: 140px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.3s forwards;
+}
+
+.dropdownMenu li:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.dropdownMenu li:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.dropdownMenu li:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.dropdownMenu li:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dropdownMenu li img {
@@ -113,47 +167,88 @@
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  font-size: 20px;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+.dropdownMenu li a:hover {
+  transform: translateY(-2px);
+  color: #007fff;
 }
 
-/* Close button inside mobile overlay */
-.closeButton {
-  cursor: pointer;
-  height: 20px;
-  width: 10px;
-  background-color: transparent;
-  position: relative;
-}
-
-.closeButtonParent {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  z-index: 40;
-  position: relative;
-  top: 0px;
-  background-color: white;
-  padding-inline: 14px;
-  margin-inline: auto;
-  width: 100%;
-}
-.Logo {
-  object-fit: cover;
-  transition: transform 0.2s ease-in;
-}
-.Logo:hover {
-  transform: scale(1.03);
-}
-/* Services panel for mobile */
-.servicesPanel {
-  width: 100%;
+/* =============================
+   Mobile Navigation
+============================= */
+.mobileNavOverlay {
   position: fixed;
-  top: 3.5rem;
+  top: var(--nav-height);
+  left: 0;
+  width: 45%;
+  height: calc(100vh - var(--nav-height));
+  background: #fff;
+  padding: 3rem 0rem 2rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  transition: transform 0.2s ease-in-out;
+  transform: translateX(0);
+  z-index: 20;
+}
+
+.mobileNavOverlayClose {
+  transform: translateX(-100%);
+}
+
+.mobileNavOverlay li {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  list-style: none !important;
+}
+
+.mobileNavOverlay li a,
+.serviceBtn {
+  display: block;
+  width: 100%;
+  font-size: 18px !important;
+  font-weight: 500;
+  color: black !important;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover & Active States */
+.mobileNavOverlay li a:hover,
+.mobileNavOverlay li a:active,
+.serviceBtn:hover,
+.serviceBtn:active {
+  background-color: #f4f6f6;
+  border-radius: 4px;
+}
+
+/* =============================
+   Mobile Services Panel
+============================= */
+.servicesPanel {
+  position: fixed;
+  top: var(--nav-height);
   bottom: 0;
   width: 100%;
   background: #ffffff;
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid #ddd;
+  gap: 1rem;
   z-index: 40;
-  padding: 4rem 2rem 2rem 2rem;
 }
+
 .column {
   display: flex;
   flex-direction: column;
@@ -165,6 +260,7 @@
   color: #333;
   font-weight: 500;
 }
+
 .textCenter {
   display: flex;
   flex-direction: column;
@@ -172,76 +268,52 @@
   text-align: center;
 }
 
-/* Mobile nav panel */
-.mobileNavOverlay {
-  position: fixed;
-  top: 56px;
-  left: 0;
-  width: 50%;
-  height: calc(100vh - 70px);
-  background: #fff;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  z-index: 20;
-  border-right: 1px solid #ddd;
-  text-align: left;
-  transition: transform 0.2s ease-in-out;
-  transform: translateX(0);
+/* Hover & Active States */
+.mobileNavOverlay li a:hover,
+.mobileNavOverlay li a.active,
+.serviceBtn:hover,
+.serviceBtn.active {
+  background-color: #f4f6f6;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
-.mobileNavOverlayClose {
-  transform: translateX(-100%);
-}
-
-.mobileNavOverlay li {
-  margin-bottom: 1.5rem;
-  width: 100%;
-  font-weight: 600;
-  text-align: center;
-  list-style: none !important;
-}
-
-.mobileNavOverlay li a,
-.serviceBtn {
-  display: block;
-  width: 100%;
-  color: #333;
-  text-align: left;
-  font-size: 1rem;
-  margin-left: auto;
-  padding-left: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  background: none;
-  border: none;
+/* =============================
+   Close Button (Mobile)
+============================= */
+.closeButton {
   cursor: pointer;
-  padding: 0.5rem 0;
-  list-style: none !important;
+  height: 20px;
+  width: 10px;
+  background-color: transparent;
 }
 
-/* Mobile responsiveness */
+.closeButtonParent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-inline: 14px;
+  background-color: white;
+  width: 100%;
+  z-index: 40;
+}
+
+/* =============================
+   Media Queries
+============================= */
 @media (max-width: 1024px) {
-  .Logo {
-    height: 21px;
-    width: 80;
+  .menu {
+    gap: 24px;
+  }
+
+  .menu li a,
+  .dropdownMenu li a {
+    font-size: 15px;
+    font-weight: 500;
   }
 }
+
 @media (max-width: 768px) {
-  .Logo {
-    height: 25px;
-    width: 100px;
-  }
-  .nav {
-    padding: 0px;
-    height: 56px;
-  }
-  .navContainer {
-    padding: 0px;
-    height: 56px;
-  }
   .hamburger {
     display: block;
   }
@@ -254,20 +326,26 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     position: fixed;
-    transform: none;
-    border: none;
     padding: 1rem;
-    box-shadow: none;
     gap: 1rem;
+    border: none;
+    box-shadow: none;
+  }
+
+  .servicesPanel {
+    padding: 4rem 8rem;
+  }
+
+  .mobileMenu a,
+  .serviceBtn {
+    font-size: 18px !important;
+    font-weight: 500;
+    color: black !important;
   }
 
   .subMenu li {
     display: flex;
     flex-direction: column;
-  }
-
-  .dropdownMenu li a {
-    width: 100%;
   }
 
   .dropdownMenu li a img {
@@ -276,23 +354,17 @@
     object-fit: cover;
   }
 
-  /*  .servicesPanel {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  } */
   .servicesPanel img {
-    border-radius: 19.2px;
     width: 115px;
     height: 115px;
+    border-radius: 19.2px;
     object-fit: cover;
     margin-bottom: 10px;
   }
 }
-.dropdownMenu li a {
-  display: inline-block;
-  transition: transform 0.2s ease-in;
-}
 
-.dropdownMenu li a:hover {
-  transform: scale(1.05);
+@media (max-width: 600px) {
+  .servicesPanel {
+    padding: 4rem 2rem;
+  }
 }
