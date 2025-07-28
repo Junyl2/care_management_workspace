@@ -98,9 +98,11 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
           </div>
           <div>
             <div className={styles.dateTag}>
-              {selectedDate?.getFullYear()}년 {selectedDate?.getMonth() + 1}월{' '}
-              {selectedDate?.getDate()}일
+              {selectedDate
+                ? `${selectedDate.getFullYear()}년 ${selectedDate.getMonth() + 1}월 ${selectedDate.getDate()}일`
+                : '날짜를 선택해주세요'}
             </div>
+
             <div className={styles.calendarWrapper}>
               <Calendar
                 locale="ko-KR"
