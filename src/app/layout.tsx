@@ -5,6 +5,7 @@ import { Footer } from '@/components/layouts/Footer';
 import PageTransition from '@/components/transition/PageTransition';
 import { Seo } from '@/components/common/Seo';
 import Providers from './providers';
+import { Toaster } from 'react-hot-toast';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <main className="mainLayout">{children}</main>
           </PageTransition>
           <Footer />
+          <Toaster position="top-center" reverseOrder={false} />
         </Providers>
       </body>
     </html>

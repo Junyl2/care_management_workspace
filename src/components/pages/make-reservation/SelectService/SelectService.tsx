@@ -1,6 +1,7 @@
 'use client';
-import React, { useState } from 'react';
 import styles from './SelectService.module.css';
+import { useState, useEffect } from 'react';
+import { BottomBarBase } from '@/components/ui';
 
 const SERVICE_OPTIONS = [
   '병원동행',
@@ -11,11 +12,26 @@ const SERVICE_OPTIONS = [
 ];
 const SUBSCRIPTION_OPTIONS = ['60시간 정기권 구매', '30시간 정기권 구매'];
 
-const SelectService: React.FC = () => {
+type Props = {
+  onNext?: () => void;
+};
+
+const SelectService: React.FC<Props> = ({ onNext }) => {
   const [activeService, setActiveService] = useState<string | null>(null);
   const [activeSubscription, setActiveSubscription] = useState<string | null>(
     null
   );
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobileScreen(window.innerWidth <= 768);
+    };
+
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
 
   return (
     <div className={styles.mainContainer}>
@@ -65,6 +81,24 @@ const SelectService: React.FC = () => {
           </div>
         </section>
       </div>
+
+      {isMobileScreen && (
+        <BottomBarBase>
+          <button
+            className={`${styles.button} ${
+              activeService ? styles.primary : styles.secondary
+            }`}
+            disabled={!activeService}
+            onClick={() => {
+              if (activeService && onNext) {
+                onNext();
+              }
+            }}
+          >
+            계속하기
+          </button>
+        </BottomBarBase>
+      )}
     </div>
   );
 };
