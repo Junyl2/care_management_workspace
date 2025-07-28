@@ -18,12 +18,12 @@ const slides = [
   },
   {
     image: '/assets/images/banners/home-hero2.png',
-    title: '전국 어디서나, 돌봄친구가 어르신 가정으로 찾아 갑니다.',
+    title: '전국 어디서나, \n돌봄친구가 어르신 가정으로 찾아 갑니다',
     subtitle: '전국 돌봄네트워크로  2~3일 안에 빠르게 연결됩니다.',
   },
   {
     image: '/assets/images/banners/home-hero3.png',
-    title: '퇴원 후 건강관리, \n일상으로의 복귀를 돕습니다',
+    title: '퇴원 후 건강관리, \n일상으로의 \n복귀를 돕습니다',
     subtitle: '건강개선 프로그램 참여로 일상으로 복귀하세요.',
   },
 ];

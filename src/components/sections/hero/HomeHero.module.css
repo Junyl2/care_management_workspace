@@ -159,10 +159,14 @@
 
   .title {
     font-size: 32px;
+    max-width: 329px;
+    text-align: center;
   }
 
   .subtitle {
     font-size: 15px;
+    max-width: 329px;
+    text-align: center;
   }
 
   .homeButtonWH {
