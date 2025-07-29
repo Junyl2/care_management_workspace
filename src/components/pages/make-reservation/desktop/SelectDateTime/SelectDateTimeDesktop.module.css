@@ -2,6 +2,10 @@
   background-color: #fff;
   padding: 40px;
   border-radius: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 .wrapper {
   display: flex;
@@ -32,12 +36,20 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 30px;
+}
+.columnHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: clamp(100px, 8vw, 120px);
 }
 
 .rightColumn {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 30px;
 }
 
 .sectionTitle {
@@ -58,13 +70,43 @@
   color: #b0b0b0;
   margin-bottom: 1rem;
 }
+.timeNote {
+  color: #626262;
+  font-size: 13px;
+}
 
 .dateTag {
-  font-size: 24px;
+  font-size: clamp(13px, 1.3vw, 24px);
   font-weight: 500;
   color: #000;
-  margin-bottom: 1rem;
+  padding: 14px 16px;
+  border: 1px solid #ecedf0;
+  background-color: #ecedf0;
+  text-align: center;
 }
+.title {
+  font-size: clamp(20px, 1.3vw, 28px);
+}
+/*
+
+.title {
+    font-size: 20px;
+  }
+  .note {
+    font-size: 14px;
+  }
+  .sectionTitle {
+    font-size: 28px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+  .dateTag {
+    font-size: 17px;
+  }
+
+
+*/
 
 .calendarWrapper {
   border-radius: 8px;
@@ -76,9 +118,9 @@
 .customCalendar {
   background-color: #fff !important;
   width: 100%;
+  height: 100% !important;
   border: 1px solid #ecedf0;
   border-radius: 10px;
-  height: 412px;
 }
 
 .customCalendar .react-calendar__navigation {
@@ -93,7 +135,7 @@
 .customCalendar .react-calendar__navigation__arrow {
   font-size: 20px;
   color: #000;
-  height: 24px;
+  height: 50px;
   width: 24px;
 }
 
@@ -104,10 +146,10 @@
 }
 
 :global(.react-calendar__tile) {
-  font-size: 20px;
+  font-size: clamp(12px, 1.3vw, 20px) !important;
   text-align: center;
-  padding: 10px 0;
   border: 1px solid #ecedf0;
+  margin: 10px 0px !important;
   background: #fff;
   color: #000;
   border-radius: 8px;
@@ -125,7 +167,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
+  gap: 1rem;
   margin-top: 1rem;
 }
 .gridTimeSlots {
@@ -135,7 +177,7 @@
 }
 
 .slot {
-  font-size: 20px;
+  font-size: clamp(12px, 1.3vw, 20px);
   padding: 14px;
   border: 1px solid #ecedf0;
   border-radius: 8px;
@@ -162,8 +204,7 @@
   padding: 14px 16px;
   border: 1px solid #ecedf0;
   background-color: #ecedf0;
-  font-size: 24px;
-  margin: 1rem 0;
+  font-size: clamp(13px, 1.3vw, 24px);
 }
 
 .buttonWrapper {
@@ -172,24 +213,39 @@
   align-items: center;
   justify-content: center;
   right: 6px;
-  font-size: 22px;
   background-color: #007fff;
-  height: 42px;
-  width: 42px;
+  height: clamp(24px, 1.3vw, 42px);
+  width: clamp(24px, 1.3vw, 42px);
   border-radius: 999px;
   cursor: pointer;
+}
+.required {
+  color: red !important;
 }
 
 .addButton {
   color: white;
-  font-size: 30px;
+  font-size: clamp(18px, 1.3vw, 30px);
   background: none !important;
   border: none;
   cursor: pointer;
 }
 
-/* 🧾 Responsive Tablet Adjustments */
 @media (max-width: 1024px) {
+  .container {
+    padding: 30px;
+    gap: 40px;
+  }
+  :global(.react-calendar__tile) {
+    margin: 6px 0px !important;
+  }
+
+  /* .title {
+    font-size: 20px;
+  }
+  .note {
+    font-size: 14px;
+  }
   .sectionTitle {
     font-size: 28px;
   }
@@ -199,9 +255,7 @@
   .dateTag {
     font-size: 17px;
   }
-  .selectedSlot {
-    font-size: 17px;
-  }
+ */
   :global(.react-calendar__tile) {
     font-size: 14px;
   }
@@ -209,6 +263,6 @@
     font-size: 17px;
   }
   .slot {
-    font-size: 17px;
+    font-size: 14px;
   }
 }

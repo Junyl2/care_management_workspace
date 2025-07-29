@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 454px;
+  /*   width: clamp(320px, 50vw, 454px); */
   max-width: 100%;
   position: relative;
 }
@@ -118,7 +118,6 @@
   .container {
     padding: 30px;
     gap: 21px;
-    width: 321px;
   }
   .reservationContent {
     gap: 21px;

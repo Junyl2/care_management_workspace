@@ -1,7 +1,9 @@
 'use client';
+
 import styles from './SelectService.module.css';
 import { useState, useEffect } from 'react';
 import { BottomBarBase } from '@/components/ui';
+import { toast } from 'react-hot-toast';
 
 const SERVICE_OPTIONS = [
   '병원동행',
@@ -10,6 +12,7 @@ const SERVICE_OPTIONS = [
   '목욕 도움',
   '가사 도움',
 ];
+
 const SUBSCRIPTION_OPTIONS = ['60시간 정기권 구매', '30시간 정기권 구매'];
 
 type Props = {
@@ -33,9 +36,22 @@ const SelectService: React.FC<Props> = ({ onNext }) => {
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
 
+  const handleContinue = () => {
+    if (!activeService) {
+      toast.error('서비스를 선택해주세요.');
+      return;
+    }
+
+    toast.success(`'${activeService}' 서비스가 선택되었습니다.`);
+    if (onNext) {
+      onNext();
+    }
+  };
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container}>
+        {/* 서비스 선택 */}
         <section className={`${styles.section} ${styles.mobileContainer1}`}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.title}>서비스 선택</h2>
@@ -57,6 +73,7 @@ const SelectService: React.FC<Props> = ({ onNext }) => {
           </div>
         </section>
 
+        {/* 정기권 구매 */}
         <section className={`${styles.section} ${styles.mobileContainer2}`}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.title}>정기권 구매</h2>
@@ -82,6 +99,7 @@ const SelectService: React.FC<Props> = ({ onNext }) => {
         </section>
       </div>
 
+      {/* 모바일 하단 버튼 */}
       {isMobileScreen && (
         <BottomBarBase>
           <button
@@ -89,11 +107,7 @@ const SelectService: React.FC<Props> = ({ onNext }) => {
               activeService ? styles.primary : styles.secondary
             }`}
             disabled={!activeService}
-            onClick={() => {
-              if (activeService && onNext) {
-                onNext();
-              }
-            }}
+            onClick={handleContinue}
           >
             계속하기
           </button>

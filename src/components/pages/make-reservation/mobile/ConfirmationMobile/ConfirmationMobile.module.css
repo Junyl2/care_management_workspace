@@ -1,0 +1,42 @@
+.wrapper {
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.iconWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  color: #007fff;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #007fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

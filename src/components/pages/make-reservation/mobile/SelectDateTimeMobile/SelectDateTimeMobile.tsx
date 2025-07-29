@@ -1,13 +1,15 @@
-// File: components/SelectDateTimeMobile/SelectDateTimeMobile.tsx
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './SelectDateTimeMobile.module.css';
 import { FiChevronLeft } from 'react-icons/fi';
 import { BottomBarBase } from '@/components/ui';
 import { toast } from 'react-hot-toast';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { setField } from '@/store/features/reservationFormSlice';
+import { format } from 'date-fns';
 
 interface Props {
   onBack: () => void;
@@ -30,17 +32,26 @@ const timeSlots = [
 ];
 
 const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
-  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const dispatch = useAppDispatch();
+  const { serviceDate, serviceTime } = useAppSelector(
+    (state) => state.reservationForm
+  );
+
+  const selectedDate = serviceDate ? new Date(serviceDate) : null;
 
   const handleDateChange = (value: Date | Date[]) => {
     if (value instanceof Date) {
-      const day = value.getDay();
-      if (day === 0) {
+      if (value.getDay() === 0) {
         toast.error('일요일은 예약이 제한될 수 있습니다.');
       }
-      setSelectedDate(value);
+
+      const formatted = format(value, 'yyyy-MM-dd');
+      dispatch(setField({ field: 'serviceDate', value: formatted }));
     }
+  };
+
+  const handleTimeSelect = (slot: string) => {
+    dispatch(setField({ field: 'serviceTime', value: slot }));
   };
 
   const addThirtyMinutes = (time: string): string => {
@@ -48,11 +59,7 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
     const [endHour, endMinute] = end.split(':').map(Number);
 
     const endDate = new Date();
-    endDate.setHours(endHour);
-    endDate.setMinutes(endMinute);
-    endDate.setSeconds(0);
-    endDate.setMilliseconds(0);
-
+    endDate.setHours(endHour, endMinute, 0, 0);
     endDate.setMinutes(endDate.getMinutes() + 30);
 
     const formattedEnd = `${String(endDate.getHours()).padStart(2, '0')}:${String(
@@ -63,13 +70,13 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
   };
 
   const handleAddThirtyMinutes = () => {
-    if (selectedSlot) {
-      const newSlot = addThirtyMinutes(selectedSlot);
-      setSelectedSlot(newSlot);
+    if (serviceTime) {
+      const newSlot = addThirtyMinutes(serviceTime);
+      dispatch(setField({ field: 'serviceTime', value: newSlot }));
     }
   };
 
-  const isValid = selectedDate && selectedSlot;
+  const isValid = !!serviceDate && !!serviceTime;
 
   return (
     <div className={styles.wrapper}>
@@ -85,7 +92,6 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
       </div>
 
       <div className={styles.contentWrapper}>
-        {/* 📝 Subheading */}
         <div className={styles.subheading}>날짜 및 시간 선택</div>
 
         {/* 📅 Date Section */}
@@ -137,9 +143,9 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
             </p>
           </div>
 
-          {selectedSlot && (
+          {serviceTime && (
             <div className={styles.selectedSlot}>
-              <span>{selectedSlot}</span>
+              <span>{serviceTime}</span>
               <div className={styles.buttonWrapper}>
                 <button
                   className={styles.addButton}
@@ -155,8 +161,8 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
             {timeSlots.map((slot) => (
               <button
                 key={slot}
-                className={`${styles.slot} ${selectedSlot === slot ? styles.active : ''}`}
-                onClick={() => setSelectedSlot(slot)}
+                className={`${styles.slot} ${serviceTime === slot ? styles.active : ''}`}
+                onClick={() => handleTimeSelect(slot)}
               >
                 {slot}
               </button>

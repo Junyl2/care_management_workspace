@@ -1,9 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './SelectDateTimeDesktop.module.css';
+import Image from 'next/image';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { setField } from '@/store/features/reservationFormSlice';
+import { format } from 'date-fns';
 
 const timeSlots = [
   '07:00 ~ 09:00',
@@ -21,25 +25,29 @@ const timeSlots = [
 ];
 
 const SelectDateTimeDesktop: React.FC = () => {
-  const [selectedSlot, setSelectedSlot] = useState<string>('11:00 ~ 13:00');
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const dispatch = useAppDispatch();
+  const { serviceDate, serviceTime } = useAppSelector(
+    (state) => state.reservationForm
+  );
+
+  const selectedDate = serviceDate ? new Date(serviceDate) : new Date();
 
   const handleDateChange = (value: Date | Date[]) => {
     if (value instanceof Date) {
-      setSelectedDate(value);
+      const formatted = format(value, 'yyyy-MM-dd');
+      dispatch(setField({ field: 'serviceDate', value: formatted }));
     }
+  };
+
+  const handleTimeSelect = (slot: string) => {
+    dispatch(setField({ field: 'serviceTime', value: slot }));
   };
 
   const addThirtyMinutes = (time: string): string => {
     const [start, end] = time.split(' ~ ');
     const [endHour, endMinute] = end.split(':').map(Number);
-
     const endDate = new Date();
-    endDate.setHours(endHour);
-    endDate.setMinutes(endMinute);
-    endDate.setSeconds(0);
-    endDate.setMilliseconds(0);
-
+    endDate.setHours(endHour, endMinute, 0, 0);
     endDate.setMinutes(endDate.getMinutes() + 30);
 
     const formattedEnd = `${String(endDate.getHours()).padStart(2, '0')}:${String(
@@ -50,9 +58,9 @@ const SelectDateTimeDesktop: React.FC = () => {
   };
 
   const handleAddThirtyMinutes = () => {
-    if (selectedSlot) {
-      const newSlot = addThirtyMinutes(selectedSlot);
-      setSelectedSlot(newSlot);
+    if (serviceTime) {
+      const newSlot = addThirtyMinutes(serviceTime);
+      dispatch(setField({ field: 'serviceTime', value: newSlot }));
     }
   };
 
@@ -63,64 +71,105 @@ const SelectDateTimeDesktop: React.FC = () => {
           <h2 className={styles.title}>날짜 및 시간 선택</h2>
           <p className={styles.note}>*서비스 이용 최소 2~3일 전 예약 필수</p>
         </div>
-        <div>이용 시간 안내</div>
+        <div className="flex gap-2 items-center">
+          <p>이용 시간 안내</p>
+          <Image
+            src="/assets/images/make-reservation/excla.png"
+            alt="Reminder"
+            height={12}
+            width={12}
+          />
+        </div>
       </div>
 
       <div className={styles.grid}>
-        {/* 📅 Date Section */}
+        {/* Date Section */}
         <div className={styles.leftColumn}>
-          <label className={styles.label}>날짜 *</label>
-          <div className={styles.dateTag}>
-            {selectedDate.getFullYear()}년 {selectedDate.getMonth() + 1}월{' '}
-            {selectedDate.getDate()}일
+          <div className={styles.columnHeader}>
+            <div className="flex gap-2 items-center">
+              <Image
+                src="/assets/images/make-reservation/lucide_calendar-fold.png"
+                alt="Calendar Schedule"
+                height={16}
+                width={16}
+              />
+              <label className={styles.label}>
+                날짜 <span className={styles.required}> *</span>
+              </label>
+            </div>
+            <div className={styles.dateTag}>
+              {selectedDate.getFullYear()}년 {selectedDate.getMonth() + 1}월{' '}
+              {selectedDate.getDate()}일
+            </div>
           </div>
-          <Calendar
-            locale="ko-KR"
-            calendarType="gregory"
-            onChange={handleDateChange}
-            value={selectedDate}
-            formatMonthYear={(locale, date) =>
-              `${date.getFullYear()}년 ${date.getMonth() + 1}월`
-            }
-            formatDay={(locale, date) => String(date.getDate())}
-            tileClassName={({ date }) =>
-              date.getDay() === 0 ? styles.sunday : undefined
-            }
-            className={styles.customCalendar}
-            next2Label={null}
-            prev2Label={null}
-            minDetail="month"
-            maxDetail="month"
-          />
+
+          <div className={styles.calendarContainer}>
+            <Calendar
+              locale="ko-KR"
+              calendarType="gregory"
+              onChange={handleDateChange}
+              value={selectedDate}
+              formatMonthYear={(locale, date) =>
+                `${date.getFullYear()}년 ${date.getMonth() + 1}월`
+              }
+              formatDay={(locale, date) => String(date.getDate())}
+              tileClassName={({ date }) =>
+                date.getDay() === 0 ? styles.sunday : undefined
+              }
+              className={styles.customCalendar}
+              next2Label={null}
+              prev2Label={null}
+              minDetail="month"
+              maxDetail="month"
+            />
+          </div>
         </div>
 
-        {/* ⏰ Time Section */}
+        {/* Time Section */}
         <div className={styles.rightColumn}>
-          <label className={styles.label}>시간 *</label>
-          <p className={styles.timeNote}>
-            30분 단위로 시간 추가 시 +버튼으로 추가 하세요.
-          </p>
+          <div className="flex flex-col gap-2">
+            <div className={styles.columnHeader}>
+              <div className="flex flex-col gap-2 ">
+                <div className="flex  gap-2 items-center">
+                  <Image
+                    src="/assets/images/make-reservation/tabler_clock.png"
+                    alt="Schedule Time"
+                    height={16}
+                    width={16}
+                  />
+                  <label className={styles.label}>
+                    시간<span className={styles.required}>*</span>
+                  </label>
+                </div>
+                <p className={styles.timeNote}>
+                  30분 단위로 시간 추가 시 +버튼으로 추가 하세요.
+                </p>
+              </div>
 
-          {selectedSlot && (
-            <div className={styles.selectedSlot}>
-              <span>{selectedSlot}</span>
-              <div className={styles.buttonWrapper}>
-                <button
-                  className={styles.addButton}
-                  onClick={handleAddThirtyMinutes}
-                >
-                  ＋
-                </button>
+              <div>
+                {serviceTime && (
+                  <div className={styles.selectedSlot}>
+                    <span>{serviceTime}</span>
+                    <div className={styles.buttonWrapper}>
+                      <button
+                        className={styles.addButton}
+                        onClick={handleAddThirtyMinutes}
+                      >
+                        ＋
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-          )}
+          </div>
 
           <div className={styles.gridTimeSlots}>
             {timeSlots.map((slot) => (
               <button
                 key={slot}
-                className={`${styles.slot} ${selectedSlot === slot ? styles.active : ''}`}
-                onClick={() => setSelectedSlot(slot)}
+                className={`${styles.slot} ${serviceTime === slot ? styles.active : ''}`}
+                onClick={() => handleTimeSelect(slot)}
               >
                 {slot}
               </button>

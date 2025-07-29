@@ -5,6 +5,7 @@ import styles from './MakeReservation.module.css';
 import SelectService from './SelectService/SelectService';
 import ReservationInformation from './ReservationInformation/ReservationInformation';
 import SelectDateTimeDesktop from './desktop/SelectDateTime/SelectDateTimeDesktop';
+import ServiceInfoDesktop from './desktop/ServiceInfo/ServiceInfoDesktop';
 
 type Props = {
   isMobile: boolean;
@@ -13,14 +14,17 @@ type Props = {
 
 const MakeReservation: React.FC<Props> = ({ isMobile, onNext }) => {
   return (
-    <div className={`container ${styles.container}`}>
+    <div className={styles.container}>
       <h1 className={styles.header}>예약하기</h1>
       <div className={styles.contentGrid}>
         <div className={styles.leftColumn}>
           <SelectService onNext={onNext} />
           {!isMobile && <SelectDateTimeDesktop />}
+          {!isMobile && <ServiceInfoDesktop />}
         </div>
-        {!isMobile && <ReservationInformation />}
+        <div className={styles.rightColumnSticky}>
+          {!isMobile && <ReservationInformation />}
+        </div>
       </div>
 
       {!isMobile && (

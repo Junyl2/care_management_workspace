@@ -3,40 +3,74 @@
 import { useEffect, useState } from 'react';
 import styles from './style.module.css';
 import MakeReservation from '@/components/pages/make-reservation/MakeReservation';
-import SelectDateTimeMobile from '@/components/pages/make-reservation/SelectDateTimeMobile/SelectDateTimeMobile';
+import SelectDateTimeMobile from '@/components/pages/make-reservation/mobile/SelectDateTimeMobile/SelectDateTimeMobile';
+import ServiceInfoMobile from '@/components/pages/make-reservation/mobile/ServiceInfoMobile/ServiceInfoMobile';
+import ConfirmationMobile from '@/components/pages/make-reservation/mobile/ConfirmationMobile/ConfirmationMobile';
+
+type ReservationStep =
+  | 'select-service'
+  | 'select-datetime'
+  | 'service-info'
+  | 'confirmation';
 
 export default function MakeReservationPage() {
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-  const [step, setStep] = useState<'select-service' | 'select-datetime'>(
-    'select-service'
-  );
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean | null>(null);
+  const [step, setStep] = useState<ReservationStep>('select-service');
 
   useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth <= 768;
-      setIsMobileScreen(mobile);
-      if (!mobile) {
-        setStep('select-service'); // Reset step for desktop
-      }
+    const checkScreenSize = () => {
+      const isMobile = window.innerWidth <= 768;
+      setIsMobileScreen(isMobile);
+      if (!isMobile) setStep('select-service');
     };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
+  useEffect(() => {
+    // Scroll to top whenever the step changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [step]);
+
+  if (isMobileScreen === null) return null;
+
+  const renderContent = () => {
+    if (!isMobileScreen) {
+      return <MakeReservation isMobile={false} />;
+    }
+
+    switch (step) {
+      case 'select-service':
+        return (
+          <MakeReservation
+            isMobile={true}
+            onNext={() => setStep('select-datetime')}
+          />
+        );
+      case 'select-datetime':
+        return (
+          <SelectDateTimeMobile
+            onBack={() => setStep('select-service')}
+            onNext={() => setStep('service-info')}
+          />
+        );
+      case 'service-info':
+        return (
+          <ServiceInfoMobile
+            onBack={() => setStep('select-datetime')}
+            onNext={() => setStep('confirmation')}
+          />
+        );
+      case 'confirmation':
+        return <ConfirmationMobile onReset={() => setStep('select-service')} />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <main className={`mainLayout ${styles.container}`}>
-      {!isMobileScreen ? (
-        <MakeReservation isMobile={false} />
-      ) : step === 'select-service' ? (
-        <MakeReservation
-          isMobile={true}
-          onNext={() => setStep('select-datetime')}
-        />
-      ) : (
-        <SelectDateTimeMobile onBack={() => setStep('select-service')} />
-      )}
-    </main>
+    <main className={`mainLayout ${styles.container}`}>{renderContent()}</main>
   );
 }
