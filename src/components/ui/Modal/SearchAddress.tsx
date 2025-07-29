@@ -5,10 +5,19 @@ import { BaseModal } from './BaseModal';
 import styles from './SearchAddress.module.css';
 import { CiSearch } from 'react-icons/ci';
 
+import { useAppDispatch } from '@/store/hooks';
+import { setField } from '@/store/features/reservationFormSlice';
+
 interface SearchAddressProps {
   open: boolean;
   onClose: () => void;
-  onSelectAddress: (address: string) => void;
+  onSelectAddress: (selected: string) => void;
+}
+
+interface AddressResult {
+  roadAddress: string;
+  jibunAddress: string;
+  postalCode: string;
 }
 
 export const SearchAddress: React.FC<SearchAddressProps> = ({
@@ -16,13 +25,49 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
   onClose,
   onSelectAddress,
 }) => {
+  const dispatch = useAppDispatch();
   const [input, setInput] = useState('');
-  const [selectedAddress, setSelectedAddress] = useState('');
+  const [results, setResults] = useState<AddressResult[]>([]);
+  const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
 
+  const handleSearch = async () => {
+    if (!input.trim()) return;
+
+    // Dummy data for testing UI
+    const dummyResults: AddressResult[] = [
+      {
+        roadAddress:
+          '서울특별시 동대문구 망우로 82 (휘경동, 삼육서울병원, 삼육보건대학교)',
+        jibunAddress:
+          '서울특별시 동대문구 휘경동 29-1 삼육서울병원, 삼육보건대학교',
+        postalCode: '02500',
+      },
+      {
+        roadAddress: '서울특별시 동대문구 망우로 100 (휘경동, 휘경중학교)',
+        jibunAddress: '서울특별시 동대문구 휘경동 100 휘경중학교',
+        postalCode: '02510',
+      },
+    ];
+
+    setResults(dummyResults);
+  };
+
+  const handleSelect = (address: string) => {
+    setSelectedAddress(address);
+    onSelectAddress(address);
+  };
+
+  /* Confirm button saves to Redux & closes modal */
   const handleConfirm = () => {
-    if (selectedAddress) {
-      onSelectAddress(selectedAddress);
-      onClose();
+    if (!selectedAddress) return;
+    dispatch(setField({ field: 'address', value: selectedAddress }));
+    onSelectAddress(selectedAddress);
+    onClose();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
     }
   };
 
@@ -34,43 +79,81 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
       titleClassName={styles.textStartTitle}
     >
       <div className={styles.content}>
-        {/* Dummy address search logic - replace with real API later */}
+        {/* search Input */}
         <div className={styles.searchContainer}>
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
             className={styles.input}
             placeholder="도로명, 지번, 건물명 검색"
           />
           <button
             className={styles.searchBtn}
-            onClick={() => setSelectedAddress(input)}
+            onClick={handleSearch}
             disabled={!input.trim()}
           >
             <CiSearch className={styles.searchIcon} />
           </button>
         </div>
 
-        <div className={styles.searchExample}>
-          <h2>주소 검색 방법</h2>
-          <h3 className={styles.h3WithDot}>도로명 + 건물번호</h3>
-          <p>예) 정자일로 95, 불정로 6</p>
-          <h3 className={styles.h3WithDot}>동/읍/면/리 + 번지</h3>
-          <p>예) 정자동 178-4, 동면 만천리 1000</p>
-        </div>
-
-        {selectedAddress && (
-          <div className={styles.result}>
-            선택된 주소: <strong>{selectedAddress}</strong>
+        {/*  Search Results */}
+        {results.length > 0 && (
+          <div className={styles.resultsContainer}>
+            <h3 className={styles.resultTitle}>검색 결과</h3>
+            <div className="flex flex-col gap-2">
+              {results.map((result, index) => (
+                <div
+                  key={index}
+                  className={`${styles.resultItem} ${
+                    selectedAddress === result.roadAddress
+                      ? styles.selectedResult
+                      : ''
+                  }`}
+                >
+                  <div className={styles.addressText}>
+                    <p>{result.roadAddress}</p>
+                    <div className={styles.subAddressWrapper}>
+                      <div className={styles.subAddress}>
+                        <span className={styles.label}>지번</span>
+                        {result.jibunAddress}
+                      </div>
+                      <div className={styles.subAddress}>
+                        <span className={styles.label}>우편번호</span>
+                        {result.postalCode}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    className={styles.selectBtn}
+                    onClick={() => handleSelect(result.roadAddress)}
+                  >
+                    선택
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
+        {/*  Search Example */}
+        {results.length === 0 && (
+          <div className={styles.searchExample}>
+            <h2>주소 검색 방법</h2>
+            <h3 className={styles.h3WithDot}>도로명 + 건물번호</h3>
+            <p>예) 정자일로 95, 불정로 6</p>
+            <h3 className={styles.h3WithDot}>동/읍/면/리 + 번지</h3>
+            <p>예) 정자동 178-4, 동면 만천리 1000</p>
+          </div>
+        )}
+
+        {/* Confirm Button */}
         <button
-          className={`${styles.confirmBtn} ${
-            selectedAddress ? styles.primary : styles.secondary
-          }`}
           onClick={handleConfirm}
+          className={`${styles.confirmButton} ${
+            selectedAddress ? styles.confirmPrimary : styles.confirmSecondary
+          }`}
           disabled={!selectedAddress}
         >
           확인

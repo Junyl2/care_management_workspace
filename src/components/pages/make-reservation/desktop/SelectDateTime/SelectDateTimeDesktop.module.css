@@ -221,6 +221,7 @@
 }
 .required {
   color: red !important;
+  margin-left: 4px;
 }
 
 .addButton {

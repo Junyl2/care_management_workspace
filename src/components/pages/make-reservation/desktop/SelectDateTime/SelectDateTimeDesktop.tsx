@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Calendar from 'react-calendar';
 import { CalendarProps } from 'react-calendar';
-import { useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import styles from './SelectDateTimeDesktop.module.css';
 import Image from 'next/image';
@@ -33,7 +32,7 @@ const SelectDateTimeDesktop: React.FC = () => {
     (state) => state.reservationForm
   );
 
-  const selectedDate = serviceDate ? new Date(serviceDate) : new Date();
+  const selectedDate = serviceDate ? new Date(serviceDate) : null;
 
   const handleDateChange: CalendarProps['onChange'] = (value) => {
     if (value instanceof Date) {
@@ -71,11 +70,11 @@ const SelectDateTimeDesktop: React.FC = () => {
     }
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (!serviceTime && timeSlots.length > 0) {
       dispatch(setField({ field: 'serviceTime', value: timeSlots[0] }));
     }
-  }, [dispatch, serviceTime]);
+  }, [dispatch, serviceTime]); */
 
   return (
     <div className={styles.container}>
@@ -107,13 +106,16 @@ const SelectDateTimeDesktop: React.FC = () => {
                 width={16}
               />
               <label className={styles.label}>
-                날짜 <span className={styles.required}> *</span>
+                날짜
+                {!selectedDate && <span className={styles.required}>*</span>}
               </label>
             </div>
-            <div className={styles.dateTag}>
-              {selectedDate.getFullYear()}년 {selectedDate.getMonth() + 1}월{' '}
-              {selectedDate.getDate()}일
-            </div>
+            {selectedDate && (
+              <div className={styles.dateTag}>
+                {selectedDate.getFullYear()}년 {selectedDate.getMonth() + 1}월{' '}
+                {selectedDate.getDate()}일
+              </div>
+            )}
           </div>
 
           <div className={styles.calendarContainer}>
@@ -121,7 +123,7 @@ const SelectDateTimeDesktop: React.FC = () => {
               locale="ko-KR"
               calendarType="gregory"
               onChange={handleDateChange}
-              value={selectedDate}
+              value={selectedDate || new Date()}
               formatMonthYear={(locale, date) =>
                 `${date.getFullYear()}년 ${date.getMonth() + 1}월`
               }
@@ -142,8 +144,8 @@ const SelectDateTimeDesktop: React.FC = () => {
         <div className={styles.rightColumn}>
           <div className="flex flex-col gap-2">
             <div className={styles.columnHeader}>
-              <div className="flex flex-col gap-2 ">
-                <div className="flex  gap-2 items-center">
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-2 items-center">
                   <Image
                     src="/assets/images/make-reservation/tabler_clock.png"
                     alt="Schedule Time"
@@ -151,7 +153,8 @@ const SelectDateTimeDesktop: React.FC = () => {
                     width={16}
                   />
                   <label className={styles.label}>
-                    시간<span className={styles.required}>*</span>
+                    시간
+                    {!serviceTime && <span className={styles.required}>*</span>}
                   </label>
                 </div>
                 <p className={styles.timeNote}>
@@ -181,7 +184,9 @@ const SelectDateTimeDesktop: React.FC = () => {
             {timeSlots.map((slot) => (
               <button
                 key={slot}
-                className={`${styles.slot} ${serviceTime === slot ? styles.active : ''}`}
+                className={`${styles.slot} ${
+                  serviceTime === slot ? styles.active : ''
+                }`}
                 onClick={() => handleTimeSelect(slot)}
               >
                 {slot}

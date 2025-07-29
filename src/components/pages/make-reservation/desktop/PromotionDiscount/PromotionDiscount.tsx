@@ -1,7 +1,21 @@
+// PromotionDiscount.tsx
+'use client';
+
 import React from 'react';
 import styles from './PromotionDiscount.module.css';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { setField } from '@/store/features/reservationFormSlice';
 
-const PromotionDiscount = () => {
+const PromotionDiscount: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const promotionDiscount = useAppSelector(
+    (state) => state.reservationForm.promotionDiscount
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setField({ field: 'promotionDiscount', value: e.target.value }));
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className="flex flex-col gap-2">
@@ -18,6 +32,8 @@ const PromotionDiscount = () => {
             type="radio"
             name="promotionDiscount"
             value="5"
+            checked={promotionDiscount === '5'}
+            onChange={handleChange}
             className={styles.radioInput}
           />
           5% 할인 (카카오채널 추가)
@@ -27,6 +43,8 @@ const PromotionDiscount = () => {
             type="radio"
             name="promotionDiscount"
             value="10"
+            checked={promotionDiscount === '10'}
+            onChange={handleChange}
             className={styles.radioInput}
           />
           10% 할인 (리뷰이벤트)

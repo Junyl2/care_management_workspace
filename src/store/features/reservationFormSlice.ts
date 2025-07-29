@@ -9,6 +9,7 @@ export interface ReservationFormState {
   serviceTime: string; // Format: '08:00 ~ 11:00, 3시간'
   address: string;
   addressDetail: string;
+  promotionDiscount: string;
 }
 
 const initialState: ReservationFormState = {
@@ -20,6 +21,7 @@ const initialState: ReservationFormState = {
   serviceTime: '',
   address: '',
   addressDetail: '',
+  promotionDiscount: '',
 };
 
 export const reservationFormSlice = createSlice({

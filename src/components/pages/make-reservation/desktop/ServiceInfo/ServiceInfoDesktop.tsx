@@ -21,6 +21,8 @@ const ServiceInfoDesktop: React.FC = () => {
     handleChange('address', selected);
   };
 
+  const isEmpty = (val: string | undefined) => !val?.trim();
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -28,7 +30,12 @@ const ServiceInfoDesktop: React.FC = () => {
 
         <div className={styles.formGrid}>
           <div className={styles.formGroup}>
-            <label>보호자 성함 *</label>
+            <label>
+              보호자 성함
+              {isEmpty(values.guardianName) && (
+                <span className={styles.required}> *</span>
+              )}
+            </label>
             <input
               type="text"
               placeholder="홍길동"
@@ -36,8 +43,14 @@ const ServiceInfoDesktop: React.FC = () => {
               onChange={(e) => handleChange('guardianName', e.target.value)}
             />
           </div>
+
           <div className={styles.formGroup}>
-            <label>보호자 연락처 *</label>
+            <label>
+              보호자 연락처
+              {isEmpty(values.guardianPhone) && (
+                <span className={styles.required}> *</span>
+              )}
+            </label>
             <input
               type="text"
               placeholder="01012345678"
@@ -45,8 +58,14 @@ const ServiceInfoDesktop: React.FC = () => {
               onChange={(e) => handleChange('guardianPhone', e.target.value)}
             />
           </div>
+
           <div className={styles.formGroup}>
-            <label>이용자 성함 *</label>
+            <label>
+              이용자 성함
+              {isEmpty(values.userName) && (
+                <span className={styles.required}> *</span>
+              )}
+            </label>
             <input
               type="text"
               placeholder="홍길동"
@@ -54,8 +73,14 @@ const ServiceInfoDesktop: React.FC = () => {
               onChange={(e) => handleChange('userName', e.target.value)}
             />
           </div>
+
           <div className={styles.formGroup}>
-            <label>이용자 연락처 *</label>
+            <label>
+              이용자 연락처
+              {isEmpty(values.userPhone) && (
+                <span className={styles.required}> *</span>
+              )}
+            </label>
             <input
               type="text"
               placeholder="01012345678"
@@ -63,8 +88,14 @@ const ServiceInfoDesktop: React.FC = () => {
               onChange={(e) => handleChange('userPhone', e.target.value)}
             />
           </div>
+
           <div className={styles.formGroup}>
-            <label>서비스 날짜 *</label>
+            <label>
+              서비스 날짜
+              {isEmpty(values.serviceDate) && (
+                <span className={styles.required}> *</span>
+              )}
+            </label>
             <input
               type="text"
               placeholder="2025년 6월 30일"
@@ -72,8 +103,14 @@ const ServiceInfoDesktop: React.FC = () => {
               onChange={(e) => handleChange('serviceDate', e.target.value)}
             />
           </div>
+
           <div className={styles.formGroup}>
-            <label>서비스 시간 *</label>
+            <label>
+              서비스 시간
+              {isEmpty(values.serviceTime) && (
+                <span className={styles.required}> *</span>
+              )}
+            </label>
             <input
               type="text"
               placeholder="08:00 ~ 11:00, 3시간"
@@ -85,7 +122,12 @@ const ServiceInfoDesktop: React.FC = () => {
 
         <div className={styles.addressSection}>
           <div className={styles.formGroup}>
-            <label>자택 주소 *</label>
+            <label>
+              자택 주소
+              {isEmpty(values.address) && (
+                <span className={styles.required}> *</span>
+              )}
+            </label>
             <div className={styles.searchContainer}>
               <input
                 type="text"
@@ -99,6 +141,7 @@ const ServiceInfoDesktop: React.FC = () => {
               </button>
             </div>
           </div>
+
           <div className={styles.formGroup}>
             <label>상세 주소 입력</label>
             <input
