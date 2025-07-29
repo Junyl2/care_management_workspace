@@ -1,5 +1,5 @@
 .customAboutHero {
-  height: 451px;
+  height: 600px;
 }
 
 .overlay {
@@ -12,20 +12,27 @@
 }
 
 .content {
-  max-width: 700px;
+  gap: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  text-align: start;
+  gap: 30px;
+  padding: 0 2rem;
 }
 
 .title {
   font-size: 69px;
   font-weight: 700;
-  margin-bottom: 24px;
   color: #ffffff;
+  font-weight: bold;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 600;
-  margin-bottom: 40px;
   color: #ffffff;
   line-height: 1.6;
 }
@@ -61,7 +68,7 @@
 }
 
 @media (max-width: 1368px) {
-  .customHomeHero {
+  .customAboutHero {
     height: 614px;
   }
 }
@@ -86,8 +93,11 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  .customHomeHero {
-    height: 360px;
+  .title {
+    margin-bottom: 0px;
+  }
+  .customAboutHero {
+    height: 360;
   }
 
   .overlay {
@@ -98,9 +108,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     text-align: start;
+    padding: 1rem;
   }
 
   .title {

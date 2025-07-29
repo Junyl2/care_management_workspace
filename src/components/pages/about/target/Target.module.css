@@ -1,0 +1,163 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden !important;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f1f8ff;
+  border-radius: 15px;
+  padding: 2.5rem;
+  position: relative;
+}
+.cardContainer p {
+  font-weight: 600;
+  font-size: 24px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center !important;
+  gap: 2rem;
+  max-width: 1019px;
+}
+.wrapper {
+  display: grid;
+  position: relative;
+  padding: 0rem 2rem;
+  gap: 16px;
+}
+.wrapper::before {
+  content: '';
+  background-image: url('/assets/images/about/icons/dots.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: absolute;
+  top: 7.8%;
+  left: -6%;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.headerContent {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 823px;
+  gap: 1rem;
+}
+.header h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.header h3 {
+  font-size: 26px;
+  font-family: 600;
+}
+.year {
+  font-size: 24px;
+  font-weight: 600;
+}
+.description {
+  font-size: 24px;
+  font-weight: 500;
+  max-width: 610px;
+}
+@media (min-width: 1368px) {
+  .container {
+    min-width: 1019px;
+  }
+}
+@media (max-width: 1024px) {
+  .year {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .description {
+    font-size: 24px;
+    font-size: 500;
+  }
+  .wrapper {
+    padding-right: 0rem;
+    padding-left: 4rem;
+    text-align: start;
+  }
+  .description {
+    max-width: 421px;
+    text-align: start;
+  }
+  .wrapper::before {
+    background-image: url('/assets/images/about/icons/tabletDot.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    width: 43px;
+    top: 6.5%;
+    left: -1.1%;
+  }
+}
+
+@media (max-width: 768px) {
+  .year {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .description {
+    font-size: 15px;
+    font-size: 500;
+  }
+
+  .cardContainer {
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
+    padding: 1rem;
+    gap: 10px;
+  }
+
+  .wrapper {
+    padding-right: 0.5rem;
+    padding-left: 2.5rem;
+  }
+  .cardContainer p {
+    font-size: 15px;
+  }
+}
+@media (min-width: 439px) and (max-width: 765px) {
+  .wrapper::before {
+    background-image: url('/assets/images/about/icons/mobileDot.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    width: 26px;
+    top: 6%;
+    left: -1%;
+  }
+}
+
+@media (max-width: 438px) {
+  .wrapper::before {
+    background-image: url('/assets/images/about/icons/mobileDot.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    width: 29px;
+    top: 5%;
+    left: -1%;
+  }
+  .wrapper {
+    padding-right: 0.5rem;
+    padding-left: 2.5rem;
+  }
+}

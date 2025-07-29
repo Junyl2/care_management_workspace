@@ -50,6 +50,9 @@
   --space-2xl: 2rem;
   --space-3xl: 3rem;
 
+  /* section spacing */
+  --section-padding-y: 2rem;
+
   /* Typography Fluid Sizes */
 
   --font-pretendard: 'Pretendard', sans-serif;
@@ -93,6 +96,8 @@
     --font-heading-main: var(--font-heading-main-mobile);
     --font-sub-heading: var(--font-sub-heading-mobile);
     --font-heading-sub: var(--font-heading-sub-mobile);
+
+    --section-padding-y: 1.5rem;
   }
 }
 
@@ -113,6 +118,7 @@
     --font-heading-main: var(--font-heading-main-tablet);
     --font-sub-heading: var(--font-sub-heading-tablet);
     --font-heading-sub: var(--font-heading-sub-tablet);
+    --section-padding-y: 3rem;
   }
 }
 
@@ -125,5 +131,6 @@
     --font-heading-main: var(--font-heading-main-desktop);
     --font-sub-heading: var(--font-sub-heading-desktop);
     --font-heading-sub: var(--font-heading-sub-desktop);
+    --section-padding-y: 4rem;
   }
 }

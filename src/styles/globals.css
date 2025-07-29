@@ -10,12 +10,10 @@
 }
 
 /* LAYER UTILITIES */
-
 .mainLayout {
   margin-top: var(--nav-height);
   min-height: calc(100vh - var(--nav-height));
 }
-
 .home-section-heading {
   font-size: 1rem;
   font-weight: 700;
