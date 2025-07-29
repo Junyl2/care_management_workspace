@@ -1,0 +1,51 @@
+.heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: black;
+}
+
+.note {
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+}
+
+.options {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+}
+.labelImportant {
+  font-size: 22px;
+  font-weight: 500;
+  color: black;
+}
+
+.formLabel {
+  font-size: 20px;
+  font-weight: normal;
+  color: black;
+}
+.buttonText {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 20px;
+  }
+  .note {
+    font-size: 13px;
+  }
+  .options {
+    font-size: 15px;
+  }
+  .labelImportant {
+    font-size: 15px;
+  }
+  .buttonText {
+    font-size: 14px;
+    font-weight: normal;
+  }
+}

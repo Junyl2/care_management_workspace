@@ -6,6 +6,7 @@ import SelectService from './SelectService/SelectService';
 import ReservationInformation from './ReservationInformation/ReservationInformation';
 import SelectDateTimeDesktop from './desktop/SelectDateTime/SelectDateTimeDesktop';
 import ServiceInfoDesktop from './desktop/ServiceInfo/ServiceInfoDesktop';
+import PromotionDiscount from './desktop/PromotionDiscount/PromotionDiscount';
 
 type Props = {
   isMobile: boolean;
@@ -21,6 +22,7 @@ const MakeReservation: React.FC<Props> = ({ isMobile, onNext }) => {
           <SelectService onNext={onNext} />
           {!isMobile && <SelectDateTimeDesktop />}
           {!isMobile && <ServiceInfoDesktop />}
+          {!isMobile && <PromotionDiscount />}
         </div>
         <div className={styles.rightColumnSticky}>
           {!isMobile && <ReservationInformation />}

@@ -62,3 +62,28 @@ h1 - 특허받은 독자 기술로 구현된 돌봄 서비스,  신뢰브랜�
 certificates - 2 > logo badge
 
 button primary: 회사 소개 보러가기
+
+
+
+
+
+promotion discount
+프로모션 할인
+
+병원 동행 요청 사항
+Requests for hospital accompaniment
+
+
+
+결제시 비용 추가 되는 내용
+Additional charges apply upon payment
+
+
+
+예약 내역 확인
+Check reservation details
+
+
+
+예약이 완료 되었습니다. - confirmation
+Your reservation has been completed.
