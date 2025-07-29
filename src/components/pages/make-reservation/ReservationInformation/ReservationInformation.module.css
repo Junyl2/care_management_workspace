@@ -143,8 +143,13 @@
   }
 }
 
-/* Mobile Drawer */
 @media (max-width: 768px) {
+  .contact {
+    display: none;
+  }
+  .reserveButton {
+    display: none;
+  }
   .container {
     width: 100%;
     border: none;
@@ -159,51 +164,11 @@
   }
 
   .reservationContent {
-    position: fixed;
-    bottom: -539px;
-    left: 0;
-    width: 100%;
-    height: 539px;
-    background: #fff;
+    position: relative;
+    bottom: 0;
+    height: auto;
     padding: 20px;
-    border-radius: 20px 20px 0 0;
-    overflow-y: auto;
-    transition: bottom 0.3s ease-in-out;
-    z-index: 999;
-  }
-
-  .reservationContent.show {
-    bottom: 0;
-  }
-
-  .mobileToggle {
-    display: flex;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border: 1px solid #ecedf0;
-    border-radius: 50px;
-    padding: 0.5rem 1rem;
-    font-size: 13px;
-    color: #000;
-    cursor: pointer;
-    z-index: 1000;
-    align-items: center;
-    gap: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .reserveButton {
-    background: #adb4ba;
-    border-radius: 10px;
-    width: 100%;
-    color: #fff;
-    padding: 1rem;
-    font-size: 16px;
-    position: sticky;
-    bottom: 0;
-    margin-top: 2rem;
+    border-radius: 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
   }
 }

@@ -115,7 +115,7 @@ const ReservationInformation: React.FC = () => {
         </section>
 
         {/* Reservation button (no action yet) */}
-        <button className={styles.reserveButton}>예약하기</button>
+        {/* <button className={styles.reserveButton}>예약하기</button> */}
       </div>
     </div>
   );

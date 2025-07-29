@@ -10,6 +10,7 @@ interface BaseModalProps {
   title?: string;
   className?: string;
   children?: React.ReactNode;
+  titleClassName?: string;
 }
 
 export const BaseModal = ({
@@ -17,6 +18,7 @@ export const BaseModal = ({
   onClose,
   title,
   className = '',
+  titleClassName = '',
   children,
 }: BaseModalProps) => {
   useEffect(() => {
@@ -41,7 +43,9 @@ export const BaseModal = ({
         >
           <FiX size={22} />
         </button>
-        {title && <h2 className={styles.title}>{title}</h2>}
+        {title && (
+          <h2 className={`${styles.title} ${titleClassName}`}>{title}</h2>
+        )}
         {children}
       </div>
     </div>

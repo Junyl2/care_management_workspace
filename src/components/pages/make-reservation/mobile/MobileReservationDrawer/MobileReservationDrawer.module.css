@@ -1,0 +1,78 @@
+.drawerContainer {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  max-height: 90vh;
+  background-color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  z-index: 99;
+  overflow-y: auto;
+}
+
+.drawerContainer.open {
+  transform: translateY(0%);
+}
+
+.arrowWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  cursor: pointer;
+  margin-bottom: -30px;
+  position: relative;
+  z-index: 700;
+}
+.arrowWrapper {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.arrowDown {
+  color: #444;
+}
+
+.paymentInfoRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+.paymentInfoRow {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.arrowStatic {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: #007fff;
+  color: white;
+}
+
+.primary {
+  background-color: #007fff;
+  color: white;
+}

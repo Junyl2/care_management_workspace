@@ -2,12 +2,15 @@
 
 import React from 'react';
 import Calendar from 'react-calendar';
+import { CalendarProps } from 'react-calendar';
+import { useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import styles from './SelectDateTimeDesktop.module.css';
 import Image from 'next/image';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setField } from '@/store/features/reservationFormSlice';
 import { format } from 'date-fns';
+import { toast } from 'react-hot-toast';
 
 const timeSlots = [
   '07:00 ~ 09:00',
@@ -32,8 +35,12 @@ const SelectDateTimeDesktop: React.FC = () => {
 
   const selectedDate = serviceDate ? new Date(serviceDate) : new Date();
 
-  const handleDateChange = (value: Date | Date[]) => {
+  const handleDateChange: CalendarProps['onChange'] = (value) => {
     if (value instanceof Date) {
+      if (value.getDay() === 0) {
+        toast.error('일요일은 예약이 제한될 수 있습니다.');
+      }
+
       const formatted = format(value, 'yyyy-MM-dd');
       dispatch(setField({ field: 'serviceDate', value: formatted }));
     }
@@ -63,6 +70,12 @@ const SelectDateTimeDesktop: React.FC = () => {
       dispatch(setField({ field: 'serviceTime', value: newSlot }));
     }
   };
+
+  useEffect(() => {
+    if (!serviceTime && timeSlots.length > 0) {
+      dispatch(setField({ field: 'serviceTime', value: timeSlots[0] }));
+    }
+  }, [dispatch, serviceTime]);
 
   return (
     <div className={styles.container}>

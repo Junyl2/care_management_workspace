@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import Calendar from 'react-calendar';
+import { CalendarProps } from 'react-calendar';
+
 import styles from './SelectDateTimeMobile.module.css';
 import { FiChevronLeft } from 'react-icons/fi';
 import { BottomBarBase } from '@/components/ui';
@@ -39,7 +41,7 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
 
   const selectedDate = serviceDate ? new Date(serviceDate) : null;
 
-  const handleDateChange = (value: Date | Date[]) => {
+  const handleDateChange: CalendarProps['onChange'] = (value) => {
     if (value instanceof Date) {
       if (value.getDay() === 0) {
         toast.error('일요일은 예약이 제한될 수 있습니다.');
@@ -80,7 +82,7 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
 
   return (
     <div className={styles.wrapper}>
-      {/* 🔝 Header */}
+      {/* Header */}
       <div className={styles.header}>
         <button className={styles.backButton} onClick={onBack}>
           <FiChevronLeft size={34} className={styles.arrowLeft} />
@@ -94,7 +96,7 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
       <div className={styles.contentWrapper}>
         <div className={styles.subheading}>날짜 및 시간 선택</div>
 
-        {/* 📅 Date Section */}
+        {/*  Date Section */}
         <div className={styles.dateSection}>
           <div>
             <h3 className={styles.sectionTitle}>날짜 선택</h3>
