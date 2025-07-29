@@ -1,0 +1,71 @@
+.floatingContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  z-index: 999;
+}
+
+.floatingBtn {
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    margin 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #778088;
+}
+
+.shiftLeft {
+  margin-right: 76px;
+}
+
+.floatingArrow {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.floatingArrow.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floatingBtn:hover {
+  transform: scale(1.05);
+}
+
+.profileImage {
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .floatingBtn {
+    width: 46px;
+    height: 46px;
+  }
+  .shiftLeft {
+    margin-right: 68px;
+  }
+}
+
+@media (max-width: 768px) {
+  .floatingBtn {
+    width: 40px;
+    height: 40px;
+  }
+  .shiftLeft {
+    margin-right: 52px;
+  }
+}
