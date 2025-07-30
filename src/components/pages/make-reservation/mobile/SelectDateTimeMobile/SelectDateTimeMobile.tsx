@@ -1,11 +1,13 @@
 'use client';
 
 import React from 'react';
+import { useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 import { CalendarProps } from 'react-calendar';
 
 import styles from './SelectDateTimeMobile.module.css';
+import Image from 'next/image';
 import { FiChevronLeft } from 'react-icons/fi';
 import { BottomBarBase } from '@/components/ui';
 import { toast } from 'react-hot-toast';
@@ -78,6 +80,12 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
     }
   };
 
+  useEffect(() => {
+    if (!serviceTime) {
+      dispatch(setField({ field: 'serviceTime', value: timeSlots[0] }));
+    }
+  }, [serviceTime, dispatch]);
+
   const isValid = !!serviceDate && !!serviceTime;
 
   return (
@@ -94,21 +102,36 @@ const SelectDateTimeMobile: React.FC<Props> = ({ onBack, onNext }) => {
       </div>
 
       <div className={styles.contentWrapper}>
-        <div className={styles.subheading}>날짜 및 시간 선택</div>
-
         {/*  Date Section */}
         <div className={styles.dateSection}>
-          <div>
+          <div className={styles.subHeading}>
             <h3 className={styles.sectionTitle}>날짜 선택</h3>
             <p className={styles.sectionNote}>
               *서비스 이용 최소 2~3일 전 예약 필수
             </p>
           </div>
           <div>
-            <div className={styles.dateTag}>
-              {selectedDate
-                ? `${selectedDate.getFullYear()}년 ${selectedDate.getMonth() + 1}월 ${selectedDate.getDate()}일`
-                : '날짜를 선택해주세요'}
+            <div className={styles.dateTagWrapper}>
+              <div className={styles.tooltipWrapper}>
+                <p className={styles.reminder}>
+                  이용 시간 안내
+                  <Image
+                    src="/assets/images/make-reservation/excla.png"
+                    alt="Reminder"
+                    height={13}
+                    width={13}
+                    className={styles.reminderImage}
+                  />
+                </p>
+                <div className={styles.tooltip}>
+                  예약 가능한 시간대를 확인해주세요.
+                </div>
+              </div>
+              <div className={styles.dateTag}>
+                {selectedDate
+                  ? `${selectedDate.getFullYear()}년 ${selectedDate.getMonth() + 1}월 ${selectedDate.getDate()}일`
+                  : '날짜를 선택해주세요'}
+              </div>
             </div>
 
             <div className={styles.calendarWrapper}>

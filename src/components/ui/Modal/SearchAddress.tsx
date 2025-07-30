@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BaseModal } from './BaseModal';
 import styles from './SearchAddress.module.css';
 import { CiSearch } from 'react-icons/ci';
@@ -30,6 +30,20 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
   const [results, setResults] = useState<AddressResult[]>([]);
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
 
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      const width = window.innerWidth;
+      setIsMobileScreen(width <= 768);
+    };
+
+    checkScreen();
+
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
   const handleSearch = async () => {
     if (!input.trim()) return;
 
@@ -43,7 +57,8 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
         postalCode: '02500',
       },
       {
-        roadAddress: '서울특별시 동대문구 망우로 100 (휘경동, 휘경중학교)',
+        roadAddress:
+          '서울특별시 동대문구 망우로 82 (휘경동, 삼육서울병원, 삼육보건대학교)',
         jibunAddress: '서울특별시 동대문구 휘경동 100 휘경중학교',
         postalCode: '02510',
       },
@@ -76,7 +91,10 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
       open={open}
       onClose={onClose}
       title="주소를 검색해주세요."
+      withOverlay={isMobileScreen ? false : true}
       titleClassName={styles.textStartTitle}
+      className={styles.mobileModal}
+      noRadius={isMobileScreen ? true : false}
     >
       <div className={styles.content}>
         {/* search Input */}
@@ -94,10 +112,9 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
             onClick={handleSearch}
             disabled={!input.trim()}
           >
-            <CiSearch className={styles.searchIcon} />
+            <CiSearch className={styles.searchIcon} size={22} />
           </button>
         </div>
-
         {/*  Search Results */}
         {results.length > 0 && (
           <div className={styles.resultsContainer}>
@@ -113,7 +130,16 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
                   }`}
                 >
                   <div className={styles.addressText}>
-                    <p>{result.roadAddress}</p>
+                    <div className={styles.roadAddressWrapper}>
+                      <p>{result.roadAddress}</p>
+
+                      <button
+                        className={styles.selectBtn}
+                        onClick={() => handleSelect(result.roadAddress)}
+                      >
+                        선택
+                      </button>
+                    </div>
                     <div className={styles.subAddressWrapper}>
                       <div className={styles.subAddress}>
                         <span className={styles.label}>지번</span>
@@ -125,18 +151,11 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
                       </div>
                     </div>
                   </div>
-                  <button
-                    className={styles.selectBtn}
-                    onClick={() => handleSelect(result.roadAddress)}
-                  >
-                    선택
-                  </button>
                 </div>
               ))}
             </div>
           </div>
         )}
-
         {/*  Search Example */}
         {results.length === 0 && (
           <div className={styles.searchExample}>
@@ -147,17 +166,30 @@ export const SearchAddress: React.FC<SearchAddressProps> = ({
             <p>예) 정자동 178-4, 동면 만천리 1000</p>
           </div>
         )}
-
         {/* Confirm Button */}
-        <button
-          onClick={handleConfirm}
-          className={`${styles.confirmButton} ${
-            selectedAddress ? styles.confirmPrimary : styles.confirmSecondary
-          }`}
-          disabled={!selectedAddress}
-        >
-          확인
-        </button>
+        {!isMobileScreen && (
+          <button
+            onClick={handleConfirm}
+            className={`${styles.confirmButton} ${
+              selectedAddress ? styles.confirmPrimary : styles.confirmSecondary
+            }`}
+            disabled={!selectedAddress}
+          >
+            확인
+          </button>
+        )}
+
+        {isMobileScreen && (
+          <button
+            onClick={handleConfirm}
+            className={`${styles.mobileConfirmButton} ${
+              selectedAddress ? styles.confirmPrimary : styles.confirmSecondary
+            }`}
+            disabled={!selectedAddress}
+          >
+            확인
+          </button>
+        )}
       </div>
     </BaseModal>
   );

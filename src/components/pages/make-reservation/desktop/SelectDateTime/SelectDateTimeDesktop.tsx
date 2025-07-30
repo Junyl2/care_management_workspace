@@ -83,14 +83,20 @@ const SelectDateTimeDesktop: React.FC = () => {
           <h2 className={styles.title}>날짜 및 시간 선택</h2>
           <p className={styles.note}>*서비스 이용 최소 2~3일 전 예약 필수</p>
         </div>
-        <div className="flex gap-2 items-center">
-          <p>이용 시간 안내</p>
-          <Image
-            src="/assets/images/make-reservation/excla.png"
-            alt="Reminder"
-            height={12}
-            width={12}
-          />
+        <div className={styles.tooltipWrapper}>
+          <p className={styles.reminder}>
+            이용 시간 안내
+            <Image
+              src="/assets/images/make-reservation/excla.png"
+              alt="Reminder"
+              height={14}
+              width={14}
+              className={styles.reminderImage}
+            />
+          </p>
+          <div className={styles.tooltip}>
+            예약 가능한 시간대를 확인해주세요.
+          </div>
         </div>
       </div>
 

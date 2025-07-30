@@ -1,0 +1,126 @@
+.wrapper {
+  padding: 20px 16px;
+  background-color: #ffffff;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.mainHeader {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.subHeader {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.required {
+  color: red;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+.textInput,
+.textArea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  outline: none;
+}
+
+.textArea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.iconInputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888888;
+  pointer-events: none;
+}
+
+.sectionTitle {
+  font-size: clamp(15px, 1.5vw, 16px);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.sectionSubTitle {
+  font-size: clamp(13px, 1.4vw, 14px);
+  color: #666666;
+  margin-bottom: 12px;
+}
+
+.toggleGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.toggleButton {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+}
+
+.toggleActive {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+.paymentNotice {
+  margin-top: 32px;
+  padding: 14px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fdfdfd;
+}
+
+.paymentIcon {
+  font-size: 18px;
+  color: #999;
+}

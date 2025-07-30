@@ -5,11 +5,19 @@ export interface ReservationFormState {
   guardianPhone: string;
   userName: string;
   userPhone: string;
-  serviceDate: string; // Format: 'YYYY-MM-DD'
-  serviceTime: string; // Format: '08:00 ~ 11:00, 3시간'
+  serviceDate: string;
+  serviceTime: string;
   address: string;
   addressDetail: string;
   promotionDiscount: string;
+
+  hospitalName: string;
+  department: string;
+  appointmentDate: string;
+  appointmentTime: string;
+  severity: string;
+  additionalRequests: string[];
+  etc: string;
 }
 
 const initialState: ReservationFormState = {
@@ -22,18 +30,23 @@ const initialState: ReservationFormState = {
   address: '',
   addressDetail: '',
   promotionDiscount: '',
+
+  hospitalName: '',
+  department: '',
+  appointmentDate: '',
+  appointmentTime: '',
+  severity: '',
+  additionalRequests: [],
+  etc: '',
 };
 
 export const reservationFormSlice = createSlice({
   name: 'reservationForm',
   initialState,
   reducers: {
-    setField: (
-      state,
-      action: PayloadAction<{
-        field: keyof ReservationFormState;
-        value: string;
-      }>
+    setField: <K extends keyof ReservationFormState>(
+      state: ReservationFormState,
+      action: PayloadAction<{ field: K; value: ReservationFormState[K] }>
     ) => {
       state[action.payload.field] = action.payload.value;
     },

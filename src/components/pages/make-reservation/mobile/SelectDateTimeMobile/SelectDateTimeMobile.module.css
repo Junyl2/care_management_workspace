@@ -19,7 +19,7 @@
   margin-right: -1rem;
 }
 
-/* 🔝 Header */
+/* Header */
 .header {
   height: 60px;
   display: flex;
@@ -61,15 +61,7 @@
   color: #778088;
 }
 
-/* 📝 Subheading */
-.subheading {
-  font-size: 16px;
-  color: #b0b0b0;
-  font-weight: 400;
-  margin: 1rem 0;
-}
-
-/* 📅 Date Section */
+/* Date Section */
 .dateSection {
   display: flex;
   flex-direction: column;
@@ -79,37 +71,88 @@
   gap: 30px;
 }
 
+/* Subheading */
+.subHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem 0rem;
+}
+
 .sectionTitle {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 0.5rem;
   color: black;
 }
 
 .sectionNote {
   font-size: 14px;
   color: black;
-  margin-bottom: 0.75rem;
 }
 
+.dateTagWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.reminder {
+  font-size: 14px;
+}
+.reminderImage {
+  margin-left: 4px;
+}
 .dateTag {
   background-color: #f4f6f6;
   padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   width: 100%;
-  font-size: 14px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 500;
   color: #000;
   border-radius: 6px;
-  display: inline-block;
   margin-bottom: 1rem;
 }
 
-/* 📆 Calendar */
+.tooltipWrapper {
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
+.tooltip {
+  align-items: end;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  margin-bottom: 6px;
+  z-index: 1000;
+}
+
+.tooltipWrapper:hover .tooltip {
+  opacity: 1;
+}
+
+/*  Calendar */
 .calendarWrapper {
   border-radius: 8px;
   overflow: hidden;
-  background-color: black; /* per your request */
+  background-color: black;
 }
 
 .customCalendar {

@@ -11,6 +11,8 @@ interface BaseModalProps {
   className?: string;
   children?: React.ReactNode;
   titleClassName?: string;
+  withOverlay?: boolean;
+  noRadius?: boolean;
 }
 
 export const BaseModal = ({
@@ -20,6 +22,8 @@ export const BaseModal = ({
   className = '',
   titleClassName = '',
   children,
+  withOverlay = true,
+  noRadius = false,
 }: BaseModalProps) => {
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : 'auto';
@@ -30,24 +34,25 @@ export const BaseModal = ({
 
   if (!open) return null;
 
-  return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={`${styles.modal} ${className}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          className={styles.closeBtn}
-          onClick={onClose}
-          aria-label="Close"
-        >
-          <FiX size={22} />
-        </button>
-        {title && (
-          <h2 className={`${styles.title} ${titleClassName}`}>{title}</h2>
-        )}
-        {children}
-      </div>
+  const modalClass = `${styles.modal} ${noRadius ? styles.noRadius : ''} ${className}`;
+
+  const content = (
+    <div className={modalClass} onClick={(e) => e.stopPropagation()}>
+      <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
+        <FiX size={22} />
+      </button>
+      {title && (
+        <h2 className={`${styles.title} ${titleClassName}`}>{title}</h2>
+      )}
+      {children}
     </div>
+  );
+
+  return withOverlay ? (
+    <div className={styles.overlay} onClick={onClose}>
+      {content}
+    </div>
+  ) : (
+    content
   );
 };

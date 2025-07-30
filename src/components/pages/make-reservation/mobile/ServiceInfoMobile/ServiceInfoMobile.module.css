@@ -27,6 +27,11 @@
   left: 0;
 }
 
+.labelRequiredAsterisk {
+  color: red !important;
+  margin-left: 4px;
+}
+
 .headerTitle {
   display: flex;
   flex-direction: column;
@@ -121,17 +126,15 @@
   gap: 0.5rem;
 }
 .searchContainer button {
-  height: 50px;
-  width: 50px;
   border-radius: 6px;
   margin-top: 10px;
   border: none;
-  background-color: #007fff;
+  background-color: #419fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.searchIcon {
-  height: 20px;
-  width: 20px;
-}
+
 .arrow {
   transition: transform 0.3s ease;
 }
@@ -149,6 +152,14 @@
   font-weight: 500;
   justify-content: center;
   flex-direction: column;
+}
+
+.searchContainer button {
+  height: 50px;
+  padding-inline: 1rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #419fff;
 }
 
 .bottomBarShifted {

@@ -1,0 +1,110 @@
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.indicator {
+  width: 68px;
+  height: 4px;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 6px;
+  right: -3%;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5a636a;
+}
+/*  Calendar */
+
+.calendarWrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.customCalendar {
+  background-color: white !important;
+  width: 100%;
+  border: none;
+}
+
+:global(.react-calendar__navigation) {
+  background-color: #fff !important;
+  border-bottom: 1px solid #eee;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+:global(.react-calendar__navigation__label) {
+  background-color: inherit !important;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+:global(.react-calendar__navigation button) {
+  flex-grow: 0 !important;
+  padding: 0 4px;
+}
+
+:global(.react-calendar__navigation__arrow) {
+  color: #000 !important;
+  font-weight: 200;
+  font-size: 34px !important;
+  padding: 0;
+}
+
+:global(.customCalendar .react-calendar__navigation__label) {
+  background: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #b0b0b0 !important;
+  padding: 0;
+}
+
+.customCalendar .react-calendar__navigation button:enabled:hover {
+  background-color: transparent;
+}
+
+.customCalendar abbr {
+  font-size: 16px;
+  text-decoration: none;
+}
+
+:global(.react-calendar__month-view__weekdays) {
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  background-color: #fff;
+  color: #778088 !important;
+}
+
+:global(.react-calendar__tile) {
+  font-size: 18px;
+  border-radius: 9px;
+  border: 1px solid #ecedf0;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #fff;
+  color: #000000d2;
+}
+
+:global(.react-calendar__tile--active) {
+  background-color: #007fff !important;
+  color: #fff !important;
+}
+
+.sunday {
+  color: red !important;
+}
+
+.customCalendar .react-calendar__tile:enabled:hover {
+  background: #2a4b68 !important;
+}

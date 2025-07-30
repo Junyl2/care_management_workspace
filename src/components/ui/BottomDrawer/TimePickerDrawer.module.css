@@ -1,0 +1,28 @@
+.drawerHeader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.indicator {
+  width: 50px;
+  height: 4px;
+  background-color: #ccc;
+  border-radius: 2px;
+}
+
+.closeIcon {
+  position: absolute;
+  right: 16px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+}
+
+.pickerWrapper {
+  padding: 16px;
+  background: white;
+}

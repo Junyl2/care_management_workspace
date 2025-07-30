@@ -6,7 +6,7 @@
 
 .textStartTitle {
   text-align: start;
-  font-size: clamp(20px, 1.7vw, 24px);
+  font-size: clamp(21px, 2vw, 24px);
 }
 
 .searchExample {
@@ -20,7 +20,7 @@
 }
 .searchExample h3,
 .searchExample p {
-  font-weight: 18px;
+  font-size: clamp(15px, 2vw, 18px);
 }
 .searchExample p {
   color: #adb4ba !important;
@@ -50,26 +50,26 @@
 .input {
   padding: 0.75rem;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #dbdddf;
+  border-radius: 12px;
   width: 100%;
 }
 
 .searchBtn {
-  background-color: #007bff;
+  background-color: #007fff;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 12px;
   cursor: pointer;
-  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.searchBtn:hover {
+  background-color: #0173e6;
+}
 .searchIcon {
   color: white !important;
-  height: 22px;
-  width: 22px;
 }
 
 .result {
@@ -78,6 +78,17 @@
 }
 
 .confirmBtn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.fixedBottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   padding: 0.75rem;
   border: none;
   border-radius: 6px;
@@ -101,7 +112,7 @@
 }
 
 .resultTitle {
-  font-size: 14px;
+  font-size: clamp(15px, 1.7vw, 18px);
   color: #007aff;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -131,10 +142,12 @@
 }
 
 .subAddress {
-  font-size: clamp(16px, 1.7vw, 18px);
+  display: flex;
+  font-size: clamp(15px, 1.7vw, 18px);
   color: #778088;
   margin-top: 2px;
   font-weight: 500;
+  width: 100%;
 }
 .subAddressWrapper {
   display: flex;
@@ -151,17 +164,31 @@
   margin-right: 4px;
   color: #fff;
 }
+.roadAddressWrapper {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.roadAddressWrapper p {
+  width: fit-content;
+}
 
 .selectBtn {
   background-color: #419fff;
   color: white;
   border: none;
   padding: 6px 12px;
+  width: 66px;
+  height: auto;
   border-radius: 6px;
   font-size: clamp(16px, 1.8vw, 18px);
   font-weight: 600;
   cursor: pointer;
-  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .selectBtn:hover {
@@ -201,4 +228,42 @@
   background-color: #007bff;
   color: white;
   cursor: pointer;
+}
+
+.mobileConfirmButton {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .mobileModal {
+    position: fixed;
+    padding: 1rem;
+    margin-top: var(--nav-height);
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1100;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border-top: 1px solid #f4f6f6;
+  }
+  .searchExample {
+    padding-inline: 0px;
+  }
+  .searchBtn {
+    padding: 0.5rem 0.7rem;
+    background-color: #419fff;
+  }
 }

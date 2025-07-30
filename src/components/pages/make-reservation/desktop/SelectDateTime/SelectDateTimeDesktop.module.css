@@ -75,6 +75,34 @@
   font-size: 13px;
 }
 
+.tooltipWrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tooltipWrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  transform: translateY(-6px);
+  background: #333;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
 .dateTag {
   font-size: clamp(13px, 1.3vw, 24px);
   font-weight: 500;
@@ -83,6 +111,9 @@
   border: 1px solid #ecedf0;
   background-color: #ecedf0;
   text-align: center;
+}
+.reminderImage {
+  margin-left: 4px;
 }
 .title {
   font-size: clamp(20px, 1.3vw, 28px);

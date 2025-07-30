@@ -21,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: var(--nav-height);
-  padding: 0 2rem;
+  /*  padding: 0 2rem; */
   position: relative;
 }
 
