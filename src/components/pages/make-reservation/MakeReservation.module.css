@@ -80,11 +80,6 @@
     gap: 0.6rem;
   }
 
-  .contentGrid {
-    grid-template-columns: 1fr 321px;
-    gap: 0.6rem;
-  }
-
   .reserveButton {
     width: 270px;
   }

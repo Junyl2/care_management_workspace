@@ -70,11 +70,18 @@ const SelectDateTimeDesktop: React.FC = () => {
     }
   };
 
-  /* useEffect(() => {
+  // ✅ Ensure default time slot is set
+  useEffect(() => {
     if (!serviceTime && timeSlots.length > 0) {
       dispatch(setField({ field: 'serviceTime', value: timeSlots[0] }));
     }
-  }, [dispatch, serviceTime]); */
+  }, [dispatch, serviceTime]);
+
+  // Optional: log values to verify Redux connection
+  useEffect(() => {
+    console.log('Redux serviceDate:', serviceDate);
+    console.log('Redux serviceTime:', serviceTime);
+  }, [serviceDate, serviceTime]);
 
   return (
     <div className={styles.container}>
@@ -116,12 +123,16 @@ const SelectDateTimeDesktop: React.FC = () => {
                 {!selectedDate && <span className={styles.required}>*</span>}
               </label>
             </div>
-            {selectedDate && (
-              <div className={styles.dateTag}>
-                {selectedDate.getFullYear()}년 {selectedDate.getMonth() + 1}월{' '}
-                {selectedDate.getDate()}일
-              </div>
-            )}
+            <div className={styles.dateTag}>
+              {selectedDate ? (
+                <>
+                  {selectedDate.getFullYear()}년 {selectedDate.getMonth() + 1}월{' '}
+                  {selectedDate.getDate()}일
+                </>
+              ) : (
+                '날짜를 선택해주세요'
+              )}
+            </div>
           </div>
 
           <div className={styles.calendarContainer}>

@@ -6,6 +6,11 @@ interface CostData {
   lateNightSurcharge: number;
   severitySurcharge: number;
   hourlyRates: Record<string, number>;
+  surchargeStatus?: {
+    night: string;
+    lateNight: string;
+    severity: string;
+  };
 }
 
 export const fetchCostData = createAsyncThunk<CostData, void>(
@@ -15,12 +20,17 @@ export const fetchCostData = createAsyncThunk<CostData, void>(
       setTimeout(() => {
         resolve({
           baseRate: 20000,
-          nightSurcharge: 0.2,
+          nightSurcharge: 0.3,
           lateNightSurcharge: 0.3,
-          severitySurcharge: 10000,
+          severitySurcharge: 5000,
           hourlyRates: {
-            '18:00-20:00': 24000,
-            '22:00-06:00': 26000,
+            '18:00-22:00': 26000,
+            '06:00-08:00': 26000,
+          },
+          surchargeStatus: {
+            night: '적용',
+            lateNight: '적용',
+            severity: '적용 가능 (상황 따라)',
           },
         });
       }, 1000);
@@ -34,18 +44,28 @@ interface CostState {
   lateNightSurcharge: number;
   severitySurcharge: number;
   hourlyRates: Record<string, number>;
+  surchargeStatus: {
+    night: string;
+    lateNight: string;
+    severity: string;
+  };
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
 const initialState: CostState = {
   baseRate: 20000,
-  nightSurcharge: 0.2,
+  nightSurcharge: 0.3,
   lateNightSurcharge: 0.3,
-  severitySurcharge: 10000,
+  severitySurcharge: 5000,
   hourlyRates: {
-    '18:00-20:00': 24000,
-    '22:00-06:00': 26000,
+    '18:00-22:00': 26000,
+    '06:00-08:00': 26000,
+  },
+  surchargeStatus: {
+    night: '',
+    lateNight: '',
+    severity: '',
   },
   status: 'idle',
   error: null,
@@ -82,6 +102,11 @@ const costSlice = createSlice({
           state.lateNightSurcharge = action.payload.lateNightSurcharge;
           state.severitySurcharge = action.payload.severitySurcharge;
           state.hourlyRates = action.payload.hourlyRates;
+          state.surchargeStatus = action.payload.surchargeStatus || {
+            night: '',
+            lateNight: '',
+            severity: '',
+          };
         }
       )
       .addCase(fetchCostData.rejected, (state, action) => {
@@ -97,4 +122,5 @@ export const {
   setLateNightSurcharge,
   setSeveritySurcharge,
 } = costSlice.actions;
+
 export default costSlice.reducer;

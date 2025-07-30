@@ -7,6 +7,10 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setField } from '@/store/features/reservationFormSlice';
 import { SearchAddress } from '@/components/ui/Modal/SearchAddress';
 
+// Import constants and conditional service components
+import { SERVICE_NAMES } from '@/lib/constants';
+import RequestHospitalAccompaniment from '../../mobile/services/HospitalAccompaniment/RequestHospitalAccompaniment';
+
 const ServiceInfoDesktop: React.FC = () => {
   const dispatch = useAppDispatch();
   const values = useAppSelector((state) => state.reservationForm);
@@ -152,6 +156,13 @@ const ServiceInfoDesktop: React.FC = () => {
             />
           </div>
         </div>
+
+        {/* Conditional service-specific component */}
+        {values.serviceName === SERVICE_NAMES.HOSPITAL_ACCOMPANIMENT && (
+          <div className={styles.serviceComponent}>
+            <RequestHospitalAccompaniment />
+          </div>
+        )}
       </div>
 
       {/* Modal */}

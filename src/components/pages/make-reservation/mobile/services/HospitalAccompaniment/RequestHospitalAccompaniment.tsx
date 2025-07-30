@@ -14,12 +14,27 @@ import {
   FiChevronDown,
   FiChevronUp,
 } from 'react-icons/fi';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CalendarDrawer from '@/components/ui/BottomDrawer/CalendarDrawer';
 import TimePickerDrawer from '@/components/ui/BottomDrawer/TimePickerDrawer';
-import CostDetails from '../../../AdditionalCharges/CostDetails/CostDetails';
+import CostDetails from '../../CostDetails/CostDetails';
+import CostDetailsDesktop from '../../../desktop/CostDetailsDesktop/CostDetailsDesktop';
 
 const RequestHospitalAccompaniment = () => {
+  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      const width = window.innerWidth;
+      setIsMobileScreen(width <= 768);
+    };
+
+    checkScreen();
+
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
   const dispatch = useAppDispatch();
   const form = useAppSelector((state) => state.reservationForm);
   const showCostDetails = useAppSelector((state) => state.ui.showCostDetails);
@@ -255,17 +270,27 @@ const RequestHospitalAccompaniment = () => {
       </div>
 
       {/* Payment Notice */}
-      <div className={styles.paymentNotice} onClick={handleToggleCostBreakdown}>
-        결제 시 비용 추가되는 내용 안내
-        {showCostDetails ? (
-          <FiChevronUp size={24} />
-        ) : (
-          <FiChevronDown size={24} />
-        )}
-      </div>
+      {isMobileScreen && (
+        <div
+          className={styles.paymentNotice}
+          onClick={handleToggleCostBreakdown}
+        >
+          결제 시 비용 추가되는 내용 안내
+          {showCostDetails ? (
+            <FiChevronUp size={24} />
+          ) : (
+            <FiChevronDown size={24} />
+          )}
+        </div>
+      )}
 
       {/* Show the cost breakdown details if toggled */}
-      {showCostDetails && <CostDetails serviceName={form.serviceName} />}
+      {showCostDetails &&
+        (isMobileScreen ? (
+          <CostDetails serviceName={form.serviceName} />
+        ) : (
+          <CostDetailsDesktop serviceName={form.serviceName} />
+        ))}
 
       {/* Calendar Drawer */}
       <CalendarDrawer

@@ -1,6 +1,6 @@
 .wrapper {
-  padding: 1rem 1rem 0rem 1rem;
-  background-color: #f7faff;
+  padding: 1rem;
+  background-color: #ffffff;
   font-family: 'Pretendard', sans-serif;
   margin-left: -1rem;
   margin-right: -1rem;
@@ -65,4 +65,16 @@
   font-weight: 600;
   margin-bottom: 20px;
   color: #000000;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    margin: 0 auto;
+    padding: 2rem;
+    height: auto;
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid rgb(241, 241, 241);
+  }
 }

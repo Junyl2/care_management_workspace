@@ -1,0 +1,125 @@
+.wrapper {
+  padding: 2rem 3rem;
+  background-color: #ffffff;
+  font-family: 'Pretendard', sans-serif;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+}
+
+.mainHeader {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.costDescription {
+  font-size: 17px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.surchargeTitle {
+  font-size: 21px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.bulletList {
+  list-style: disc;
+  margin-left: 1.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.8;
+}
+
+.bulletList li {
+  margin-bottom: 8px;
+}
+
+.severityTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.checkList {
+  list-style: none;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.checkList li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.checkList li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #007acc;
+  font-size: 14px;
+  top: 1px;
+}
+.checkList {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.checkItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.description {
+  flex: 1;
+  font-size: 15px;
+  color: #000;
+}
+
+.status {
+  white-space: nowrap;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.badgeWarning {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
