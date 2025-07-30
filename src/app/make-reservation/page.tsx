@@ -11,6 +11,7 @@ type ReservationStep =
   | 'select-service'
   | 'select-datetime'
   | 'service-info'
+  | 'check-reservation'
   | 'confirmation';
 
 export default function MakeReservationPage() {
@@ -60,6 +61,13 @@ export default function MakeReservationPage() {
         return (
           <ServiceInfoMobile
             onBack={() => setStep('select-datetime')}
+            onNext={() => setStep('check-reservation')}
+          />
+        );
+      case 'check-reservation':
+        return (
+          <ServiceInfoMobile
+            onBack={() => setStep('service-info')}
             onNext={() => setStep('confirmation')}
           />
         );

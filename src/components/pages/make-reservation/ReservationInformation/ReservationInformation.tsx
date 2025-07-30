@@ -1,32 +1,41 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { fetchReservationData } from '@/store/features/reservationDataSlice';
 import styles from './ReservationInformation.module.css';
 import { FiChevronUp, FiChevronDown, FiAlertCircle } from 'react-icons/fi';
 
-// Types for reservation data
-interface ReservationData {
-  service: string;
-  date: string;
-  time: string;
-  amount: number;
-  discountLabel?: string;
-  discountAmount?: number;
-  total: number;
-}
-
 const ReservationInformation: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { reservation, status, error } = useAppSelector(
+    (state) => state.reservation
+  ); // Accessing reservation data from Redux
+
   const [showDetails, setShowDetails] = useState(false);
 
-  // Placeholder reservation data (will be replaced by API response)
-  const [reservation] = useState<ReservationData>({
-    service: '병원동행',
-    date: '2025년 7월 12일',
-    time: '11:00~13:30, 2시간 30분',
-    amount: 50000,
-    discountLabel: '리뷰이벤트 5%할인',
-    discountAmount: 5000,
-    total: 45000,
-  });
+  // Fetch reservation data when the component mounts
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchReservationData());
+    }
+  }, [status, dispatch]);
+
+  if (reservation) {
+    console.log('Fetched reservation data:', reservation);
+  }
+
+  if (status === 'loading') {
+    return <div className={styles.loading}>Loading reservation data...</div>;
+  }
+
+  if (status === 'failed') {
+    return <div className={styles.error}>{error}</div>;
+  }
+
+  // Fallback if reservation data is not available
+  if (!reservation) {
+    return <div className={styles.error}>No reservation data available</div>;
+  }
 
   return (
     <div className={styles.container}>
@@ -40,9 +49,7 @@ const ReservationInformation: React.FC = () => {
       </div>
 
       <div
-        className={`${styles.reservationContent} ${
-          showDetails ? styles.show : ''
-        }`}
+        className={`${styles.reservationContent} ${showDetails ? styles.show : ''}`}
       >
         <h2 className={styles.title}>예약 정보</h2>
 
@@ -71,7 +78,6 @@ const ReservationInformation: React.FC = () => {
               <span className={`${styles.label} ${styles.discountLabel}`}>
                 할인:
               </span>
-
               <span className={styles.discountText}>
                 {reservation.discountLabel}
                 {reservation.discountAmount !== undefined && (

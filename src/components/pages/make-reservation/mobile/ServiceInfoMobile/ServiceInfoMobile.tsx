@@ -10,9 +10,9 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import MobileReservationDrawer from '../MobileReservationDrawer/MobileReservationDrawer';
 import { SearchAddress } from '@/components/ui/Modal/SearchAddress';
 import { setField } from '@/store/features/reservationFormSlice';
+import { SERVICE_NAMES } from '@/lib/constants';
 
-import RequestHospitalAccompaniment from '../RequestHospitalAccompaniment/RequestHospitalAccompaniment';
-
+import RequestHospitalAccompaniment from '../services/HospitalAccompaniment/RequestHospitalAccompaniment';
 interface Props {
   onBack: () => void;
   onNext: () => void;
@@ -20,6 +20,7 @@ interface Props {
 
 const ServiceInfoMobile: React.FC<Props> = ({ onBack, onNext }) => {
   const dispatch = useAppDispatch();
+
   const form = useAppSelector((state) => state.reservationForm);
 
   const [showAddressModal, setShowAddressModal] = useState(false);
@@ -40,6 +41,8 @@ const ServiceInfoMobile: React.FC<Props> = ({ onBack, onNext }) => {
       )}
     </label>
   );
+
+  console.log('Current Form State:', form);
 
   return (
     <div className={styles.wrapper}>
@@ -130,7 +133,9 @@ const ServiceInfoMobile: React.FC<Props> = ({ onBack, onNext }) => {
       </div>
 
       <div>
-        <RequestHospitalAccompaniment />
+        {form.serviceName === SERVICE_NAMES.HOSPITAL_ACCOMPANIMENT && (
+          <RequestHospitalAccompaniment />
+        )}
       </div>
 
       {/* Modal */}

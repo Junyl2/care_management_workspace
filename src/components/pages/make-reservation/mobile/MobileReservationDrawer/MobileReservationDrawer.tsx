@@ -4,10 +4,25 @@ import styles from './MobileReservationDrawer.module.css';
 import ReservationInformation from '../../ReservationInformation/ReservationInformation';
 import { BottomBarBase } from '@/components/ui';
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import { useAppSelector } from '@/store/hooks';
+import { toast } from 'react-hot-toast';
+import { validateReservationForm } from '@/utils/validateReservationForm';
 
 const MobileReservationDrawer: React.FC = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const formData = useAppSelector((state) => state.reservationForm);
+
+  const handleReservationClick = () => {
+    const { valid, message } = validateReservationForm(formData);
+
+    if (!valid) {
+      toast.error(message);
+      return;
+    }
+
+    setShowDrawer(true);
+  };
 
   // Close on outside click
   useEffect(() => {
@@ -19,7 +34,7 @@ const MobileReservationDrawer: React.FC = () => {
 
     if (showDrawer) {
       document.addEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'hidden'; // prevent background scroll
+      document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
@@ -48,17 +63,19 @@ const MobileReservationDrawer: React.FC = () => {
 
       {/* Bottom bar fixed at bottom */}
       <BottomBarBase>
-        <div
-          className={styles.paymentInfoRow}
-          onClick={() => setShowDrawer((prev) => !prev)}
-        >
-          <div className={styles.arrowStatic}>
+        <div className={styles.paymentInfoRow}>
+          <div
+            className={styles.arrowStatic}
+            onClick={() => setShowDrawer((prev) => !prev)}
+          >
             {!showDrawer && (
               <FiChevronUp size={20} className={styles.arrowIcon} />
             )}
           </div>
           {!showDrawer && <span>결제 내역 확인</span>}
-          <button className={styles.button}>예약하기</button>
+          <button className={styles.button} onClick={handleReservationClick}>
+            예약하기
+          </button>
         </div>
       </BottomBarBase>
     </>

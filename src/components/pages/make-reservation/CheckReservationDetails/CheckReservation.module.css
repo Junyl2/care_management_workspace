@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  background-color: #f7faff;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  position: absolute;
+  left: 0;
+}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerTitle h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #000000;
+}
+
+.headerTitle p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  color: #7f95ff;
+}
+
+/* Section Styles */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin-top: 2px;
+}
+
+/* Notice and Contact */
+.notice {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #000000;
+  margin-top: 10px;
+  white-space: pre-line;
+}
+
+.contact {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  margin-top: 8px;
+  line-height: 1.5;
+}

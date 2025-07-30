@@ -5,12 +5,16 @@ import { useState, useEffect } from 'react';
 import { BottomBarBase } from '@/components/ui';
 import { toast } from 'react-hot-toast';
 import SeasonTickets from '@/components/ui/Modal/SeasonTickets';
+import { setField } from '@/store/features/reservationFormSlice';
+import { useAppDispatch } from '@/store/hooks';
+import { SERVICE_NAMES } from '@/lib/constants';
+
 const SERVICE_OPTIONS = [
-  '병원동행',
-  '식사 도움',
-  '운동 도움',
-  '목욕 도움',
-  '가사 도움',
+  SERVICE_NAMES.HOSPITAL_ACCOMPANIMENT,
+  SERVICE_NAMES.HELP_WITH_MEALS,
+  SERVICE_NAMES.EXERCISE_ASSISTANCE,
+  SERVICE_NAMES.BATH_ASSISTANCE,
+  SERVICE_NAMES.HOUSEWORK_ASSISTANCE,
 ];
 
 const SUBSCRIPTION_OPTIONS = ['60시간 정기권 구매', '30시간 정기권 구매'];
@@ -20,11 +24,13 @@ type Props = {
 };
 
 const SelectService: React.FC<Props> = ({ onNext }) => {
+  const dispatch = useAppDispatch();
+
   const [activeService, setActiveService] = useState<string | null>(null);
   const [activeSubscription, setActiveSubscription] = useState<string | null>(
     null
   );
-  const [showSeasonTicketModal, setShowSeasonTicketModal] = useState(false); // ✅ New state
+  const [showSeasonTicketModal, setShowSeasonTicketModal] = useState(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -51,7 +57,8 @@ const SelectService: React.FC<Props> = ({ onNext }) => {
 
   const handleSubscriptionClick = (option: string) => {
     setActiveSubscription(option);
-    setShowSeasonTicketModal(true); //  Open modal
+    setShowSeasonTicketModal(true);
+    dispatch(setField({ field: 'subscriptionPlan', value: option }));
   };
 
   return (
@@ -74,7 +81,10 @@ const SelectService: React.FC<Props> = ({ onNext }) => {
                   className={`${styles.optionButton} ${
                     activeService === option ? styles.active : ''
                   }`}
-                  onClick={() => setActiveService(option)}
+                  onClick={() => {
+                    setActiveService(option);
+                    dispatch(setField({ field: 'serviceName', value: option }));
+                  }}
                 >
                   {option}
                 </button>
@@ -99,7 +109,7 @@ const SelectService: React.FC<Props> = ({ onNext }) => {
                   className={`${styles.optionButton} ${
                     activeSubscription === option ? styles.active : ''
                   }`}
-                  onClick={() => handleSubscriptionClick(option)} // Show modal on click
+                  onClick={() => handleSubscriptionClick(option)}
                 >
                   {option}
                 </button>

@@ -22,3 +22,11 @@ export const serviceLinks: ServiceLink[] = [
   { name: '운동 도움', path: '/services/exercise-help' },
   { name: '목욕 도움', path: '/services/bath-help' },
 ];
+
+export const SERVICE_NAMES = {
+  HOSPITAL_ACCOMPANIMENT: '병원 동행',
+  HELP_WITH_MEALS: '식사 도움',
+  HOUSEWORK_ASSISTANCE: '가사 도움',
+  EXERCISE_ASSISTANCE: '운동 도움',
+  BATH_ASSISTANCE: '목욕 도움',
+} as const;

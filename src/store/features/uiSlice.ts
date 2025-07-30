@@ -4,12 +4,16 @@ interface UIState {
   mobileOpen: boolean;
   servicesOpen: boolean;
   isMobileScreen: boolean;
+  showCostDetails: boolean;
+  showReservationDrawer: boolean;
 }
 
 const initialState: UIState = {
   mobileOpen: false,
   servicesOpen: false,
   isMobileScreen: false,
+  showCostDetails: false,
+  showReservationDrawer: false,
 };
 
 const uiSlice = createSlice({
@@ -36,6 +40,12 @@ const uiSlice = createSlice({
     setIsMobileScreen(state, action: PayloadAction<boolean>) {
       state.isMobileScreen = action.payload;
     },
+    toggleCostBreakdown: (state) => {
+      state.showCostDetails = !state.showCostDetails;
+    },
+    toggleReservationDrawer(state) {
+      state.showReservationDrawer = !state.showReservationDrawer;
+    },
   },
 });
 
@@ -46,6 +56,8 @@ export const {
   closeServices,
   closePanels,
   setIsMobileScreen,
+  toggleCostBreakdown,
+  toggleReservationDrawer,
 } = uiSlice.actions;
 
 export default uiSlice.reducer;

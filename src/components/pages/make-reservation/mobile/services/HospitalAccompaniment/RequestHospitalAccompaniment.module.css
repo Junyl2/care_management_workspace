@@ -11,8 +11,9 @@
 }
 
 .subHeader {
-  font-size: 14px;
-  color: #666666;
+  font-size: 15px;
+  color: #7f95ff;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
@@ -24,9 +25,10 @@
 }
 
 .label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333333;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+  margin-top: 1.5rem;
 }
 
 .required {
@@ -65,13 +67,13 @@
 }
 
 .sectionTitle {
-  font-size: clamp(15px, 1.5vw, 16px);
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 }
 
 .sectionSubTitle {
-  font-size: clamp(13px, 1.4vw, 14px);
+  font-size: 14px;
   color: #666666;
   margin-bottom: 12px;
 }
@@ -82,21 +84,32 @@
 }
 
 .toggleButton {
-  flex: 1;
+  width: 100%;
   padding: 10px 0;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid #ecedf0;
+
   border-radius: 8px;
   background-color: #fff;
-  color: #333;
+  color: #000000;
   text-align: center;
   cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .toggleActive {
-  background-color: #333;
-  color: #fff;
-  border-color: #333;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #f1f8ff;
+  border: 1px solid #0066ff;
+}
+
+.checkboxContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .checkboxLabel {
@@ -110,17 +123,45 @@
 .paymentNotice {
   margin-top: 32px;
   padding: 14px;
-  border: 1px dashed #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #333;
+  font-size: 18px;
+  color: black;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #fdfdfd;
+  justify-content: center;
+  background-color: #f7faff;
+  gap: 0.8rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: 4rem;
 }
 
 .paymentIcon {
   font-size: 18px;
   color: #999;
+}
+
+.textArea {
+  font-size: 14px;
+  color: #333;
+}
+
+.textArea::placeholder {
+  color: #adb4ba;
+}
+
+.checkboxLabel input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid #adb4ba;
+}
+
+.checkboxLabel input[type='checkbox']:checked {
+  background-color: #7f95ff;
+  border: 1px solid #7f95ff;
+}
+
+.checkboxLabel input[type='checkbox']:checked + span {
+  color: #7f95ff;
 }

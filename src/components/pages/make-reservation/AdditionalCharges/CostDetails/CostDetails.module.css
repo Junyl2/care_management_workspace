@@ -1,0 +1,68 @@
+.wrapper {
+  padding: 1rem 1rem 0rem 1rem;
+  background-color: #f7faff;
+  font-family: 'Pretendard', sans-serif;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  height: 100vh;
+  margin-bottom: -1.2rem;
+  margin-top: -4rem;
+}
+
+.mainHeader {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #000000;
+}
+
+.subHeader,
+.surchargeTitle,
+.severityTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+.costDescription {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.bulletList {
+  list-style: disc;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.5rem;
+}
+.checkList {
+  list-style: none !important;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.5rem;
+}
+
+.bulletList li {
+  margin-bottom: 6px;
+}
+
+.bulletList li:first-child {
+  margin-top: 25px;
+}
+
+.severityTitle {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #000000;
+}
