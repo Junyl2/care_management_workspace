@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '@/styles/globals.css';
 import type { ReactNode } from 'react';
 import Navbar from '@/components/layouts/Navbar';
 import { Footer } from '@/components/layouts/Footer';
@@ -6,7 +6,7 @@ import PageTransition from '@/components/transition/PageTransition';
 import { FloatingButtons } from '@/components/ui';
 import { HelpModal } from '@/components/ui';
 import { Seo } from '@/components/common/Seo';
-import Providers from './providers';
+import Providers from '@/app/providers';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

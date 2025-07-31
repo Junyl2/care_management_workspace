@@ -1,11 +1,7 @@
 /* Navbar */
 import { Variant } from './global';
 
-export type NavLink = {
-  name: string;
-  path: string;
-};
-export type ServiceLink = {
+export type Links = {
   name: string;
   path: string;
 };

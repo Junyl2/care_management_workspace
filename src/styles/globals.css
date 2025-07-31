@@ -175,3 +175,13 @@
     max-width: 1536px;
   }
 }
+
+/* Admin Layout */
+.admin-layout {
+  display: flex;
+  width: 100%;
+}
+
+.admin-content {
+  width: 100%;
+}
