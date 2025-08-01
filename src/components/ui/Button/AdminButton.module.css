@@ -41,3 +41,31 @@
   background-color: #2E313E;
   color: white;
 }
+
+.rectangular {
+  background-color: #5A636A;
+  border-radius: 4px;
+  padding: 3px 8px;
+  gap: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+}
+
+.rectangular:hover:not(:disabled) {
+  background-color: #454a4e;
+}
+
+.rectangular-secondary {
+  background-color: transparent;
+  color: #636C73;
+  border-radius: 5px;
+  border: 1px solid #DFE1E4;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.rectangular-secondary:hover:not(:disabled) {
+  background-color: #636C73;
+  color: white;
+}

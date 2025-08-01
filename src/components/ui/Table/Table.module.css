@@ -1,0 +1,168 @@
+.tableContainer {
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  background-color: #F2F4F5;
+  border-top: 0.5px solid #9ea5abab;
+}
+
+.headerCell {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #778088; 
+  white-space: nowrap;
+}
+
+.headerCell.center {
+  text-align: center;
+}
+
+.headerCell.right {
+  text-align: right;
+}
+
+.tableBody {
+  background: white;
+}
+
+.bodyRow {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.15s ease;
+}
+
+.bodyRow:hover {
+  background-color: #f9fafb;
+}
+
+.bodyRow:last-child {
+  border-bottom: none;
+}
+
+.bodyCell {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #000000;
+  line-height: 22px;
+  letter-spacing: -0.3%;
+  vertical-align: middle;
+}
+
+.bodyCell.center {
+  text-align: center;
+}
+
+.bodyCell.right {
+  text-align: right;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #B8BFC4;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.checkbox:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.emptyState {
+  padding: 48px 24px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.loading {
+  padding: 48px 24px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.actionButton {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.actionButton:hover {
+  background: #4b5563;
+}
+
+.statusActive {
+  color: #059669;
+  font-weight: 500;
+}
+
+.statusInactive {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.price {
+  font-weight: 600;
+  color: #374151;
+}
+
+.expandButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.expandButton:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.expandIcon {
+  transition: transform 0.2s ease;
+}
+
+.expandIcon.expanded {
+  transform: rotate(180deg);
+}

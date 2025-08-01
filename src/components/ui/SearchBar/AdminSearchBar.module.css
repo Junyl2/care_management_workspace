@@ -1,0 +1,160 @@
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 20px;
+  padding-right: 48px;
+  font-size: 14px;
+  color: #636C73;
+  background: #F2F4F5;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.searchInput::placeholder {
+  color: #B8BFC4;
+  font-weight: 400;
+  letter-spacing: -0.3%;
+}
+
+.searchInput:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+.searchInput:hover:not(:focus) {
+  border-color: #d1d5db;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  pointer-events: none;
+}
+
+.searchIcon.clickable {
+  pointer-events: auto;
+}
+
+.searchIcon.clickable:hover {
+  color: #374151;
+}
+
+.searchButton {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.searchButton:hover {
+  color: #374151;
+  background: #f3f4f6;
+}
+
+.searchButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Size variants */
+.small .searchInput {
+  padding: 8px 12px;
+  padding-right: 40px;
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.small .searchIcon,
+.small .searchButton {
+  right: 12px;
+}
+
+.large .searchInput {
+  padding: 14px 20px;
+  padding-right: 52px;
+  font-size: 16px;
+  border-radius: 28px;
+}
+
+.large .searchIcon,
+.large .searchButton {
+  right: 20px;
+}
+
+/* Loading state */
+.loading .searchIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Clear button when there's text */
+.clearButton {
+  position: absolute;
+  right: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: all 0.15s ease;
+}
+
+.clearButton:hover {
+  color: #6b7280;
+  background: #f3f4f6;
+}
+
+.disabled .searchInput {
+  background: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.disabled .searchInput::placeholder {
+  color: #d1d5db;
+}
+
+.disabled .searchIcon,
+.disabled .searchButton {
+  color: #d1d5db;
+  cursor: not-allowed;
+}

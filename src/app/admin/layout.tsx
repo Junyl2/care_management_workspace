@@ -11,7 +11,9 @@ function AdminRootLayout({ children }: { children: ReactNode }) {
           <Sidebar />
           <div className='admin-content'>
             <Header />
-            {children}
+            <div className='admin-content-inner'>
+              {children}
+            </div>
           </div>
         </main>
       </body>

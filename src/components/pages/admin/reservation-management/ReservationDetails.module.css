@@ -1,0 +1,52 @@
+.container {
+  padding: 30px 20px;
+  background-color: transparent;
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.title h1 {
+  color: #0067C3;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22.75px;
+}
+
+.detailsRow {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #DFE1E4;
+  display: flex;
+  gap: 50px;
+}
+
+.detailsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.detailsItem h2 {
+  color: #A0A6AB;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22.75px;
+}
+
+.detailsItem p {
+  font-size: 14px;
+  line-height: 22.75px;
+  font-weight: 600;
+  color: #000000;
+  white-space: pre-wrap;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

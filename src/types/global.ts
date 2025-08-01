@@ -21,3 +21,9 @@ export interface BaseComponent {
   className?: string;
   children?: React.ReactNode;
 }
+
+export interface PickerOption {
+  value: string | number;
+  label: string;
+  disabled?: boolean;
+}

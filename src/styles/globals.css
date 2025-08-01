@@ -185,3 +185,7 @@
 .admin-content {
   width: 100%;
 }
+
+.admin-content-inner {
+  background-color: #FDFDFD;
+}

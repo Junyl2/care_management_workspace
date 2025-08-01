@@ -1,0 +1,54 @@
+.container {
+    padding: 25px 150px;
+}
+
+.header h1 {
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -1%;
+}
+
+.content {
+    margin-top: 80px;
+}
+
+.filtersContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selectors {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    justify-content: flex-end;
+}
+
+.tableContainer {
+    margin-top: 15px;
+}
+
+/* Table styling */
+.detailsButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    min-width: 55px !important;
+    width: 60px;
+    transition: all 0.2s ease;
+}
+
+.expandIcon {
+    transition: transform 0.2s ease;
+}
+
+.expandIcon.expanded {
+    transform: rotate(180deg);
+}
+
+.paginationContainer {
+    margin-top: 15px;
+}
