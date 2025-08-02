@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import styles from './Footer.module.css';
 import Link from 'next/link';
+import { PAGE_URL } from '@/constants/pageUrl';
 import { useState, useEffect } from 'react';
 
 export const Footer = () => {
@@ -28,7 +29,7 @@ export const Footer = () => {
     },
     {
       listName: '개인정보 처리방침',
-      link: '', //page to be created
+      link: PAGE_URL.CLIENT.PRIVACY_POLICY, //page to be created
     },
     {
       listName: '재가노인복지센터',

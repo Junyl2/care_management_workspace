@@ -1,0 +1,89 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  background-color: #f8f9fd;
+}
+.bannerContainer {
+  background-image: url('/assets/images/banners/TOS.png');
+  background-size: cover;
+  background-position: right -100px top;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 138px;
+  max-height: 138px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  justify-content: start;
+  background-color: white;
+  min-height: 100vh;
+  max-width: 1332;
+  border-radius: 20px;
+  margin-top: 5rem;
+  margin-bottom: 200px;
+  margin-inline: auto;
+  font-size: 16px;
+  padding: 2rem;
+  width: 90%;
+}
+
+.contentText {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 30px;
+  color: #000000;
+}
+
+.bannerText {
+  color: white;
+  font-size: 24px;
+  text-align: start;
+  text-indent: 3rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .contentContainer {
+    padding: 3rem 5rem;
+    width: 70%;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    font-size: 20px;
+  }
+  .bannerContainer {
+    height: 261px;
+    max-height: 261px !important;
+    font-weight: 700;
+    background-position: right -250px top;
+  }
+
+  .bannerText {
+    font-size: 44px;
+    text-indent: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentContainer {
+    padding: 5rem 11rem;
+    width: 70%;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    font-size: 20px;
+  }
+
+  .bannerContainer {
+    background-position: right;
+  }
+
+  .bannerText {
+    font-size: 44px;
+  }
+}

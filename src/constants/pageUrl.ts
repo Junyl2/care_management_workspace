@@ -12,6 +12,7 @@ export const PAGE_URL = {
     HOUSEWORK_HELP: '/services/housework-help',
     EXERCISE_HELP: '/services/exercise-help',
     BATH_HELP: '/services/bath-help',
+    PRIVACY_POLICY: '/privacy-policy',
   },
   ADMIN: {
     ARTICLE_MANAGEMENT: '/admin/article-management',
