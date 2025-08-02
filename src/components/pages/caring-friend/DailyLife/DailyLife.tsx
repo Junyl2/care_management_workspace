@@ -12,7 +12,7 @@ export default function DailyLife() {
   useEffect(() => {
     const checkScreen = () => {
       const width = window.innerWidth;
-      setIsMobileScreen(width < 768);
+      setIsMobileScreen(width < 769);
       setIsTabletScreen(width >= 768 && width <= 1024);
     };
 
@@ -23,11 +23,21 @@ export default function DailyLife() {
   }, []);
   return (
     <section className={styles.section}>
-      <div className={`container ${styles.container}`}>
-        <h1 className={caring.mainHeader}>
-          {' '}
-          돌봄친구와 함께하는 81세 할아버지 일상{' '}
-        </h1>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <Image
+            src="/assets/images/caring/caring-friend/daily-life/clouds.png"
+            height={isMobileScreen ? 47 : isTabletScreen ? 58 : 67}
+            width={isMobileScreen ? 74 : isTabletScreen ? 85 : 107}
+            alt="Clouds"
+            className="object-contain"
+          />
+          <h1 className={caring.mainHeader}>
+            {' '}
+            돌봄친구와 함께하는 81세 할아버지 일상{' '}
+          </h1>
+        </div>
+
         <div className={styles.subContainer}>
           {/* first card */}
           <div className={styles.firstCard}>
@@ -54,15 +64,28 @@ export default function DailyLife() {
               </p>
             </div>
             {/* absolute curve arrow indicator */}
-            <div className={styles.absoluteArrow}>
-              <Image
-                src="/assets/images/caring/caring-friend/daily-life/curve-arrow.png"
-                alt="Next arrow"
-                height={58}
-                width={50}
-                className="object-contain"
-              />
-            </div>
+            {!isMobileScreen && (
+              <div className={styles.absoluteArrow}>
+                <Image
+                  src="/assets/images/caring/caring-friend/daily-life/curve-arrow.png"
+                  alt="Next arrow"
+                  height={isTabletScreen ? 36 : 50}
+                  width={isTabletScreen ? 41 : 56}
+                  className="object-contain"
+                />
+              </div>
+            )}
+            {isMobileScreen && (
+              <div className={styles.mobileAbsoluteArrow}>
+                <Image
+                  src="/assets/images/caring/caring-friend/daily-life/curve-arrow.png"
+                  alt="Next arrow"
+                  height={35}
+                  width={39}
+                  className="object-contain"
+                />
+              </div>
+            )}
           </div>
           {/* second card */}
           <div className={styles.secondCard}>
@@ -79,6 +102,37 @@ export default function DailyLife() {
               width={isMobileScreen ? 126 : isTabletScreen ? 363 : 500}
               className="object-contain"
             />
+            <div className={styles.content}>
+              <h2 className={styles.label}>회복 중</h2>
+              <p>
+                휠체어 이동, 낙상 위험 높음 <br />
+                입욕 어려움, 피부 간지럼 <br />
+                체중 감소, 복약 누락
+              </p>
+            </div>
+            {/* absolute curve arrow indicator */}
+            {!isMobileScreen && (
+              <div className={styles.absoluteArrow2}>
+                <Image
+                  src="/assets/images/caring/caring-friend/daily-life/curve-arrow.png"
+                  alt="Next arrow"
+                  height={isTabletScreen ? 36 : 50}
+                  width={isTabletScreen ? 41 : 56}
+                  className="object-contain"
+                />
+              </div>
+            )}
+            {isMobileScreen && (
+              <div className={styles.mobileAbsoluteArrow2}>
+                <Image
+                  src="/assets/images/caring/caring-friend/daily-life/curve-arrow.png"
+                  alt="Next arrow"
+                  height={35}
+                  width={39}
+                  className="object-contain"
+                />
+              </div>
+            )}
           </div>
           {/* third card */}
           <div className={styles.thirdCard}>
@@ -93,8 +147,17 @@ export default function DailyLife() {
               alt="Grandpa"
               height={isMobileScreen ? 160 : isTabletScreen ? 181 : 250}
               width={isMobileScreen ? 126 : isTabletScreen ? 478 : 658}
-              className="object-contain"
+              className={styles.thirdImage}
             />
+
+            <div className={styles.content}>
+              <h2 className={styles.label}>일상생활 돌봄 3개월 후</h2>
+              <p>
+                휠체어 이동, 낙상 위험 높음 <br />
+                입욕 어려움, 피부 간지럼 <br />
+                체중 감소, 복약 누락
+              </p>
+            </div>
           </div>
         </div>
         <div className={styles.thirdContainer}> bottom card 2</div>

@@ -1,4 +1,4 @@
-import styles from './style.module.css';
+/* import styles from './style.module.css'; */
 import {
   DailyLife,
   DataProves,
@@ -6,10 +6,12 @@ import {
   CareGiverWillCome,
   FrequentlyAskedQuestions,
 } from '@/components/pages/caring-friend';
+import CaringHero from '@/components/sections/hero/CaringHero';
 
 export default function CaringFriendPage() {
   return (
     <main>
+      <CaringHero />
       <section className="section-spacing">
         <DailyLife />
       </section>
