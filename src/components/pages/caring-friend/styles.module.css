@@ -1,5 +1,11 @@
 .mainHeader {
-  font-size: clamp(20px, 4vw, 40px);
+  font-size: 30px;
   font-weight: 700;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .mainHeader {
+    font-size: 40px;
+  }
 }

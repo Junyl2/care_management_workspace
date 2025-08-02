@@ -4,6 +4,8 @@ import styles from './DailyLife.module.css';
 import caring from '../styles.module.css';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
+import Link from 'next/link';
 
 export default function DailyLife() {
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
@@ -160,7 +162,66 @@ export default function DailyLife() {
             </div>
           </div>
         </div>
-        <div className={styles.thirdContainer}> bottom card 2</div>
+        <div className={styles.thirdContainer}>
+          <div className={styles.cardContainer}>
+            <div className={styles.bottomContent}>
+              <h2 className={styles.bottomLabel1}>우리의 접근 방식</h2>
+              <p>
+                돌봄은 ‘진단’부터 시작됩니다. <br />
+                어르신의 상태를 이해하고, 하루 2~4시간 맞춤형 <br />
+                프로그램을 설계합니다.
+              </p>
+              <p>
+                {' '}
+                <strong>
+                  =&gt; 기초조사, 주요질병, 신체상태, 재활상태, 인지상태
+                </strong>
+              </p>
+            </div>
+            {!isMobileScreen && (
+              <div className={styles.arrowDown}>
+                <Image
+                  src="/assets/images/caring/caring-friend/daily-life/right-arrow.png"
+                  alt="Indicator"
+                  height={84}
+                  width={67}
+                  className="object-contain"
+                />
+              </div>
+            )}
+            {isMobileScreen && (
+              <div className={styles.mobileArrow}>
+                <Image
+                  src="/assets/images/caring/caring-friend/daily-life/arrow-down.png"
+                  alt="Indicator"
+                  height={56}
+                  width={45}
+                  className="object-contain"
+                />
+              </div>
+            )}
+
+            <div className={styles.bottomContent}>
+              <h2 className={styles.bottomLabel2}>우리의 성과</h2>
+              <p>
+                돌봄은 단기적으로 끝나지 않습니다. <br />
+                노인장기요양보험과 연계하여 정부지원을 통한 <br /> 장기적인 돌봄
+                구조를 설계합니다.
+                <br />
+              </p>
+              <p>
+                <strong>=&gt; 정부지원 80~100%</strong>{' '}
+              </p>
+            </div>
+          </div>
+        </div>
+        <Link href="/care-giver">
+          <button className={styles.caregiverButton}>
+            <p>
+              돌봄대장 재가노인복지센터 바로가기 <FiArrowRight size={20} />
+            </p>
+          </button>
+        </Link>
       </div>
     </section>
   );

@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
 }
 .header {
   padding: 2rem 0rem 4rem 0rem;
@@ -21,6 +22,10 @@
   justify-content: center;
   gap: 1rem;
   width: 100%;
+}
+.arrowDown {
+  display: flex;
+  align-items: center;
 }
 
 .subContainer {
@@ -33,6 +38,50 @@
   background-color: #f8f9fd;
   padding: clamp(16px, 5vw, 40px);
 }
+
+.cardContainer {
+  display: flex;
+  flex: 1;
+  gap: 4rem;
+}
+.thirdContainer {
+  width: 100%;
+}
+.bottomContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  line-height: clamp(1.5rem, 1.7vw, 2rem);
+  background-color: #f8f9fd;
+  width: 100%;
+  padding: 2rem 2rem;
+  border-radius: clamp(15px, 4vw, 35px);
+}
+
+.bottomContent p {
+  font-weight: 600;
+  color: black;
+  font-size: clamp(14px, 1.2vw, 20px);
+}
+.bottomLabel1 {
+  background-color: #e2eaff;
+  color: #0066ff;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: clamp(15px, 1.8vw, 21px);
+  font-weight: 600;
+}
+.bottomLabel2 {
+  background-color: #f2e9ff;
+  color: #9747ff;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: clamp(15px, 1.8vw, 21px);
+  font-weight: 600;
+}
+
 .firstCard {
   display: flex;
   align-items: start;
@@ -101,6 +150,30 @@
   position: absolute;
   bottom: -25%;
   right: 24%;
+}
+
+.mobileArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caregiverButton {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #dbdddf;
+  padding: 0.8rem 1.2rem;
+  border-radius: 100px;
+  font-size: clamp(16px, 2vw, 18px);
+  font-family: 600;
+  color: #0066ff !important;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: clamp(0.5rem, 2vw, 2rem);
+}
+.caregiverButton:hover {
+  transform: translateX(3px);
 }
 
 @media (max-width: 1200px) {
@@ -172,6 +245,12 @@
   .thirdCard {
     margin-left: 0px !important;
   }
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: clamp(1rem, 2vw, 4rem);
+  }
 }
 
 @media (min-width: 768px) {
@@ -183,5 +262,11 @@
   }
   .label {
     padding: 6px 12px;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 559px) {
+  .container {
+    margin-top: clamp(-6rem, 1vw, -8rem);
   }
 }
