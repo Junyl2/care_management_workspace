@@ -6,6 +6,7 @@ interface HeroWrapperProps {
   backgroundImage: string;
   height?: string;
   className?: string;
+  noOverlay?: boolean;
   children: ReactNode;
 }
 
@@ -13,6 +14,7 @@ const HeroWrapper = ({
   backgroundImage,
   height,
   className,
+  noOverlay = false,
   children,
 }: HeroWrapperProps) => {
   return (
@@ -20,9 +22,13 @@ const HeroWrapper = ({
       className={clsx(styles.hero, className)}
       style={{ backgroundImage: `url(${backgroundImage})`, height }}
     >
-      <div className={styles.overlay}>
+      {noOverlay ? (
         <div className="container">{children}</div>
-      </div>
+      ) : (
+        <div className={styles.overlay}>
+          <div className="container">{children}</div>
+        </div>
+      )}
     </section>
   );
 };

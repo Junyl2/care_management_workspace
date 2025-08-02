@@ -8,7 +8,7 @@ export default function ServicesGrid() {
   return (
     <div className={styles.grid}>
       {serviceLinks.map((service, index) => (
-        <Link key={service.path} href={service.path}>
+        <Link key={service.path} href={service.path} className={styles.link}>
           <Card className={styles.card} padding="none">
             <Card.Header>
               <div className={styles.imageWrapper}>

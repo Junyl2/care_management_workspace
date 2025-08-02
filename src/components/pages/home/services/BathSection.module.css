@@ -1,5 +1,20 @@
 .customHomeHero {
   height: 650px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+.customHomeHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 40%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .contentWrapper {
@@ -8,6 +23,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
+  z-index: 2;
 }
 
 .content {
@@ -16,35 +33,24 @@
 
 .title {
   font-size: 69px;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: black;
+  text-align: center;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: clamp(15px, 2vw + 1rem, 30px) !important;
   font-weight: 600;
   margin-bottom: 40px;
-  color: #ffffff;
+  color: black;
+  text-align: center;
+
   line-height: 1.6;
 }
 .homeButtonWH {
   width: 240px;
   height: 50px;
-}
-
-@media (max-width: 1024px) {
-  .homeButtonWH {
-    width: 160px;
-    height: 44px;
-  }
-}
-@media (max-width: 768px) {
-  .button {
-    width: 160px;
-    height: 44px;
-    font-size: 14px;
-  }
 }
 
 .buttons {
@@ -63,9 +69,19 @@
     height: 614px;
   }
   .content {
-    margin-bottom: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    padding-inline: 1rem;
+    text-align: center;
   }
-
+  .homeButtonWH {
+    width: 240px;
+    height: 44px;
+  }
   .title {
     font-size: 54px;
   }
@@ -85,22 +101,15 @@
     padding-left: 24px;
   }
 
-  .content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: start;
-    padding-inline: 1rem;
-  }
-
   .title {
     font-size: 32px;
   }
 
   .subtitle {
     font-size: 15px;
+  }
+  .homeButtonWH {
+    width: 160px;
   }
 }
 @media (max-width: 368px) {

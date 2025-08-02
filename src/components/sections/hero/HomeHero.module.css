@@ -1,6 +1,21 @@
 .customHomeHero {
   height: 851px;
 }
+.customHomeHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
 
 .overlay {
   width: 100%;
@@ -16,14 +31,14 @@
 
 .title {
   font-size: 69px;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 24px;
   color: #ffffff;
 }
 
 .subtitle {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 40px;
   color: #ffffff;
   line-height: 1.6;
@@ -74,6 +89,13 @@
     font-size: 20px;
   }
 }
+@media (max-width: 1024px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: start !important;
+  }
+}
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -89,9 +111,9 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center !important;
     justify-content: center;
-    text-align: start;
+    text-align: center;
     padding-inline: 1rem;
   }
 

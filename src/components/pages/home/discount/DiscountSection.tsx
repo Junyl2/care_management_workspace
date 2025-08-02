@@ -1,15 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './DiscountSection.module.css';
 import Image from 'next/image';
-import { Text, Card, Button } from '@components/ui';
-import { useEffect, useState } from 'react';
+import {
+  Text,
+  Card,
+  Button,
+  AlertOneModal,
+  AlertTwoModal,
+} from '@components/ui';
 
 export const DiscountSection = () => {
   const [isSmallestScreen, setIsSmallestScreen] = useState<boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
   const [isTabletScreen, setIsTabletScreen] = useState<boolean>(false);
+
+  const [showAlertOne, setShowAlertOne] = useState<boolean>(false);
+  const [showAlertTwo, setShowAlertTwo] = useState<boolean>(false);
 
   useEffect(() => {
     const checkScreen = () => {
@@ -20,10 +28,10 @@ export const DiscountSection = () => {
     };
 
     checkScreen();
-
     window.addEventListener('resize', checkScreen);
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
+
   const discountList = [
     {
       iconLabel: '정기 결제 할인',
@@ -51,70 +59,81 @@ export const DiscountSection = () => {
     },
   ];
 
+  const handleButtonClick = (discount: string) => {
+    if (discount === '20% 할인' || discount === '15% 할인') {
+      setShowAlertOne(true);
+    } else if (discount === '10% 할인' || discount === '5% 할인') {
+      setShowAlertTwo(true);
+    }
+  };
+
   return (
     <div className={styles.containerBg}>
-      <div className="container flex flex-col gap-8">
+      <div className={styles.container}>
         <div className={styles.discountContainer}>
-          <Image
-            src="/assets/images/gift.png"
-            alt="gift icon"
-            width={100}
-            height={100}
-          />
-          <Text as="p" variant="body">
+          {!isMobileScreen && (
+            <Image
+              src="/assets/images/gift.png"
+              alt="gift icon"
+              width={100}
+              height={100}
+            />
+          )}
+          <Text as="p" variant="body" className={styles.headerText}>
             할인받고 예약하기
           </Text>
-          <div className={styles.discount}>
-            <Text variant="subHeading" as="h2">
-              지금 신청 시 최대
-            </Text>
-            <Text variant="subHeading" as="h2">
-              25% 할인!
-            </Text>
-          </div>
+          <Text variant="subHeading" as="h2" className={styles.discount}>
+            지금 신청 시 최대
+            <span className={styles.highlight}> 25% 할인!</span>
+          </Text>
         </div>
-        {/* desktop discount cards */}
+
+        {/* Desktop discount cards */}
         {!isMobileScreen && (
-          <div className="container flex items-center justify-center gap-4 ">
+          <div className={styles.cardContainer}>
             {discountList.map((list, index) => (
               <Card key={index} className={styles.cardBackground}>
-                <div className={styles.contentWrapper}>
-                  <Card.Header className={styles.cardHeader}>
-                    <Image
-                      src="/assets/images/discounticon.png"
-                      alt="discounts icon"
-                      height={49}
-                      width={73}
-                    />
-                    <Card.Text> {list.iconLabel}</Card.Text>
-                  </Card.Header>
-                  <Card.Content className={styles.cardContent}>
-                    <Card.Title className={styles.textColor}>
-                      {list.discountRate}
-                    </Card.Title>
-                    <Card.Text className={styles.paymentColor}>
-                      {list.payment}
-                    </Card.Text>
-                  </Card.Content>
-                  <Card.Action>
-                    <Button
-                      variant="primary"
-                      size={
-                        isMobileScreen ? 'sm' : isTabletScreen ? 'sm' : 'md'
-                      }
-                      radius="full"
-                      className={styles.buttonText}
-                    >
-                      {list.buttonText}
-                    </Button>
-                  </Card.Action>
+                <div className={styles.cardHeader}>
+                  <Image
+                    src="/assets/images/discounticon.png"
+                    alt="discounts icon"
+                    height={79}
+                    width={81}
+                    className="object-contain"
+                  />
+                  <Card.Text className={styles.label}>
+                    {list.iconLabel}
+                  </Card.Text>
                 </div>
+
+                <Card.Title className={styles.textColor}>
+                  {list.discountRate}
+                </Card.Title>
+
+                <div className={styles.payment}>
+                  <Card.Text className={styles.paymentColor}>
+                    {list.payment}
+                  </Card.Text>
+                </div>
+
+                <Card.Action>
+                  <Button
+                    variant="primary"
+                    size={isMobileScreen ? 'sm' : isTabletScreen ? 'sm' : 'lg'}
+                    radius="full"
+                    fullWidth
+                    className={styles.buttonText}
+                    onClick={() => handleButtonClick(list.discountRate)}
+                  >
+                    {list.buttonText}
+                  </Button>
+                </Card.Action>
               </Card>
             ))}
           </div>
         )}
 
-        {/* mobile discount cards */}
+        {/* Mobile discount cards */}
         {isMobileScreen && (
           <div className="grid grid-cols-1 gap-4">
             {discountList.map((list, index) => (
@@ -144,6 +163,16 @@ export const DiscountSection = () => {
           </div>
         )}
       </div>
+
+      {/* Alert Modals */}
+      <AlertOneModal
+        open={showAlertOne}
+        onClose={() => setShowAlertOne(false)}
+      />
+      <AlertTwoModal
+        open={showAlertTwo}
+        onClose={() => setShowAlertTwo(false)}
+      />
     </div>
   );
 };

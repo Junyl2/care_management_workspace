@@ -6,7 +6,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: var(--font-pretendard);
+  font-family: var(--font-pretendard), 'Albert Sans', sans-serif;
 }
 
 /* LAYER UTILITIES */
@@ -36,6 +36,10 @@
   font-weight: 700;
   color: var(--text-light);
   line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
 }
 
 .heading-sub {
@@ -78,7 +82,11 @@
 }
 
 /* responsive section space */
-.section-space {
+.section-spacing {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+/* .section-space {
   padding: 2rem 0rem;
 }
 @media (min-width: 368px) {
@@ -102,7 +110,7 @@
   .section-space {
     padding: 8rem 0 rem;
   }
-}
+} */
 
 .loading {
   position: 'fixed';
@@ -143,6 +151,9 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.h-screen {
+  min-height: 100vh;
 }
 
 /* Breakpoint max-widths — based on Tailwind defaults */
@@ -187,5 +198,5 @@
 }
 
 .admin-content-inner {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
 }
