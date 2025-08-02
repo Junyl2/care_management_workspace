@@ -24,7 +24,7 @@ export const Footer = () => {
   const linkList = [
     {
       listName: '이용약관',
-      link: '', //page to be created
+      link: '/terms-of-service',
     },
     {
       listName: '개인정보 처리방침',
@@ -83,7 +83,9 @@ export const Footer = () => {
               {linkList.map((list, index) => (
                 <p key={index}>
                   {list.link ? (
-                    <Link href={list.link}>{list.listName}</Link>
+                    <Link className={styles.link} href={list.link}>
+                      {list.listName}
+                    </Link>
                   ) : (
                     list.listName
                   )}

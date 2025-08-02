@@ -44,6 +44,12 @@
   color: white !important;
 }
 
+.link {
+  color: white !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   .footerContainer {
     gap: 2rem;
