@@ -1,0 +1,132 @@
+.mainContainer {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  padding-inline: 1rem;
+  margin: 0 auto;
+}
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.mainHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(20px, 2vw, 81px);
+  text-align: center;
+}
+.mainHeader h1 {
+  font-size: clamp(30px, 2vw, 40px);
+  font-weight: bold;
+}
+.mainHeader p {
+  font-size: clamp(16px, 1.7vw, 22px);
+  font-weight: 500;
+}
+.mobileLogo {
+  align-self: center;
+}
+
+.headerLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+.headerLabel div {
+  background: #5a5aff !important;
+  border-radius: 60px;
+  color: white !important;
+  padding: 0.8rem 1.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 1.8vw, 2rem);
+}
+.cardContainer {
+  background-color: #f6f8fa;
+  padding: clamp(2rem, 5vw, 8rem) clamp(1rem, 2vw, 2rem);
+  margin-top: 2rem;
+  border-radius: 15px;
+}
+.cards {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
+  background-color: white !important;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.cardHeader {
+  background-color: #fae500;
+  padding: 1rem;
+  margin: -1rem -1rem 1rem -1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.label {
+  font-size: clamp(0.6rem, 2vw, 1rem);
+  font-weight: 600;
+}
+.details,
+.estimate,
+.message {
+  font-size: clamp(0.5rem, 1.9vw, 0.9rem);
+  font-weight: 500;
+}
+.details {
+  margin-bottom: 0.5rem;
+}
+.estimate {
+  margin-bottom: 0.5rem;
+}
+.message {
+  margin-bottom: 0.5rem;
+}
+
+.talkWrapper {
+  position: absolute;
+  top: -6%;
+  right: -6%;
+}
+.reservation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(2rem, 4vw, 6rem);
+}
+.reservationButton {
+  width: 250px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reservationButton {
+    padding: 0.8rem 0rem;
+    width: 210px;
+  }
+}
+@media (max-width: 1024px) {
+  .talkWrapper {
+    top: -4%;
+    right: -6%;
+  }
+  .reservationButton {
+    width: 240px;
+  }
+}

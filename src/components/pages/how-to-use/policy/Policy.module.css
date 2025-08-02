@@ -1,0 +1,45 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffff;
+  padding: clamp(1rem, 2vw, 2rem);
+  margin: 0 auto;
+}
+.container {
+  background-color: #f6f8fa;
+  border-radius: clamp(10px, 2vw, 25px);
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.policyWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 20px;
+}
+.policyWrapper h2 {
+  margin-bottom: clamp(1rem, 1.7vw, 1.8rem);
+  font-size: (1rem, 2vw, 1.8rem);
+  font-weight: 600;
+}
+.policyWrapper p {
+  line-height: 1.8rem;
+  color: black;
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.7vw, 1.1rem);
+}
+
+@media (min-width: 768px) {
+  .policyWrapper {
+    padding: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .policyWrapper {
+    padding: 73px;
+  }
+}

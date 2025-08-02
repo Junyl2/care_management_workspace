@@ -1,0 +1,135 @@
+.mainContainer {
+  background-color: #f9fafb;
+  padding: clamp(2rem, 8vw, 8rem) 0;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.arrowWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mobileLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desktopLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  background-color: #7f95ff;
+  color: white;
+  font-weight: 600;
+  border-radius: 69px;
+  padding: 0.6rem 1rem;
+  font-size: 16px;
+  text-align: center;
+  width: fit-content;
+}
+
+.description {
+  font-weight: 500;
+  font-size: 16px;
+  color: black;
+}
+
+.image {
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .label {
+    width: fit-content;
+  }
+}
+
+@media (min-width: 768px) {
+  .label {
+    align-self: center;
+  }
+  .grid {
+    gap: 2.6rem;
+  }
+  .card {
+    height: clamp(225px, 28vw, 300px);
+    position: relative;
+  }
+
+  .rightArrowWrapper {
+    position: absolute;
+    top: 45%;
+    right: -16.5%;
+  }
+}
+@media (min-width: 1024px) {
+  .label {
+    font-size: 22px;
+  }
+  .rightArrowWrapper {
+    position: absolute;
+    top: 45%;
+    right: -12%;
+  }
+
+  .description {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1280px) {
+  .rightArrowWrapper {
+    right: -9%;
+  }
+}
+@media (min-width: 1546px) {
+  .rightArrowWrapper {
+    right: -7.5%;
+  }
+}
