@@ -53,7 +53,7 @@ export default function DailyLife() {
                 사고발생: 낙상에 의한 뇌출혈
               </p>
             </div>
-            {/* absolute arrow indicator */}
+            {/* absolute curve arrow indicator */}
             <div className={styles.absoluteArrow}>
               <Image
                 src="/assets/images/caring/caring-friend/daily-life/curve-arrow.png"
