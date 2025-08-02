@@ -1,0 +1,384 @@
+.formContainer {
+  width: 90%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  font-size: 20px;
+  margin-bottom: 15vh;
+  border-radius: 20px;
+}
+
+.authorNameInput {
+  width: 247px !important;
+}
+
+.inputError {
+  border: 1px solid red;
+}
+
+.inputError:focus {
+  border: 1px solid red;
+  outline: none;
+}
+
+.reviewInput {
+  resize: none;
+  padding: 20px 15px 20px 15px !important;
+  min-height: 200px;
+}
+
+.selectServiceInput {
+  width: 247px !important;
+}
+
+.reviewLength {
+  display: relative;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 140%;
+  color: #000000;
+  opacity: 0.5;
+  align-self: end;
+  margin-top: -30px;
+  margin-right: 10px;
+  z-index: 10;
+}
+
+.formThirdRow {
+  display: flex;
+  width: 100%;
+  gap: 13px;
+  justify-content: space-between;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 5px;
+  width: 100%;
+  height: 44px;
+  border: 1px solid #dbdddf;
+  border-radius: 9px;
+  padding: 5px;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.calendarIcon {
+  width: 22.5px;
+  height: 21.6px;
+}
+
+.inputNoStyle {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  color: #000000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* ReactDatePicker customization */
+.datePicker {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red !important;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.datePlaceholder {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #778088;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.formSectionContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  gap: 27px;
+  width: 100%;
+}
+
+.mutedText {
+  font-size: 14px;
+  font-weight: 300;
+  color: #778088;
+  margin-top: 19.2px;
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: 0%;
+  margin-bottom: 32px;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.formLabel {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: red;
+}
+
+.formFirstRow {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+  justify-content: space-between;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+}
+
+.formInput {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #dbdddf;
+  border-radius: 9px;
+  padding: 5px;
+}
+
+.formSubText {
+  font-size: 14px;
+  font-weight: 300;
+  color: #778088;
+  margin-top: 11px;
+}
+
+.genderContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+}
+
+.genderItem {
+  height: 44px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #dbdddf;
+  background-color: white;
+  border-radius: 9px;
+}
+
+.hideOnMobile {
+  display: none;
+}
+
+.showOnMobile {
+  display: block;
+}
+
+.genderItemActive {
+  border: 1px solid #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+.formFourthRow {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 13px;
+  justify-content: start;
+}
+
+.photoInput {
+  gap: 12px;
+}
+
+.photoGallery {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.photoItem {
+  width: 132px;
+  height: 132px;
+  border-radius: 9.32px;
+}
+
+.photoItem {
+  width: 100px;
+}
+
+.photoItem:hover {
+  opacity: 0.6;
+  transition: all 0.3s ease-in-out;
+}
+
+.addPhotoButton {
+  max-width: 489px;
+  width: 100%;
+  border: 1px dashed #5a636a;
+  height: 99px;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.addPhotoButtonDisabled {
+  opacity: 0.4;
+  background-color: rgba(119, 128, 136, 0.2);
+  cursor: not-allowed;
+}
+
+.addPhotoText {
+  font-size: 18px;
+  color: #5a636a;
+  font-weight: 400;
+  line-height: 139%;
+  margin-left: 3px;
+}
+
+.addPhotoButtonIcon {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.errorModalContainer {
+  padding: 40px;
+  width: 100%;
+  max-width: 587px;
+  height: 320px;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.errorModalTitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 139%;
+  width: 100%;
+  text-align: center;
+}
+
+.errorModalText {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 176%;
+  text-align: center;
+}
+.errorModalConfirmButton {
+  height: 60px;
+  border-radius: 15px;
+  padding: 12px 36px 12px 36px;
+  background-color: rgb(0, 127, 255);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 20px 20px 20px;
+}
+
+.errorModalConfirmButton:hover {
+  background-color: rgba(0, 127, 255, 0.9);
+  transition: all 0.3 ease-in-out;
+}
+
+.lastRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: end;
+}
+
+.submitButton {
+  height: 44px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #adb4ba;
+  /* background-color: rgb(0, 127, 255); */
+  width: 277px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton.enabled {
+  background-color: rgb(0, 127, 255) !important;
+}
+@media (min-width: 768px) {
+  .errorModalConfirmButton {
+    font-size: 20px;
+  }
+  .errorModalTitle {
+    font-size: 30px;
+  }
+  .errorModalText {
+    font-size: 22px;
+  }
+  .addPhotoButton {
+    width: 489px;
+  }
+  .formFirstRow {
+    justify-content: start;
+  }
+  .formContainer {
+    background-color: white;
+    margin-top: 0px;
+    padding: 50px;
+  }
+
+  .hideOnMobile {
+    display: block;
+  }
+
+  .showOnMobile {
+    display: none;
+  }
+
+  .formContainer {
+    padding: 5% 20% 8% 20%;
+  }
+}

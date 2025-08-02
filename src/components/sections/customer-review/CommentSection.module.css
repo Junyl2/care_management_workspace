@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+  margin: 5rem 0 5rem 0;
+  width: 100%;
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+}
+
+.buttonCollectionPc {
+  flex-direction: row;
+  display: none;
+}
+
+.hideOnMobile {
+  display: none;
+}
+
+.hideOnDesktop {
+  display: block;
+}
+
+.endButton {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+}
+
+.selectContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+  .buttonContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding-bottom: 15px;
+  }
+
+  .buttonContainer button {
+    width: fit-content;
+    height: 44px;
+  }
+
+  .buttonCollectionPc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    width: 80%;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 20px;
+  }
+
+  .endButton {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+  }
+
+  .endButton button {
+    height: 44px;
+    font-weight: medium;
+  }
+
+  .hideOnMobile {
+    display: block;
+  }
+
+  .hideOnDesktop {
+    display: none !important;
+  }
+
+  .selectContainer {
+    justify-content: end;
+  }
+}

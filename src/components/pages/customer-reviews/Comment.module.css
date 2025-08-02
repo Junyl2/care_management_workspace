@@ -1,0 +1,284 @@
+.card {
+  width: 90%;
+  margin: auto;
+  min-height: 571px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  padding: 20px 30px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row !important;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.textMuted2 {
+  color: var(--text-muted-2);
+}
+
+.topSection {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.flexCol {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dateSection {
+  font-size: 14px;
+  color: var(--text-muted-2);
+}
+.imageGallery {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-items: start;
+  overflow-x: scroll;
+  gap: 8px;
+}
+
+.middleSection {
+  width: 100%;
+  height: 100%;
+}
+
+.bottomSection {
+  width: 100%;
+  height: 100%;
+}
+
+.comment p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #000000;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.alignStart {
+  align-items: start;
+}
+
+.alignSelfStart {
+  align-self: start;
+}
+
+.gap8 {
+  gap: 8px;
+}
+.gap10 {
+  gap: 10px;
+}
+
+.mx10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.primary {
+  background-color: #41c0ff !important;
+}
+
+.secondary {
+  background-color: var(--color-light-purple) !important;
+}
+
+.tertiary {
+  background-color: var(--color-pink) !important;
+}
+
+.cardHeaderBadge {
+  font-size: 14px;
+  padding: 4px 12px 4px 12px;
+  border-radius: 23px;
+  width: fit-content;
+  font-style: normal;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.imageTile {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.comment {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  color: #000000;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 8px;
+}
+
+.audienceComment {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 140%;
+  color: #000000;
+}
+
+.hideOnMobile {
+  display: none;
+}
+
+.hideOnDesktop {
+  display: block;
+}
+
+.commentTitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 140%;
+  color: #000000;
+  margin-top: 16px;
+}
+
+.commentTextInputSection {
+  margin-top: 30px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  word-break: break-all;
+  justify-content: start;
+}
+
+.commentLength {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 140%;
+  color: #000000;
+  opacity: 0.5;
+  align-self: end;
+  margin-top: -30px;
+  margin-right: 10px;
+  display: none;
+}
+
+.commentTextInput {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 139%;
+  min-height: 38px;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 7px 14px 7px 14px;
+  border-radius: 8px;
+  border: 1px solid #dbdddf;
+  resize: none;
+}
+
+.sendCommentButton {
+  margin-top: 20px;
+  height: 44px;
+  max-width: 179px;
+  width: 70%;
+  border-radius: 10px;
+  background-color: #adb4ba;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  justify-self: end;
+  align-self: end;
+}
+
+.sendCommentButton:hover {
+  background-color: #262c31;
+  animation-duration: 0.3s;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .sendCommentButton {
+    max-width: 277px;
+    width: 100%;
+  }
+  .commentTextInputSection {
+    margin-top: 50px;
+  }
+
+  .commentTextInput {
+    font-size: 14px;
+    min-height: 132px;
+  }
+  .commentLength {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sendCommentButton {
+    width: 227px;
+  }
+  .commentTextInput {
+    display: flex;
+    min-height: 156px;
+    align-items: start;
+    justify-items: start;
+  }
+  .card {
+    gap: 40px;
+    padding: 5% 15%;
+  }
+
+  .cardHeaderBadge {
+    font-size: 18px;
+    padding: 6px 10px 6px 10px;
+    border-radius: 23px;
+  }
+
+  .onlyShowInMobile {
+    display: none;
+  }
+
+  .imageTile {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+  }
+
+  .hideOnMobile {
+    display: block;
+  }
+
+  .hideOnDesktop {
+    display: none;
+  }
+}

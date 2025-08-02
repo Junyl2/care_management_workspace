@@ -1,0 +1,53 @@
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: sans-serif;
+}
+
+.label {
+  font-size: 14px;
+  color: #333;
+}
+
+.select {
+  appearance: none;
+  height: 48px;
+  min-width: 100px;
+  text-align: center;
+  gap: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #333;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23666" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 16px;
+  cursor: pointer;
+}
+
+.primary {
+  color: #000;
+  background-color: white;
+  border: 1px solid #dbdddf;
+  border-radius: 10px;
+}
+
+.simple {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23666" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  outline: none;
+}
+
+.simple:focus {
+  outline: none;
+}
+
+.simple:hover {
+  outline: none;
+}

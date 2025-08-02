@@ -102,9 +102,35 @@
   box-shadow: var(--shadow-hover);
 }
 
+.tertiary {
+  background-color: var(--button-gray);
+  color: var(--text-light);
+  border-color: var(--button-gray);
+}
+
+.tertiary:hover:not(:disabled) {
+  background-color: var(--button-gray-hovered);
+  border-color: var(--button-gray-hovered);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
 .secondary {
   background-color: var(--bg-primary);
-  color: var(--color-primary);
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.secondary-active {
+  background-color: var(--color-secondary) !important;
+  color: var(--text-light) !important;
+}
+
+.secondary-active:hover:not(:disabled) {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
 }
 
 .secondary:hover:not(:disabled) {

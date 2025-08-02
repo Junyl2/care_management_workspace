@@ -5,6 +5,7 @@ import styles from './Button.module.css';
 
 interface ButtonProps extends BaseComponent {
   variant?: Variant | ReviewVariant;
+  active?: boolean;
   size?: Size;
   radius?: Radius;
   disabled?: boolean;
@@ -16,11 +17,13 @@ interface ButtonProps extends BaseComponent {
   style?: React.CSSProperties;
   as?: 'button' | 'a';
   href?: string;
+  name?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
+  active = false,
   size = 'md',
   radius = 'md',
   fullWidth = false,
@@ -33,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
   style,
   as = 'button',
   href,
+  name,
   ...props
 }) => {
   const Component = as;
@@ -43,9 +47,11 @@ export const Button: React.FC<ButtonProps> = ({
       href={as === 'a' ? href : undefined}
       disabled={as === 'button' ? disabled || loading : undefined}
       onClick={onClick}
+      name={name}
       className={cn(
         styles.button,
         styles[variant],
+        active && styles[`${variant}-active`],
         styles[size],
         fullWidth && styles.fullWidth,
         styles[`radius-${radius}`],

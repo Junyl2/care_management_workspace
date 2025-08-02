@@ -1,0 +1,137 @@
+.noShow {
+  display: none !important;
+}
+
+.inDrawer {
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10 !important;
+}
+
+.calendar {
+  width: 366px;
+  height: 412px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Pretendard;
+  position: relative;
+  z-index: 20;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: white;
+  width: 100%;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.navButton:hover {
+  background-color: #f5f5f5;
+}
+
+.monthYear {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekDay {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: white;
+}
+
+.dayCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+  margin: 2px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.dayCell:hover {
+  background-color: #f5f5f5;
+}
+
+.dayCell.currentMonth {
+  color: #333;
+}
+
+.dayCell.otherMonth {
+  color: #ccc;
+  pointer-events: none;
+  cursor: not-allowed !important;
+}
+
+.dayCell.sunday {
+  color: #ff4757;
+}
+
+.dayCell.today {
+  background-color: #007fff;
+  color: white;
+  font-weight: 600;
+}
+
+/* Selected state - increased specificity to override other styles */
+.dayCell.currentMonth.selected,
+.dayCell.selected {
+  background-color: #007aff !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.dayCell.currentMonth.selected:hover,
+.dayCell.selected:hover {
+  background-color: #0056b3 !important;
+}
+
+/* Sunday selected state should still show blue background */
+.dayCell.sunday.selected {
+  background-color: #007aff !important;
+  color: white !important;
+}

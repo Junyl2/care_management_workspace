@@ -1,0 +1,46 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-secondary);
+  padding: 0 16px;
+}
+
+.banner {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  width: 100%;
+  margin: 3rem 0 3rem 0;
+  padding: 0 1rem 0 1rem;
+}
+
+.reviewGridSection {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+/*Tablet */
+@media (min-width: 768px) and (max-width: 1079px) {
+  .banner {
+    margin: 5rem 0 5rem 0;
+    font-size: 44px;
+  }
+
+  .page {
+    padding: 0 32px 0 32px;
+  }
+}
+
+/*Desktop */
+@media (min-width: 1080px) {
+  .page {
+    padding: 0 300px 0 300px;
+  }
+}

@@ -22,3 +22,11 @@ export const debounce = <T extends (...args: unknown[]) => unknown>(
     timeoutId = setTimeout(() => func(...args), delay);
   };
 };
+
+export const formatToKoreanDate = (date: Date): string => {
+  return new Intl.DateTimeFormat('ko-KR', {
+    year: '2-digit',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+};

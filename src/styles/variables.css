@@ -12,6 +12,14 @@
   --color-danger-hover: #dc2626;
   --color-success: #10b981;
   --color-success-hover: #059669;
+  --color-light-purple: #a2b1ff;
+  --color-pink: #d39eff;
+
+  /* Button Colors */
+  --button-gray: #5a636a;
+  --button-gray-hovered: #262c31;
+  --button-primary: #0066ff;
+  --button-primary-hovered: #007fff;
 
   /* Background Colors */
   --bg-primary: #ffffff;
@@ -23,6 +31,8 @@
   --text-light: #ffffff;
   --text-secondary: #64748b;
   --text-muted: #94a3b8;
+  --text-muted-2: #778088;
+  --text-gray: #979797;
 
   /* Border Colors */
   --border-light: #e2e8f0;

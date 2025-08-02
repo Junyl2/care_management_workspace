@@ -1,0 +1,110 @@
+.card {
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  min-width: 320px;
+  height: 240px;
+  overflow-y: hidden;
+}
+
+.primary {
+  background-color: var(--color-secondary) !important;
+}
+
+.secondary {
+  background-color: var(--color-light-purple) !important;
+}
+
+.tertiary {
+  background-color: var(--color-pink) !important;
+}
+
+.cardHeaderBadge {
+  font-size: 14px;
+  padding: 4px 12px 4px 12px;
+  border-radius: 23px;
+  width: fit-content;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.cardContentContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 100%;
+}
+
+.cardContent {
+  width: 100%;
+  color: black;
+  gap: 12px;
+  height: 110px; /* or whatever height you want */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.cardContentArrow {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  opacity: 0.5;
+  height: 60%;
+}
+
+.cardContentUser {
+  font-size: 16px;
+  font-style: bold;
+}
+
+.userDetails {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  color: var(--color-gray);
+}
+
+.contentTop {
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.contentBottom {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .card {
+    min-width: 570px;
+    height: 255px;
+  }
+
+  .cardHeaderBadge {
+    font-size: 18px;
+    padding: 6px 10px 6px 10px;
+    border-radius: 23px;
+  }
+  .cardContentUser {
+    font-size: 20px;
+  }
+
+  .cardContentArrow {
+    height: 60%;
+    align-items: center;
+  }
+
+  .userDetails {
+    font-size: 19px;
+  }
+
+  .contentTop {
+    font-size: 19px;
+  }
+
+  .contentBottom {
+    font-size: 18px;
+  }
+}

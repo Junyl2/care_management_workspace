@@ -23,7 +23,7 @@ export const pageMeta = {
     title: '돌봄친구 | 돌봄대장',
     description: '전문성과 따뜻함을 겸비한 돌봄친구들을 만나보세요.',
   },
-  '/customer-reviews': {
+  '/review': {
     title: '고객후기 | 돌봄대장',
     description: '실제 고객들이 남긴 돌봄대장의 서비스 후기를 확인해보세요.',
   },

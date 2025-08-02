@@ -7,6 +7,7 @@ interface CardProps extends BaseComponent {
   variant?: 'default' | 'outlined' | 'elevated' | 'clean';
   padding?: Size;
   radius?: Size;
+  style?: React.CSSProperties;
 }
 
 // Define subcomponents first
@@ -89,6 +90,7 @@ const Card: CardComponent = ({
   padding = 'md',
   radius = 'radius',
   className,
+  style,
   ...props
 }) => {
   return (
@@ -100,6 +102,7 @@ const Card: CardComponent = ({
         styles[`padding-${padding}`],
         className
       )}
+      style={style}
       {...props}
     >
       {children}
