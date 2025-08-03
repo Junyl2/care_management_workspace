@@ -239,22 +239,22 @@ export default function DataProves() {
                           <Image
                             src={logo.src}
                             alt={logo.alt}
-                            height={50}
-                            width={50}
+                            height={75}
+                            width={75}
                             className="object-contain"
                           />
                           <p className={styles.logoAlt}>{logo.alt}</p>
                         </div>
                       ))}
                     </div>
-                    <div className={styles.grid2}>
+                    <div className={`${styles.grid2} ${styles.mobileGrid2}`}>
                       {bottomLogos.map((logo, index) => (
                         <div key={index} className={styles.mobileLogo}>
                           <Image
                             src={logo.src}
                             alt={logo.alt}
-                            height={50}
-                            width={50}
+                            height={75}
+                            width={75}
                             className="object-contain"
                           />
                           <p className={styles.logoAlt}>{logo.alt}</p>

@@ -284,6 +284,11 @@
     text-align: center !important;
   }
 }
+@media (max-width: 747px) {
+  .mobileGrid2 {
+    gap: 4rem;
+  }
+}
 
 @media (max-width: 560px) {
   .grid2 {

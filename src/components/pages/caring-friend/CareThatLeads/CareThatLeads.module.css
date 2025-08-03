@@ -1,0 +1,209 @@
+.aboutUs {
+  font-size: 1rem;
+  color: #007fff !important;
+}
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.headerContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 8rem;
+}
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.cardBody {
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+  line-height: 2rem;
+}
+.cardTitle {
+  font-weight: bold;
+  font-size: 44px;
+}
+.text {
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
+  text-align: start;
+  margin-top: 10rem;
+}
+.signatureContainer {
+  position: relative;
+  width: fit-content;
+}
+.signatureContainer img {
+  position: absolute;
+  right: -44%;
+  top: -64%;
+}
+
+.imageWrapper {
+  background-image: url('/assets/images/caring/caring-friend/care-that-leads/certified.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 20px;
+  height: 737px;
+  width: 100%;
+}
+
+.aboutContainer {
+  height: 100%;
+  max-width: 1200px;
+  width: 100%;
+}
+.maxHeight {
+  height: 500px;
+}
+
+.hideMobile {
+  padding: 1rem 2rem;
+}
+
+.photoGridWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.photoGridWrapper::-webkit-scrollbar {
+  display: none;
+}
+.photoGrid {
+  min-width: 700px;
+  background-image: url('/assets/images/caring/caring-friend/care-that-leads/photogrid.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 266px;
+}
+@media (max-width: 1024px) {
+  .cardBody {
+    padding-inline: 6rem;
+  }
+  .imageWrapper {
+    background-image: url('/assets/images/caring/caring-friend/care-that-leads/tablet-certified.png');
+    height: 527px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hideMobile {
+    background-color: white !important;
+    border: 1px solid #dbdddf !important;
+    color: #007fff !important;
+  }
+
+  .buttonMobile {
+    display: block;
+    margin-top: 2.5rem;
+  }
+  .maxHeight {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .text {
+    margin-top: 0;
+    padding: 2rem 0rem;
+    font-size: 15px;
+    text-align: center;
+  }
+  .cardBody {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .cardTitle {
+    font-size: 36px;
+    text-align: center;
+  }
+  .signatureContainer img {
+    position: absolute;
+    right: -78%;
+    top: 2%;
+  }
+  .headerContainer {
+    margin-bottom: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .imageWrapper {
+    background-image: url('/assets/images/caring/caring-friend/care-that-leads/mobile-certified.png');
+    height: 368px;
+  }
+  .headerContainer {
+    margin-bottom: 4rem;
+  }
+  .hideMobile {
+    padding: 0.8rem 2rem;
+  }
+  .maxHeight {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .signatureContainer img {
+    position: absolute;
+    right: -50%;
+    top: 18%;
+  }
+  .flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .text {
+    margin-top: 0;
+    padding: 2rem 0rem;
+    font-size: 15px;
+    text-align: center;
+  }
+  .cardBody {
+    font-size: 1rem;
+    text-align: center;
+    padding-inline: 0.8rem;
+  }
+  .cardTitle {
+    font-size: 36px;
+    text-align: center;
+  }
+  .buttonMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+  }
+}
