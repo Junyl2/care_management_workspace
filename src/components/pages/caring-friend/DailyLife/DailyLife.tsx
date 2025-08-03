@@ -36,7 +36,8 @@ export default function DailyLife() {
           />
           <h1 className={caring.mainHeader}>
             {' '}
-            돌봄친구와 함께하는 81세 할아버지 일상{' '}
+            돌봄친구와 함께하는 {isMobileScreen && <br />} 81세 할아버지
+            일상{' '}
           </h1>
         </div>
 

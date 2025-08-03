@@ -5,6 +5,7 @@ import {
   CareThatLeads,
   CareGiverWillCome,
   FrequentlyAskedQuestions,
+  CaregiversHelp,
 } from '@/components/pages/caring-friend';
 import CaringHero from '@/components/sections/hero/CaringHero';
 
@@ -27,9 +28,12 @@ export default function CaringFriendPage() {
       <section className="section-spacing">
         <CareGiverWillCome />
       </section>
-
+      {/* Accordion Here */}
       <section className="section-spacing">
         <FrequentlyAskedQuestions />
+      </section>
+      <section className="section-spacing">
+        <CaregiversHelp />
       </section>
     </main>
   );

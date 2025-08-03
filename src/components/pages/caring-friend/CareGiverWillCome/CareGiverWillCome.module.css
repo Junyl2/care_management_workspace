@@ -10,9 +10,159 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .mainContainer {
   max-width: 1486px;
   padding-inline: 1rem;
   margin: 0 auto;
+}
+.backgroundImage {
+  margin-top: -15%;
+  background-image: url('/assets/images/caring/caring-friend/care-giver-come/desktop.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 864px;
+}
+.photoGrid {
+  background-image: url('/assets/images/caring/caring-friend/care-giver-come/grid.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 332px;
+}
+.cards {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f0f8ff;
+  padding: 0.8rem 0.2rem 0.8rem 0.5rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+  position: relative;
+}
+.cards h2,
+.cards p {
+  font-size: clamp(13px, 1vw, 21px);
+  font-weight: 600;
+}
+
+.grid > :first-child::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.grid > :last-child::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.8), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  padding-inline: 2rem;
+  place-content: center;
+  text-align: center !important;
+}
+.threeColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  place-content: center;
+  text-align: center !important;
+}
+
+@media (max-width: 1260px) {
+  .photoGrid {
+    margin-top: -10%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .backgroundImage {
+    margin-top: -14%;
+    background-image: url('/assets/images/caring/caring-friend/care-giver-come/tablet.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 900px;
+    height: 692px;
+  }
+  /* .photoGrid {
+    width: 600px;
+  } */
+  .grid {
+    margin-top: -8%;
+  }
+}
+
+@media (max-width: 960px) {
+  .backgroundImage {
+    margin-top: -18%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .backgroundImage {
+    margin-top: -20%;
+    background-image: url('/assets/images/caring/caring-friend/care-giver-come/mobile.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 460px;
+    height: 314px;
+  }
+  .cards {
+    flex-direction: column;
+    justify-content: center !important;
+    gap: 0.6rem;
+  }
+  .cards p,
+  .cards h2 {
+    line-height: 1.1rem;
+    text-align: center !important;
+  }
+}
+@media (max-width: 480px) {
+  .backgroundImage {
+    margin-top: -28%;
+    background-image: url('/assets/images/caring/caring-friend/care-giver-come/mobile.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 340px;
+    height: 314px;
+  }
+  /* .cards {
+    width: 120px;
+  } */
+}
+
+@media (max-width: 378px) {
+  .backgroundImage {
+    margin-top: -40%;
+    background-image: url('/assets/images/caring/caring-friend/care-giver-come/mobile.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 280px;
+    height: 314px;
+  }
 }

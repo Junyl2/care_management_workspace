@@ -1,0 +1,100 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 4rem;
+  gap: clamp(2rem, 3vw, 3rem);
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.backgroundImage {
+  margin-top: 1.5rem;
+  background-image: url('/assets/images/caring/caring-friend/grid-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 20px;
+  height: 823px;
+  width: 98%;
+}
+
+.scrollWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollTrack {
+  display: flex;
+  width: max-content;
+  animation: scrollX 30s linear infinite;
+}
+
+.logoImage {
+  flex-shrink: 0;
+  user-select: none;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1300px) {
+  .backgroundImage {
+    margin-top: -6%;
+  }
+}
+@media (max-width: 1260px) {
+  .backgroundImage {
+    margin-top: -4%;
+  }
+}
+@media (max-width: 1160px) {
+  .backgroundImage {
+    margin-top: -9%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding-inline: 2rem;
+  }
+  .backgroundImage {
+    margin-top: 0%;
+    background-image: url('/assets/images/caring/caring-friend/grid-tablet-bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 20px;
+    height: 493px;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .backgroundImage {
+    background-image: url('/assets/images/caring/caring-friend/grid-mobile-bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 20px;
+    height: 444px;
+    width: 100%;
+  }
+  .section {
+    padding-inline: 0rem;
+  }
+}

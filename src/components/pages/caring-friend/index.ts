@@ -4,3 +4,4 @@ export { default as DataProves } from './DataProves/DataProves';
 export { default as DailyLife } from './DailyLife/DailyLife';
 export { default as FrequentlyAskedQuestions } from './FrequentlyAskedQuestions/FrequentlyAskedQuestions';
 export { default as CareThatLeads } from './CareThatLeads/CareThatLeads';
+export { default as CaregiversHelp } from './CaregiversHelp/CaregiversHelp';
